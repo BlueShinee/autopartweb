@@ -14,28 +14,28 @@ function Navbar(props){
           <Image src={"phone.svg"} width={24} height={24} className='mr-2 hover:cursor-pointer hover:scale-110 active:cursor-grabbing transition-all'  onClick={()=>{
             props.menufunc(true)
           }}/>
-          <img src={"../public/line-3.svg"} alt="" className='h-auto w-8 hover:cursor-pointer hover:scale-110 active:cursor-grabbing transition-all' onClick={(e)=>{if(navbar){navstate(false)}else{navstate(true)}}}/>
+          <Image src={"line-3.svg"} width={24} height={24} className='h-auto w-8 hover:cursor-pointer hover:scale-110 active:cursor-grabbing transition-all' onClick={(e)=>{if(navbar){navstate(false)}else{navstate(true)}}}/>
         </div>
       </div>
       <div className={`flex flex-col items-center absolute w-full h-auto ${navbar?"top-16":"-top-80"} bg-[#8FB4DF] -z-10 transition-all`}>
   
         <div className='flex w-full h-12 items-center justify-center mt-4'>
           <div className='flex flex-row justify-center items-center hover:cursor-pointer transition-all active:cursor-grabbing hover:scale-105 active:scale-95'>
-            <img className='w-auto h-4 mr-2' src={"@/public/user.svg"}/>
+            <Image className='w-auto h-4 mr-2' width={24} height={24} src={"user.svg"}/>
             <span className='text-white font-semibold text-lg'>Profile</span>
           </div>
         </div>
   
         <div className='flex w-full h-12  items-center justify-center '>
           <div className='flex flex-row justify-center items-center hover:cursor-pointer transition-all active:cursor-grabbing hover:scale-105 active:scale-95'>
-            <img className='w-auto h-4 mr-2' src={"@/public/question.svg"}/>
+            <Image className='w-auto h-4 mr-2' width={24} height={24} src={"question.svg"}/>
             <p className='text-white font-semibold text-lg'>How to order</p>
           </div>
         </div>
   
         <div className='flex w-full h-12 items-center justify-center'>
           <div className='flex flex-row justify-center items-center hover:cursor-pointer transition-all active:cursor-grabbing hover:scale-105 active:scale-95'>
-            <img className='w-auto h-4 mr-2' src={'@/public/info.svg'}/>
+            <Image className='w-auto h-4 mr-2' width={24} height={24} src={'info.svg'}/>
             <span className='text-white font-semibold text-lg'>More Information</span>
           </div>
         </div>
