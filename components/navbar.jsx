@@ -1,6 +1,7 @@
 "use client"
 
 import {useState} from "react"
+import Image from "next/image"
 
 function Navbar(props){
     let [navbar , navstate] = useState(false)
@@ -10,7 +11,7 @@ function Navbar(props){
       <div className='flex w-full h-16 flex-row justify-between items-center bg-blue-400'>
         <h1 className="text-white mx-5 text-xl font-bold">{props.brandname}</h1>
         <div className="flex flex-row mx-5">
-          <img src={"../public/phone.svg"} alt="" className='mr-2 h-auto w-6 hover:cursor-pointer hover:scale-110 active:cursor-grabbing transition-all' onClick={()=>{
+          <Image src={"phone.svg"} width={24} height={24} className='mr-2 hover:cursor-pointer hover:scale-110 active:cursor-grabbing transition-all'  onClick={()=>{
             props.menufunc(true)
           }}/>
           <img src={"../public/line-3.svg"} alt="" className='h-auto w-8 hover:cursor-pointer hover:scale-110 active:cursor-grabbing transition-all' onClick={(e)=>{if(navbar){navstate(false)}else{navstate(true)}}}/>
