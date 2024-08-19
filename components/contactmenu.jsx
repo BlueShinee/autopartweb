@@ -4,7 +4,7 @@ function Contactmenu(props) {
     return(
       <div className={`fixed ${props.Contactmenustate?"flex":"hidden"} flex justify-center top-0 items-center w-full z-20 h-screen content-center backdrop-blur-sm transition-all delay-500`}>
         <div className=' transition-all delay-200 absolute z-10 w-full top-0 h-screen' onClick={()=>{props.menufunc(false)}}></div>
-        <div className='relative z-20 w-11/12 bg-blue-400 rounded-md shadow-md flex flex-col items-center'>
+        <div className='relative z-20 w-[95%] bg-blue-400 rounded-md shadow-md flex flex-col items-center'>
           <span className='w-full flex justify-center items-center relative z-50 my-4 font-medium text-lg text-white'>Contacts</span>
           <div className='w-full flex justify-center items- mb-6'> 
   
