@@ -4,6 +4,7 @@ import Image from "next/image";
 import Navbar from "@/components/navbar"
 import Contactmenu from "@/components/contactmenu"
 import Slideshow from '@/components/slideshow'
+import Catagories from "@/components/catagories";
 import { useState } from "react";
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
 
       src3="https://wallpapersmug.com/download/1600x900/ba8e68/clean-lake-mountains-range-trees-nature-4k.jpg"
       />
+      <Catagories />
     </>
   )
 }
