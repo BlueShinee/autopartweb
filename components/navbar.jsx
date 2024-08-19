@@ -2,6 +2,7 @@
 
 import {useState} from "react"
 import Image from "next/image"
+import Link from 'next/link'
 
 function Navbar(props){
     let [navbar , navstate] = useState(false)
@@ -39,8 +40,11 @@ function Navbar(props){
             <span className='text-white font-semibold text-lg'>More Information</span>
           </div>
         </div>
-  
-        <div className='w-11/12 flex justify-center items-center h-12 text-white font-bold text-lg mt-6 mb-4 bg-blue-400 rounded-md border-2 border-blue-500 hover:cursor-pointer hover:bg-blue-500 transition-all active:cursor-grabbing active:scale-95'>Log In</div>
+
+        <Link href={"/login"} className="w-11/12 flex justify-center items-center h-12 text-white font-bold text-lg mt-6 mb-4 bg-blue-400 rounded-md border-2 border-blue-500 hover:cursor-pointer hover:bg-blue-500 transition-all active:cursor-grabbing active:scale-95">
+          Log In
+        </Link>
+        
       </div>
     </div>
     )
