@@ -6,7 +6,8 @@ import Link from 'next/link'
 
 function Navbar(props){
     let [navbar , navstate] = useState(false)
-
+    console.log("hello",props.user)
+  
     return(
     <div className="flex w-full h-16 flex-row justify-between items-center bg-blue-400 relative z-10 shadow-md select-none">
       <div className='flex w-full h-16 flex-row justify-between items-center bg-blue-400'>
@@ -41,7 +42,7 @@ function Navbar(props){
           </div>
         </div>
 
-        <Link href={"/login"} className="w-11/12 flex justify-center items-center h-12 text-white font-bold text-lg mt-6 mb-4 bg-blue-400 rounded-md border-2 border-blue-500 hover:cursor-pointer hover:bg-blue-500 transition-all active:cursor-grabbing active:scale-95">
+        <Link href={"/api/auth/signin"} className="w-11/12 flex justify-center items-center h-12 text-white font-bold text-lg mt-6 mb-4 bg-blue-400 rounded-md border-2 border-blue-500 hover:cursor-pointer hover:bg-blue-500 transition-all active:cursor-grabbing active:scale-95">
           Log In
         </Link>
         

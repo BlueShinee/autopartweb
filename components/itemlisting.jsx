@@ -1,14 +1,14 @@
 import PocketBase from 'pocketbase';
 
-const pb = new PocketBase('http://127.0.0.1:8090');
-
 function Itemlisting() {
+    
+    const pb = new PocketBase('http://127.0.0.1:8090');
+
     
   return (
     <div className='flex flex-col items-center w-full mt-4'>
         <h2 className='text-center font-semibold text-blue-500 text-lg'>Populer Products</h2>
         <div className='grid grid-cols-2 w-full justify-center items-center'>
-            <Card img ={`https://imgcdn.stablediffusionweb.com/2024/4/4/0d51f3f7-d177-46bc-9174-4ec7f0b9aad6.jpg`} title="Test Title" /*character limit 20*/desc="This is a test discription about a item that doesnt exist" price="1000"/>
             <Card img ={`https://imgcdn.stablediffusionweb.com/2024/4/4/0d51f3f7-d177-46bc-9174-4ec7f0b9aad6.jpg`} title="Test Title" /*character limit 20*/desc="This is a test discription about a item that doesnt exist" price="1000"/>
             <Card img ={`https://imgcdn.stablediffusionweb.com/2024/4/4/0d51f3f7-d177-46bc-9174-4ec7f0b9aad6.jpg`} title="Test Title" /*character limit 20*/desc="This is a test discription about a item that doesnt exist" price="1000"/>
             <Card img ={`https://imgcdn.stablediffusionweb.com/2024/4/4/0d51f3f7-d177-46bc-9174-4ec7f0b9aad6.jpg`} title="Test Title" /*character limit 20*/desc="This is a test discription about a item that doesnt exist" price="1000"/>
