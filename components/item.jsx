@@ -1,16 +1,15 @@
 import PocketBase from "pocketbase"
-import Header from "@/components/header";
 import Link from 'next/link';
 import Image from "next/image";
 
 
-export const dynamic = 'force-dynamic';
-
-export default async function page({params}) {
+export default async function item(props) {
     const pb = new PocketBase('http://127.0.0.1:8090');
-    const record = await pb.collection('items').getOne(params.itemid)
+    const record = await pb.collection('items').getOne(props.params.wtf,{expand: 'relField1,relField2.subRelField',})
+    const update = await pb.collection('items').update(props.params.wtf, {});
     const photos = record.photos
-    console.log(record);
+    console.log(record.name);
+    
     
     return (
         <div className="flex flex-col">
