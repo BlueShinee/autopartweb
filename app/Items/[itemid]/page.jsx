@@ -3,6 +3,9 @@ import Header from "@/components/header";
 import Link from 'next/link';
 import Image from "next/image";
 
+
+export const dynamic = 'force-dynamic';
+
 export default async function page({params}) {
     const pb = new PocketBase('http://127.0.0.1:8090');
     const record = await pb.collection('items').getOne(params.itemid)
