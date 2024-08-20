@@ -6,7 +6,6 @@ import Link from 'next/link'
 
 function Navbar(props){
     let [navbar , navstate] = useState(false)
-    console.log("hello",props.user)
   
     return(
     <div className="flex w-full h-16 flex-row justify-between items-center bg-blue-400 relative z-10 shadow-md select-none">
