@@ -1,6 +1,9 @@
+import PocketBase from 'pocketbase';
 
+const pb = new PocketBase('http://127.0.0.1:8090');
 
 function Itemlisting() {
+    
   return (
     <div className='flex flex-col items-center w-full mt-4'>
         <h2 className='text-center font-semibold text-blue-500 text-lg'>Populer Products</h2>
