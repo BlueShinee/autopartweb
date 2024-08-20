@@ -2,6 +2,8 @@ import PocketBase from 'pocketbase';
 import Image from 'next/image';
 import Link from 'next/link';
 
+export const dynamic = 'force-dynamic';
+
 async function Itemlisting() {
     
     const pb = new PocketBase('http://127.0.0.1:8090');
