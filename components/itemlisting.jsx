@@ -48,7 +48,7 @@ function Card(props){
                         <span className='ml-2 line-clamp-1 text-lg font-medium'>{props.title}</span>
                         <span className='text-gray-500 ml-2 text-sm line-clamp-3 leading-4'>{props.desc}</span>
                     </div>
-                    <span className='ml-2 text-blue-600 text-lg font-medium'>RS.{props.price}/=</span>
+                    <span className='ml-2 text-blue-600 text-lg font-medium mb-1'>RS.{props.price}/=</span>
                 </div>
             </Link>
         </div>

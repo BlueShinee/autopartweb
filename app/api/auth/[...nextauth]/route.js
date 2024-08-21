@@ -21,6 +21,7 @@ const authoption = {
             if (!profile?.email) {
                 throw new Error("No Profile")
             }
+            console.log(account,profile);
 
             return true
         }
