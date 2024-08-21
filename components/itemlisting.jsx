@@ -10,7 +10,6 @@ async function Itemlisting() {
     const pb = new PocketBase('http://127.0.0.1:8090');
 
     const records = await pb.collection('items').getFullList()
-    console.log(records);
     
     /* const url = pb.files.getUrl(records, records.photos[0], {'thumb': '100x250'});
     
