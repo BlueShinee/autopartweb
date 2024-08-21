@@ -13,7 +13,7 @@ export default async function item(props) {
         photoURL.push(temp)
     })
 
-    console.log(photoURL,photos);
+    console.log();
     
 
     console.log(record.name);
@@ -24,10 +24,17 @@ export default async function item(props) {
                 <Items2 photoURL={photoURL} record={record} photos={photos}/>
             </div>
             <div className="w-full flex flex-col items-start mt-4">
-                <span className="ml-6 mb-1 font-semibold text-2xl line-clamp-2">{record.name}</span>
-                <span className="ml-6 mb-4 text-xl font-semibold text-blue-600">Rs.{record.price} /=</span>
-                <span className="">Model : {record.model}</span>
-                <span className="">Type : {record.type}</span>
+                <span className="ml-6 mb-1 font-semibold text-2xl line-clamp-2 drop-shadow-lg">{record.name}</span>
+                <span className="ml-6 mb-4 text-xl font-semibold text-blue-600 drop-shadow-lg">Rs.{record.price} /=</span>
+                <span className="ml-6 ">Model : {record.model}</span>
+                <span className="ml-6 mb-6">Type : {record.type}</span>
+                <span className="ml-6 mr-6 font-medium leading-5 mb-3">{record.big_desc["st-paragraph"]}</span>
+                <ul className="ml-6 mb-3">
+                    {record.big_desc['buletlist'].map((v,i)=>{
+                        return <li>- {v}</li>
+                    })}
+                </ul>
+                <span className="ml-6 mr-6 font-medium leading-5 mb-3">{record.big_desc["end-paragraph"]}</span>
             </div>
         </div>
     )
