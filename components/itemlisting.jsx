@@ -43,10 +43,12 @@ function Card(props){
                 <div className='w-full aspect-1 border-b-gray-300 border-b-[1px]'>
                     <img src={props.img} alt="" className='aspect-1 w-full rounded-t-md'/>
                 </div>
-                <div className='flex flex-col w-full'>
-                    <span className='ml-2 line-clamp-1 text-lg font-medium'>{props.title}</span>
-                    <span className='text-gray-500 ml-2 text-sm line-clamp-3 my-[2px] leading-4'>{props.desc}</span>
-                    <span className='ml-2 text-blue-600 mt-0 text-lg font-medium'>RS.{props.price}/=</span>
+                <div className='flex flex-col w-full h-full justify-between'>
+                    <div>
+                        <span className='ml-2 line-clamp-1 text-lg font-medium'>{props.title}</span>
+                        <span className='text-gray-500 ml-2 text-sm line-clamp-3 leading-4'>{props.desc}</span>
+                    </div>
+                    <span className='ml-2 text-blue-600 text-lg font-medium'>RS.{props.price}/=</span>
                 </div>
             </Link>
         </div>
