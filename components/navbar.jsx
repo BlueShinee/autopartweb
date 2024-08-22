@@ -23,7 +23,7 @@ function Navbar(props){
         <div className='flex w-full h-12 items-center justify-center mt-4'>
           <div className='flex flex-row justify-center items-center hover:cursor-pointer transition-all active:cursor-grabbing hover:scale-105 active:scale-95'>
             <Image className='w-auto h-4 mr-2' width={24} height={24} src={"user.svg"}/>
-            <span className='text-white font-semibold text-lg'>Profile</span>
+            <Link href={"/profile"} className='text-white font-semibold text-lg'>Profile</Link>
           </div>
         </div>
   
