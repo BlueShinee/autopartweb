@@ -32,6 +32,7 @@ export default async function page() {
   return (
     <div className='flex flex-col'>
         <Header />
+        
     </div>
   )
 }

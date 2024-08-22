@@ -2,10 +2,13 @@ import Link from 'next/link';
 import Image from "next/image"
 
 import Header from './header';
+import Body from './body';
 
 import { getServerSession } from "next-auth";
 import PocketBase from 'pocketbase';
 import { redirect } from "next/navigation";
+
+
 
 
 export default async function page() {
@@ -32,6 +35,7 @@ export default async function page() {
   return (
     <div className='flex flex-col'>
         <Header />
+        <Body />
     </div>
   )
 }
