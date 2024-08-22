@@ -22,7 +22,7 @@ export default async function Home() {
       console.log(registered);
     })
     if (!registered) {
-      redirect("/undefined")
+      redirect("/register")
     }
   } 
 
