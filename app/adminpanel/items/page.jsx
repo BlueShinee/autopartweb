@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import Image from "next/image"
 
+import Header from './header';
+
 import { getServerSession } from "next-auth";
 import PocketBase from 'pocketbase';
 import { redirect } from "next/navigation";
@@ -28,8 +30,8 @@ export default async function page() {
     }
 
   return (
-    <div>
-        
+    <div className='flex flex-col'>
+        <Header />
     </div>
   )
 }
