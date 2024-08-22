@@ -11,6 +11,12 @@ import { redirect } from "next/navigation";
 export default async function page() {
     const pb = new PocketBase('http://127.0.0.1:8090');
     const user = await getServerSession()
+
+    if (user == null) {
+        redirect("/api/auth/signin")
+    }
+
+
     let userdata
     const records = await pb.collection('users').getFullList();
 

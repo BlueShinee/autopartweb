@@ -19,13 +19,12 @@ export default async function Home() {
       if (v.email == user.user.email) {
         registered = true
       }
-      console.log(registered);
     })
     if (!registered) {
       redirect("/register")
     }
-  } 
-
+  }
+  
 
   return (
     <>
