@@ -1,0 +1,29 @@
+"use server"
+
+import PocketBase from 'pocketbase';
+import { redirect } from "next/navigation";
+import { getServerSession } from "next-auth";
+
+
+export default async function save_address(formdata) {
+
+    const pb = new PocketBase('http://127.0.0.1:8090');
+    const number = formdata.get("address")
+    const user = await getServerSession()
+
+    let userdata
+
+    const records = await pb.collection('users').getFullList();
+
+    records.map((v,i)=>{
+        if (v.email === user.user.email) {
+            userdata = v
+        }
+    })
+
+    userdata["address"] = number
+
+    const record = await pb.collection('users').update(userdata["id"], userdata);
+    
+    redirect("/")
+}
