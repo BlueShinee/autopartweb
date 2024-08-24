@@ -1,3 +1,4 @@
+@ -1,42 +0,0 @@
 import PocketBase from "pocketbase"
 import Link from 'next/link';
 import Image from "next/image";
