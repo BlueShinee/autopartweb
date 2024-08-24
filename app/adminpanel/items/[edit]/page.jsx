@@ -3,7 +3,7 @@ import { getServerSession } from "next-auth";
 import PocketBase from 'pocketbase';
 import { redirect } from "next/navigation";
 
-import Upload from "./upload";
+import Upload from "./upload.jsx";
 
 export default async function page({params}) {
     const pb = new PocketBase('http://127.0.0.1:8090');
@@ -17,7 +17,8 @@ export default async function page({params}) {
 
     
     return(
-        <div>
+        <div className="flex flex-col w-full">
+            <div className="flex justify-between"></div>
             <Upload record={record}/>
         </div>
     )

@@ -8,7 +8,7 @@ import {v2 as cloudinary} from "cloudinary"
 const pb = new PocketBase('http://127.0.0.1:8090');
 
 
-export default async function uploadImg(formdata) {
+export default async function uploadImg(formData) {
     cloudinary.config({
         cloud_name:"dc9ljknn0",
         api_key:"475778789893792",
@@ -17,18 +17,16 @@ export default async function uploadImg(formdata) {
     })
 
 
-
+    
 
     let uploadedImagePublicID
-    let itemid = formdata.get("itemid")
-    const file = formdata.get("file")
+    const itemid = formData.get("itemid")
+    const file = formData.get("file")
     const arraybuffer = await file.arrayBuffer()
     const buffer = new Uint8Array(arraybuffer)
 
     const rando = Math.random()
-    
-    console.log(itemid);
-    
+
 
     let record = await pb.collection('items').update(itemid,{"itemid":rando});
 
@@ -49,8 +47,7 @@ export default async function uploadImg(formdata) {
     })
 
     record["urls"].array.push(uploadedImagePublicID)
-    console.log(record,itemid);
-    
+
     let records = await pb.collection('items').update(itemid,record);
-    
+    redirect(`/adminpanel/items/${itemid}`)
 }
