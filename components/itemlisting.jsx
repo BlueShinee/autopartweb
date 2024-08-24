@@ -1,16 +1,13 @@
+"use client"
+
 import PocketBase from 'pocketbase';
 import Image from 'next/image';
 import Link from 'next/link';
+import { CldImage } from 'next-cloudinary';
 
 
-export const dynamic = 'force-dynamic';
-
-async function Itemlisting() {
-    
-    const pb = new PocketBase('http://127.0.0.1:8090');
-
-    const records = await pb.collection('items').getFullList()
-    
+function Itemlisting(props) {
+    const records = props.records
     /* const url = pb.files.getUrl(records, records.photos[0], {'thumb': '100x250'});
     
     console.log(url); */
@@ -22,7 +19,7 @@ async function Itemlisting() {
         <div className='grid grid-cols-2 w-full justify-center items-center'>
             {records.map((value,index)=>{
                 if (index < 20) {
-                    return <Card itemid={value.id} title={value.name} desc={value.desc} price={value.price} img={`${pb.files.getUrl(value, value.photos[0], {'thumb': '100x250'})}`}/> 
+                    return <Card itemid={value.id} title={value.name} desc={value.desc} price={value.price} img={value.urls.array?.[0]}/> 
                 }
             })}
         </div>
@@ -32,15 +29,15 @@ async function Itemlisting() {
 
 function Card(props){
 
+
+    console.log(props.img);
     
-
-
     
     return(
         <div className='w-full flex justify-center items-center select-text'>
             <Link href={`/Items/${props.itemid}`} className=' hover:scale-105 transition-all w-44 h-72 rounded-md shadow-xl border-[2px] border-gray-300 my-4 flex flex-col items-center'>
                 <div className='w-full aspect-1 border-b-gray-300 border-b-[1px]'>
-                    <img src={props.img} alt="" className='aspect-1 w-full rounded-t-md'/>
+                    <CldImage src={props.img} alt="" width={500} height={500} className='aspect-1 w-full h-auto rounded-t-md'/>
                 </div>
                 <div className='flex flex-col w-full h-full justify-between'>
                     <div>

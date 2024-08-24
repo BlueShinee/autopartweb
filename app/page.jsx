@@ -11,6 +11,7 @@ import { useSession, signIn, signOut } from "next-auth/react"
 export default async function Home() {
   const pb = new PocketBase('http://127.0.0.1:8090');
   const user = await getServerSession()
+  const itemsdb = await pb.collection("items").getFullList()
       
   if (user?.user !== undefined) {
     const record = await pb.collection('users').getFullList()
@@ -36,7 +37,7 @@ export default async function Home() {
       src3="https://wallpapersmug.com/download/1600x900/ba8e68/clean-lake-mountains-range-trees-nature-4k.jpg"
       />
       <Catagories />
-      <Itemlisting />
+      <Itemlisting records={itemsdb}/>
     </>
   )
 }
