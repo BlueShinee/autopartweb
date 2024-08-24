@@ -1,0 +1,56 @@
+"use server"
+
+import { getServerSession } from "next-auth";
+import PocketBase from 'pocketbase';
+import { redirect } from "next/navigation";
+
+import {v2 as cloudinary} from "cloudinary"
+const pb = new PocketBase('http://127.0.0.1:8090');
+
+
+export default async function uploadImg(formdata) {
+    cloudinary.config({
+        cloud_name:"dc9ljknn0",
+        api_key:"475778789893792",
+        api_secret:"UAlJvOCXdr7xDQZKruNuD2w1T-I",
+        secure:true
+    })
+
+
+
+
+    let uploadedImagePublicID
+    let itemid = formdata.get("itemid")
+    const file = formdata.get("file")
+    const arraybuffer = await file.arrayBuffer()
+    const buffer = new Uint8Array(arraybuffer)
+
+    const rando = Math.random()
+    
+    console.log(itemid);
+    
+
+    let record = await pb.collection('items').update(itemid,{"itemid":rando});
+
+
+
+
+    await new Promise((resolve,reject)=>{
+
+        cloudinary.uploader.upload_stream({}, function(err,result){
+            if (err) {
+                reject(err)
+                return
+            }
+            uploadedImagePublicID = result.public_id
+            resolve(result)
+        }).end(buffer)
+
+    })
+
+    record["urls"].array.push(uploadedImagePublicID)
+    console.log(record,itemid);
+    
+    let records = await pb.collection('items').update(itemid,record);
+    
+}

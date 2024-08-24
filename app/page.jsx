@@ -8,6 +8,8 @@ import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
 import { useSession, signIn, signOut } from "next-auth/react"
 
+export const revalidate = 1
+
 export default async function Home() {
   const pb = new PocketBase('http://127.0.0.1:8090');
   const user = await getServerSession()

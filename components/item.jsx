@@ -9,15 +9,28 @@ export const revalidate = 1
 export default async function item(props) {
     const pb = new PocketBase('http://127.0.0.1:8090');
     const itemid = props.params.wtf
-    const records = await pb.collection('items').getFullList()
+/*     const records = await pb.collection('items').getFullList()    
+     */
+
+
+
+    const rando = Math.random()
+    
+
+    const record = await pb.collection('items').update(itemid,{"itemid":rando});
+
+
+
+
+/* 
     let record
     records.map((v,i)=>{
         if (v.id == itemid) {
             record = v
         }
-    })
+    }) */
 
-    console.log(records,itemid);
+    console.log(record,itemid);
     
     const photos = record.urls
 

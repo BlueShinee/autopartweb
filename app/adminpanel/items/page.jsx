@@ -8,7 +8,7 @@ import { getServerSession } from "next-auth";
 import PocketBase from 'pocketbase';
 import { redirect } from "next/navigation";
 
-
+export const revalidate = 1
 
 
 export default async function page() {
