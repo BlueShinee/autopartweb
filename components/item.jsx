@@ -4,18 +4,21 @@ import Link from 'next/link';
 import Image from "next/image";
 import Items2 from "@/components/items2"
 
+export const revalidate = 1
+
 export default async function item(props) {
     const pb = new PocketBase('http://127.0.0.1:8090');
     const itemid = props.params.wtf
-    const records = await pb.collection('items').getFullList({
-        sort: '-created'
-    })
+    const records = await pb.collection('items').getFullList()
     let record
     records.map((v,i)=>{
         if (v.id == itemid) {
             record = v
         }
     })
+
+    console.log(records,itemid);
+    
     const photos = record.urls
 
 
