@@ -21,6 +21,7 @@ export default async function page() {
 
     let userdata
     const records = await pb.collection('users').getFullList();
+    const items = await pb.collection('items').getFullList();
 
     records.map((v,i)=>{
         if (v.email === user.user.email) {
@@ -32,10 +33,12 @@ export default async function page() {
         redirect("/")
     }
 
+    console.log(items);
+    
   return (
     <div className='flex flex-col'>
         <Header />
-        <Body />
+        <Body items={items}/>
     </div>
   )
 }
