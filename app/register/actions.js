@@ -24,7 +24,7 @@ export const createuser = async (formdata) =>{
         "is_admin": false,
         "email": user.user.email
     };
-    console.log(data);
+
     const record = await pb.collection('users').create(data);
     redirect("/")
 }

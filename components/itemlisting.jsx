@@ -37,7 +37,7 @@ function Card(props){
         <div className='w-full flex justify-center items-center select-text'>
             <Link href={`/Items/${props.itemid}`} className=' hover:scale-105 transition-all w-44 h-72 rounded-md shadow-xl border-[2px] border-gray-300 my-4 flex flex-col items-center'>
                 <div className='w-full aspect-1 border-b-gray-300 border-b-[1px]'>
-                    <CldImage src={props.img} alt="" width={500} height={500} className='aspect-1 w-full h-auto rounded-t-md'/>
+                    <CldImage src={props.img} alt="" width={500} height={500} className='aspect-1 w-full object-contain rounded-t-md h-32'/>
                 </div>
                 <div className='flex flex-col w-full h-full justify-between'>
                     <div>
