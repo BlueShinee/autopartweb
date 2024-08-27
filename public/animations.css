@@ -1,0 +1,26 @@
+@keyframes shimmer {
+    0% {
+      background-position: 100% 100%;
+    }
+    100% {
+      background-position: 0 0;
+    }
+  }
+  
+  .buffering {
+    border-radius: 5px;
+    background-image: linear-gradient(
+      90deg,
+      #eeeeee 0%, #eeeeee 40%,
+      #dddddd 50%, #dddddd 55%,
+      #eeeeee 65%, #eeeeee 100%
+    );
+    background-size: 400%;
+    animation: shimmer 1.5s infinite;
+  }
+  .buffering:nth-child(2) {
+    width: 90%;
+  }
+  .buffering:nth-child(3) {
+    width: 40%;
+  }

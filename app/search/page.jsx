@@ -7,7 +7,7 @@ import PocketBase from 'pocketbase';
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
 import { useSession, signIn, signOut } from "next-auth/react"
-import Searchbar from "@/components/searchbar";
+import SearchForm from "@/components/searchform";
 
 export const revalidate = 5
 
@@ -39,8 +39,8 @@ export default async function Home() {
 
       src3="https://di-uploads-pod14.dealerinspire.com/toyotaoforlando/uploads/2019/04/car-parts-1024x683.jpg"
       />
-      <Searchbar/>
-      <Itemlisting records={itemsdb} title="Populer Products"/>
+      <SearchForm/>
+      <Itemlisting records={itemsdb} title="Search Results" isLoaded='false'/>
     </>
   )
 }
