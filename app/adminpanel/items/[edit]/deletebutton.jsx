@@ -12,20 +12,15 @@ export default function DeleteButton({ deleteItem, record }) {
                         title: "Are you sure?",
                         text: "Delete this image",
                         icon: "warning",
-                        showCancelButton: true,
-                        confirmButtonColor: "#d33",
-                        cancelButtonColor: "#3b56d1",
-                        confirmButtonText: "Delete",
-                        iconColor: '#f8bb86', // Custom color for the icon
                     });
 
                     if (result.isConfirmed) {
                         try {
-                            const form = document.getElementById('deleteObjectFormData');
-                            const formData = new FormData(form);
-                            deleteItem(formData); // Pass the FormData object to deleteItem function
+                            const form = document.getElementById('deleteObjectFormData')
+                            const formData = new FormData(form)
+                            deleteItem(formData)
                         } catch (err) {
-                            console.error('Error deleting item:', err);
+                            console.error('Error deleting item:', err)
                         }
                     }
                 }}

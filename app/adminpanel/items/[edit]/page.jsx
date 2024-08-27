@@ -4,7 +4,6 @@ import PocketBase from 'pocketbase';
 import { redirect } from "next/navigation";
 import Link from 'next/link';
 import Image from "next/image";
-import Swal from 'sweetalert2';
 
 import Upload from "./upload.jsx";
 import Edit from "./edit.jsx";
@@ -14,14 +13,9 @@ import DeleteButton from "./deletebutton.jsx";
 export default async function page({params}) {
     const pb = new PocketBase('http://127.0.0.1:8090');
     let record
+    const rando = Math.random()
+    record = await pb.collection('items').update(params.edit,{"itemid":rando})
 
-
-        const rando = Math.random()
-        record = await pb.collection('items').update(params.edit,{"itemid":rando});
-
-
-
-    
     return(
         <div className="flex flex-col w-full scrollbar-thin">
             <div className="flex justify-between w-full p-[4%]">
