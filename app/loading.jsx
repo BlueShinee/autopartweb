@@ -1,6 +1,9 @@
-import { Suspense } from 'react'
+"use client";
 
-export default function Loading() {
+import { useEffect, useState } from 'react';
+import { eveloCoreAlert } from '../components/notifications';
+
+const Loading = () => {
     return (
         <div className="loading-screen" style={{ display:'flex'}}>
             <div className="loading-container">
@@ -10,7 +13,7 @@ export default function Loading() {
                 <pre className="loading"></pre>
             </div>
             <h3>
-                <b>Thushara</b> Auto <c>Parts</c>
+                <b>Evelo</b>core <c>Editor</c>
                 <div className="progress-bar">
                     <div className="progress-bar-line"></div>
                 </div>
@@ -18,3 +21,5 @@ export default function Loading() {
         </div>
     )
 }
+
+export default Loading;

@@ -1,0 +1,26 @@
+{
+    "name": "ecLocalEditor",
+    "quickSave": {
+        "htmlEditor": "",
+        "cssEditor": "",
+        "jsEditor": ""
+    },
+    "projects": [
+        {
+            "name": "Project 1",
+            "icon": "1",
+            "nodeModules": [],
+            "htmlEditor": "",
+            "cssEditor": "",
+            "jsEditor": ""
+        },
+        {
+            "name": "Project 2",
+            "icon": "1",
+            "nodeModules": [],
+            "htmlEditor": "",
+            "cssEditor": "",
+            "jsEditor": ""
+        }
+    ]
+}
