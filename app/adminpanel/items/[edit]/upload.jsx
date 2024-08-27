@@ -52,8 +52,8 @@ export default function upload(props) {
             </div>
 
 
-            <form action={uploadImg} className="flex justify-between">
-                <input type="file" name="file" className="w-64"/>
+            <form action={uploadImg} className="flex justify-between px-5">
+                <input type="file" name="file" className="uploadFile w-64"/>
                 <input type="text" name="itemid" className="hidden" value={props.record?.id}/>
                 <input type="submit" value="Add File" className="py-1 px-2 bg-green-600 text-white font-medium rounded-md hover:cursor-pointer hover:bg-green-700"/>
             </form>

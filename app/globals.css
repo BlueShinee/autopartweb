@@ -14,6 +14,56 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-*{
-  overflow-x: hidden;
+.uploadFile::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.uploadFile::before {
+  content: 'Select Photo';
+  display: inline-block;
+  background: linear-gradient(top, #f9f9f9, #e3e3e3);
+  border: 3px solid #3B82F6;
+  border-radius: 3px;
+  padding: 5px 8px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #ffffff00;
+  color: #3B82F6;
+  font-weight: 700;
+  font-size: 10pt;
+  margin-right: -80px;
+}
+.uploadFile:hover::before {
+  border-color: #188f00;
+}
+.uploadFile:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.buffering {
+  border-radius: 5px;
+  background-image: linear-gradient(
+    90deg,
+    #eeeeee 0%, #eeeeee 40%,
+    #dddddd 50%, #dddddd 55%,
+    #eeeeee 65%, #eeeeee 100%
+  );
+  background-size: 400%;
+  animation: shimmer 1.5s infinite;
+}
+.buffering:nth-child(2) {
+  width: 90%;
+}
+.buffering:nth-child(3) {
+  width: 40%;
 }
