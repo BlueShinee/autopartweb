@@ -27,7 +27,7 @@ function Card(props) {
     console.log(props.img.array?.[0]);
     
     return(
-        <Link href={`/adminpanel/items/${props.itemid}`} className='flex w-[90%] my-1 border-2 border-gray-400 rounded-lg h-32'>
+        <Link href={`/adminpanel/items/${props.itemid}`} className='flex w-[90%] my-1 border-2 overflow-hidden border-gray-400 rounded-lg h-32'>
             <CldImage src={props.img.array?.[0]}  width={150} height={150} className='w-[40%] object-contain border-r-2 border-gray-400'/>
             <div className='flex flex-col px-4 py-2 justify-between h-32'>
                 <div className='flex flex-col'>

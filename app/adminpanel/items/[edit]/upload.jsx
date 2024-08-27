@@ -25,7 +25,7 @@ export default function upload(props) {
             <div className="grid grid-cols-3 w-full gap-2 px-4">
                 {photoArray.map((v,i)=>{
                     return(
-                        <div className="w-[100%] p-[10%] mb-4 h-24 rounded-md transition-all hover:bg-red-600  border-2 border-gray-400 flex justify-center items-center">
+                        <div className="w-[100%] overflow-hidden p-[10%] mb-4 h-24 rounded-md transition-all hover:bg-red-600  border-2 border-gray-400 flex justify-center items-center">
                             <CldImage src={v} width={150} height={150} onClick={()=>{
                                 Swal.fire({
                                     title: "Are you sure?",
@@ -45,7 +45,7 @@ export default function upload(props) {
                                       }
                                     }
                                   }); 
-                                }} className="object-contain w-[100%] h-24"/>
+                                }} className="object-contain w-[100%]"/>
                         </div>
                     )
                 })}
