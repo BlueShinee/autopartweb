@@ -12,7 +12,7 @@ export default function header(props) {
     <>
     
     <Contactmenu Contactmenustate={Contactmenustate} menufunc={Contactmenustatechange}/>
-    <Navbar profileImage={props.profileImage} brandname="Thushara Auto Parts" /*max character width of 15ch*/ /* Contactmenustate={Contactmenustate} */ menufunc={Contactmenustatechange} user={props.user}/>
+    <Navbar profileImage={props.profileImage} isLogged={props.isLogged} brandname="Thushara Auto Parts" /*max character width of 15ch*/ /* Contactmenustate={Contactmenustate} */ menufunc={Contactmenustatechange} user={props.user}/>
 
     </>
   )

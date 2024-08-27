@@ -46,7 +46,7 @@ function Navbar(props){
         </div>
 
         <Link href={"/api/auth/signin"} className="w-11/12 flex justify-center items-center h-12 text-white font-bold text-lg mt-6 mb-4 bg-blue-400 rounded-md border-2 border-blue-500 hover:cursor-pointer hover:bg-blue-500 transition-all active:cursor-grabbing active:scale-95">
-          Log In
+          {props.isLogged ? 'Log Out' : 'Log In'}
         </Link>
         
       </div>
