@@ -7,6 +7,7 @@ import PocketBase from 'pocketbase';
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
 import { useSession, signIn, signOut } from "next-auth/react"
+import Searchbar from "@/components/searchbar";
 
 export const revalidate = 5
 
@@ -31,13 +32,14 @@ export default async function Home() {
 
   return (
     <>
-      <Header/>
-      <Slideshow src1="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2560&q=80"
+      <Header profileImage={user.user.image}/>
+      <Slideshow src1="https://st2.depositphotos.com/1005404/7746/i/450/depositphotos_77466908-stock-photo-car-parts.jpg"
       
-      src2="https://i.pinimg.com/originals/bd/ec/ea/bdecea0788a51112bd9355850f1b1697.jpg"
+      src2="https://www.valueresearchonline.com/content-assets/images/53124_auto-parts__w660__.webp"
 
-      src3="https://wallpapersmug.com/download/1600x900/ba8e68/clean-lake-mountains-range-trees-nature-4k.jpg"
+      src3="https://di-uploads-pod14.dealerinspire.com/toyotaoforlando/uploads/2019/04/car-parts-1024x683.jpg"
       />
+      <Searchbar/>
       <Catagories />
       <Itemlisting records={itemsdb}/>
     </>

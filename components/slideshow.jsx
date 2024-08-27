@@ -5,37 +5,53 @@ import { useState,useEffect } from "react";
 
 function Slideshow(props) {
 
-    let [slidestate , slidestatechanger] = useState(props.src1)
+    let [slidestate , slidestatechanger] = useState(1)
+    let [clock, updateClock] = useState(`Welcome...`)
     
     function slidestatefun() {
       switch (slidestate) {
-        case props.src1:
-          slidestatechanger(props.src2)
+        case 1:
+          slidestatechanger(2)
           break;
-          case props.src2:
-          slidestatechanger(props.src3)
+          case 2:
+          slidestatechanger(3)
           break;
-          case props.src3:
-          slidestatechanger(props.src1)
+          case 3:
+          slidestatechanger(1)
           break;
       }
-    
+      const d = new Date()
+      updateClock(`${String(d.getFullYear())}/${String(d.getMonth()+1).padStart(2, '0')}/${String(d.getDate()).padStart(2, '0')} - ${d.toLocaleTimeString()}`)
     }
     
     useEffect(()=>{
       setTimeout(() => {
           slidestatefun()
-      }, 2000);
+      }, 3000);
     },[slidestate]
     )
     
       return (
-        <div className="w-full aspect-video flex flex-row overflow-hidden transition-all">
+        <div className="w-full aspect-video flex flex-row overflow-hidden transition-all relative">
             <img
-              src={slidestate}
+              src={props.src1}
               alt="image 1"
-              className="h-full w-full object-cover transition-all"
+              className="h-full w-full object-cover transition-all duration-500"
+              style={{width: slidestate == 1 ? '100%' : '0%'}}
             />
+            <img
+              src={props.src2}
+              alt="image 1"
+              className="h-full w-full object-cover transition-all duration-500"
+              style={{width: slidestate == 2 ? '100%' : '0%'}}
+            />
+            <img
+              src={props.src3}
+              alt="image 1"
+              className="h-full w-full object-cover transition-all duration-500"
+              style={{width: slidestate == 3 ? '100%' : '0%'}}
+            />
+            <b className="fixed z-2 right-3 absolute bottom-0 top-[87%] text-white" style={{textShadow: '00 1px 10px black'}}>{clock}</b>
         </div>
       );
     }
