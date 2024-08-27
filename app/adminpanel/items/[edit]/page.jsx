@@ -4,10 +4,12 @@ import PocketBase from 'pocketbase';
 import { redirect } from "next/navigation";
 import Link from 'next/link';
 import Image from "next/image";
+import Swal from 'sweetalert2';
 
 import Upload from "./upload.jsx";
 import Edit from "./edit.jsx";
 import deleteItem from "./deleteItem.js";
+import DeleteButton from "./deletebutton.jsx";
 
 export default async function page({params}) {
     const pb = new PocketBase('http://127.0.0.1:8090');
@@ -26,10 +28,11 @@ export default async function page({params}) {
 
             <Link href={"/adminpanel/items"} className="flex justify-center items-center py-1    hover:bg-blue-500 transition-all active:scale-95   px-4 bg-blue-400 w-24 rounded-md"><span className="text-white font-medium text-lg">Back</span><Image src={"/back-arrow.svg"}  width={20} height={20}/></Link>
 
-            <form action={deleteItem} className="py-1 px-4 flex justify-center items-center bg-red-500 text-white font-semibold rounded-md transition-all hover:bg-red-600">
+            {/* <form action={deleteItem} className="py-1 px-4 flex justify-center items-center bg-red-500 text-white font-semibold rounded-md transition-all hover:bg-red-600">
                 <button type="submit">Delete</button>
                 <input type="text" value={record.id} name="itemid" className="hidden"/>
-            </form>
+            </form> */}
+            <DeleteButton record={record} deleteItem={deleteItem}/>
             
             </div>
             <Upload record={record}/>

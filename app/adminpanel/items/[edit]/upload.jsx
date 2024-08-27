@@ -4,6 +4,7 @@ import { getServerSession } from "next-auth";
 import PocketBase from 'pocketbase';
 import { redirect } from "next/navigation";
 import { CldImage } from 'next-cloudinary';
+import { useState } from "react"
 import Swal from 'sweetalert2';
 
 
@@ -13,6 +14,7 @@ import uploadImg from "./upload.js"
 
 
 export default function upload(props) {
+  let [isLoaded, setIsLoaded] = useState(true)
 
     const record = props.record
     console.log(record);
@@ -55,8 +57,37 @@ export default function upload(props) {
             <form action={uploadImg} className="flex justify-between px-5">
                 <input type="file" name="file" className="uploadFile w-64" accept="image/*"/>
                 <input type="text" name="itemid" className="hidden" value={props.record?.id}/>
-                <input type="submit" value="Add File" className="py-1 px-2 bg-green-600 text-white font-medium rounded-md hover:cursor-pointer hover:bg-green-700"/>
+                <input type="submit" style={{display: isLoaded ? 'block' : 'none'}} onClick={()=>{
+                Swal.fire({
+                  title: "Image Uploading...",
+                  text: "Please wait while your image is being uploaded.",
+                  icon: "info",
+                })
+                setIsLoaded(false)
+                }} value="Add File" className="py-1 px-2 bg-green-600 text-white font-medium rounded-md hover:cursor-pointer hover:bg-green-700"/>
+                <ShimmerCard style={{display: !isLoaded ? 'block' : 'none'}}/>
+            {/* {isLoaded == true ? (
+              <>
+                <input type="submit" onClick={()=>{
+              setIsLoaded(false)
+              Swal.fire({
+                title: "Image Uploading...",
+                text: "Please wait while your image is being uploaded.",
+                icon: "info",
+              })}} value="Add File" className="py-1 px-2 bg-green-600 text-white font-medium rounded-md hover:cursor-pointer hover:bg-green-700"/>
+              </>
+            ) : (
+              <ShimmerCard/>
+            )} */}
             </form>
         </div>
       )
+}
+
+function ShimmerCard({style}) {
+  return (
+      <div style={style} className="box-x flex flex-col w-full m-1">
+          <div className="box buffering h-8"></div>
+      </div>
+  )
 }
