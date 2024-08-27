@@ -17,7 +17,63 @@ input[type=number] {
 }
 
 
+@keyframes shimmer {
+  0% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
 
+.buffering {
+  border-radius: 5px;
+  background-image: linear-gradient(
+    90deg,
+    #eeeeee 0%, #eeeeee 40%,
+    #dddddd 50%, #dddddd 55%,
+    #eeeeee 65%, #eeeeee 100%
+  );
+  background-size: 400%;
+  animation: shimmer 1.5s infinite;
+}
+.buffering:nth-child(2) {
+  width: 90%;
+}
+.buffering:nth-child(3) {
+  width: 40%;
+}
+
+
+.uploadFile {
+
+}
+.uploadFile::-webkit-file-upload-button {
+     visibility: hidden;
+}
+.uploadFile::before {
+     content: '+ Select Image';
+     display: inline-block;
+     background: linear-gradient(top, #f9f9f9, #e3e3e3);
+     border: 3px solid rgb(0, 153, 255);
+     border-radius: 3px;
+     padding: 5px 8px;
+     color: black;
+     outline: none;
+     white-space: nowrap;
+     -webkit-user-select: none;
+     cursor: pointer;
+     text-shadow: 1px 1px #ffffff00;
+     font-weight: 700;
+     font-size: 10pt;
+     margin-right: -90px;
+}
+.uploadFile:hover::before {
+     border-color: #0400e0;
+}
+.uploadFile:active::before {
+     background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
 
 /*loading*/
 
@@ -39,7 +95,7 @@ input[type=number] {
 }
 
 .loading-screen b {
-      color: #1080ff;
+      color: #ff1043;
   }
 .loading-screen c {
       color: #7e7e7e;
