@@ -29,7 +29,7 @@ function Card(props){
         <div className="w-full flex justify-center items-center select-text p-2">
             <Link
                 href={`/Items/${props.itemid}`}
-                className="hover:scale-105 transition-all w-48 h-72 rounded-xl shadow-lg border-2 border-gray-300 my-4 flex flex-col items-center overflow-hidden"
+                className="hover:scale-105 transition-all w-48 h-72  rounded-xl shadow-lg border-2 border-gray-300 my-4 flex flex-col items-center overflow-hidden"
             >
             <div className="w-full aspect-1 h-64 border-b-gray-300 border-b-1 flex bg-gray-300">
             <CldImage

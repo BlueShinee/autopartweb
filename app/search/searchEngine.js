@@ -13,6 +13,12 @@ export default async function searching(input){
     const records = await pb.collection('items').getFullList({
         sort: '-created',
     });
+    let serachPool
+
+    records.map((v,i)=>{
+        
+    })
+
 
     console.log(records);
     return(records)
@@ -20,10 +26,24 @@ export default async function searching(input){
 
 
 
-/* FormData {
-  [Symbol(state)]: [
-    { name: 'result', value: 'top' },
-    { name: 'category', value: 'engine' },
-    { name: 'Search', value: 'asdasd aasda we' }
-  ]
+/*   {
+    big_desc: {
+      buletlist: [Array],
+      'end-paragraph': 'get him today he is one of a kind',
+      'st-paragraph': 'This is one of a kind , only on into the whole world so get him today at a cheap price of Rs.10/='
+    },
+    collectionId: 'bfh80zq13hn96yq',
+    collectionName: 'items',
+    created: '2024-08-24 02:07:14.795Z',
+    desc: 'Vimukthi for sale',
+    discount_price: 20,
+    id: 'pdlnkza2ps0rhi7',
+    itemid: 0.7820041512129261,
+    model: 'human',
+    name: 'Vimukthi not for sale',
+    price: 10,
+    type: 'dumb fuck',
+    updated: '2024-08-27 12:06:05.497Z',
+    urls: { array: [Array] }
+  }
 } */
