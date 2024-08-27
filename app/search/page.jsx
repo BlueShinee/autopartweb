@@ -7,7 +7,7 @@ import PocketBase from 'pocketbase';
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
 import { useSession, signIn, signOut } from "next-auth/react"
-import SearchForm from "@/components/searchform";
+import SearchForm from "@/app/search/searchform";
 
 export const revalidate = 5
 
