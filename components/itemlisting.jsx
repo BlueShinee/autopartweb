@@ -14,7 +14,7 @@ function Itemlisting(props) {
             <div className='grid grid-cols-2 w-full justify-center items-center'>
                 {records.map((value,index)=>{
                     if (index < 20) {
-                        return <Card isLoaded={props.isLoaded} itemid={value.id} title={value.name} desc={value.desc} price={value.price} img={value.urls.array?.[0]}/> 
+                        return <Card isLoaded={props.isLoaded} itemid={value.id} title={value.name} desc={value.desc} discount_price={value.discount_price} price={value.price} img={value.urls.array?.[0]}/> 
                     }
                 })}
             </div>
@@ -55,8 +55,16 @@ function Card(props){
                     {props.desc}
                     </span>
                 </div>
-                <span className=" text-blue-600 text-xl font-bold mt-3">
-                    RS. {props.price}/=
+                <span className=" text-blue-600 text-l font-bold mt-3">
+                    {Number(props.discount_price) > 0 ? (
+                        <>
+                            <s className='text-red-400 text-xs'>RS. {props.price}/=</s> <i className='text-gray-400 text-xs'> {Math.round(((props.price - props.discount_price) / props.price) * 100)}% off</i><br/>
+                            RS. {props.discount_price}/=
+                        </>
+                    ) : ( 
+                        <>RS. {props.price}/=</>
+                     )}
+                    
                 </span>
                 </div>
             </Link>

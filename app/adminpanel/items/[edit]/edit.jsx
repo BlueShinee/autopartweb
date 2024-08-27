@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import updateData from "./updateData.js"
+import Swal from 'sweetalert2';
 
 
 
@@ -17,7 +18,13 @@ export default function Edit(props) {
         <form action={updateData} className="flex flex-col">
             <div className="w-full flex justify-between items-center">
                 <span>Edit details</span>
-                <button type="submit" name="submit" className="py-1 px-4 bg-green-600 text-white font-medium rounded-md hover:cursor-pointer hover:bg-green-700">Save</button>
+                <button type="submit" onClick={()=>{
+                  Swal.fire({
+                    title: "Saved",
+                    text: "Your item successfully updated",
+                    icon: "success"
+                  });
+                }} name="submit" className="py-1 px-4 bg-green-600 text-white font-medium rounded-md hover:cursor-pointer hover:bg-green-700">Save</button>
             </div>
             <span className="text-sm text-gray-600 font-medium mt-4">Item Name</span>
             <input type="text" name="itemname" defaultValue={props.record?.name} className="border-2 border-gray-400 rounded-md p-1 focus:border-blue-500 outline-none"/>
