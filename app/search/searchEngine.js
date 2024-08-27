@@ -13,9 +13,14 @@ export default async function searching(input){
     const records = await pb.collection('items').getFullList({
         sort: '-created',
     });
-    let serachPool
+    let serachInput = input.split(" ")
 
     records.map((v,i)=>{
+        let ar1 = (v.name).split(" ")
+        let ar2 = [v.model,v.type]
+        let temp = ar1.concat(ar2)
+        console.log(temp);
+        
         
     })
 

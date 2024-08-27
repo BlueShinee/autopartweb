@@ -14,6 +14,3 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
-*{
-  overflow-x: hidden;
-}
