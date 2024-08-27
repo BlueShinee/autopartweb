@@ -11,7 +11,7 @@ import uploadImg from "./upload.js"
 
 
 
-export default async function upload(props) {
+export default function upload(props) {
 
     const record = props.record
     let photoArray = record.urls.array
@@ -30,10 +30,10 @@ export default async function upload(props) {
             </div>
 
 
-            <form action={uploadImg}>
-                <input type="file" name="file"/>
+            <form action={uploadImg} className="flex justify-between">
+                <input type="file" name="file" className="w-64"/>
                 <input type="text" name="itemid" className="hidden" value={props.record?.id}/>
-                <input type="submit" value="Add File"/>
+                <input type="submit" value="Add File" className="py-1 px-2 bg-green-600 text-white font-medium rounded-md hover:cursor-pointer hover:bg-green-700"/>
             </form>
         </div>
       )

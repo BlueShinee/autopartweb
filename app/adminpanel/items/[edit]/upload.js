@@ -22,8 +22,14 @@ export default async function uploadImg(formData) {
     let uploadedImagePublicID
     const itemid = formData.get("itemid")
     const file = formData.get("file")
+    if (file.name == "undefined") {
+        return
+    }
     const arraybuffer = await file.arrayBuffer()
     const buffer = new Uint8Array(arraybuffer)
+
+
+    
 
     const rando = Math.random()
 
