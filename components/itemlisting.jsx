@@ -9,7 +9,7 @@ import { CldImage } from 'next-cloudinary';
 function Itemlisting(props) {
     const records = props.records
     return (
-        <div className='flex flex-col items-center w-full mt-4'>
+        <div className='flex flex-col items-center w-full mt-4 overflow-hidden'>
             <h2 className='text-left w-full ml-9 font-semibold text-blue-500 text-lg'>{props.title}</h2>
             <div className='grid grid-cols-2 w-full justify-center items-center'>
                 {records.map((value,index)=>{

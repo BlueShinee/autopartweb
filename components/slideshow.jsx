@@ -32,7 +32,7 @@ function Slideshow(props) {
     )
     
       return (
-        <div className="w-full aspect-video flex flex-row overflow-hidden transition-all relative">
+        <div className="w-full aspect-video flex flex-row overflow-hidden transition-all relative overflow-hidden">
             <img
               src={props.src1}
               alt="image 1"

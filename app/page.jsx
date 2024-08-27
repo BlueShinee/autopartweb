@@ -15,7 +15,7 @@ export default async function Home() {
   const pb = new PocketBase('http://127.0.0.1:8090');
   const user = await getServerSession()
   const itemsdb = await pb.collection("items").getFullList()
-
+      
   if (user?.user !== undefined) {
     const record = await pb.collection('users').getFullList()
     let registered = false
@@ -28,11 +28,11 @@ export default async function Home() {
       redirect("/register")
     }
   }
-
+  
 
   return (
     <>
-      <Header profileImage={user.user.image}/>
+      <Header profileImage={user?.user.image || "https://cdn-icons-png.flaticon.com/512/3177/3177440.png"}/>
       <Slideshow src1="https://st2.depositphotos.com/1005404/7746/i/450/depositphotos_77466908-stock-photo-car-parts.jpg"
       
       src2="https://www.valueresearchonline.com/content-assets/images/53124_auto-parts__w660__.webp"
