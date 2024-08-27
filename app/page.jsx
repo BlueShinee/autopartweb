@@ -15,7 +15,7 @@ export default async function Home() {
   const pb = new PocketBase('http://127.0.0.1:8090');
   const user = await getServerSession()
   const itemsdb = await pb.collection("items").getFullList()
-      
+
   if (user?.user !== undefined) {
     const record = await pb.collection('users').getFullList()
     let registered = false
@@ -28,7 +28,7 @@ export default async function Home() {
       redirect("/register")
     }
   }
-  
+
 
   return (
     <>
