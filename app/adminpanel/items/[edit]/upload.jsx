@@ -15,6 +15,8 @@ import uploadImg from "./upload.js"
 export default function upload(props) {
 
     const record = props.record
+    console.log(record);
+    
     let photoArray = record.urls.array
     
 
