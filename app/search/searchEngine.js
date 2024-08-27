@@ -14,19 +14,27 @@ export default async function searching(input){
         sort: '-created',
     });
     let serachInput = input.split(" ")
+    let resultPool = []
 
     records.map((v,i)=>{
         let ar1 = (v.name).split(" ")
         let ar2 = [v.model,v.type]
         let temp = ar1.concat(ar2)
         console.log(temp);
-        
+        temp.map((value,index)=>{
+            temp[index] = value.toLowerCase()
+        })
+        serachInput.map((vv,ii)=>{
+            if (temp.includes(vv.toLowerCase())) {
+                if (!resultPool.includes(v)) {
+                    resultPool.push(v)
+                }
+            }
+        })
         
     })
-
-
-    console.log(records);
-    return(records)
+    
+    return(resultPool)
 }
 
 

@@ -18,7 +18,7 @@ function SearchForm(props){
         setIsLoaded(false)
         let response = await searching(serachInput.current.value)
         setIsLoaded(true)
-        console.log(response)
+        console.log(response);
         setresult(response)
     }
 
