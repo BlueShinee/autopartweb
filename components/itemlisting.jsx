@@ -14,7 +14,7 @@ function Itemlisting(props) {
             <div className='grid grid-cols-2 w-full justify-center items-center'>
                 {records.map((value,index)=>{
                     if (index < 20) {
-                        return <Card isLoaded={true} itemid={value.id} title={value.name} desc={value.desc} price={value.price} img={value.urls.array?.[0]}/> 
+                        return <Card isLoaded={props.isLoaded} itemid={value.id} title={value.name} desc={value.desc} price={value.price} img={value.urls.array?.[0]}/> 
                     }
                 })}
             </div>
@@ -25,36 +25,42 @@ function Itemlisting(props) {
 function Card(props){
     return (
         <>
-        {props.isLoaded === "false" ? (<ShimmerCard/>) : (
-        <div className="w-full flex justify-center items-center select-text p-2">
-            <Link
-                href={`/Items/${props.itemid}`}
-                className="hover:scale-105 transition-all w-48 h-72  rounded-xl shadow-lg border-2 border-gray-300 my-4 flex flex-col items-center overflow-hidden"
-            >
-            <div className="w-full aspect-1 h-64 border-b-gray-300 border-b-1 flex bg-gray-300">
-            <CldImage
-                src={props.img}
-                alt=""
-                width={500}
-                height={500}
-                className="aspect-1 w-full object-contain rounded-t-md "
-            />
-            </div>
-            <div className="flex flex-col w-full h-full justify-between p-3 bg-white">
-            <div className="text-left">
-                <span className=" text-lg font-semibold text-gray-700 line-clamp-1">
-                {props.title}
+        {props.isLoaded == false ? (
+            <>
+                <ShimmerCard/>
+                <ShimmerCard/>
+                <ShimmerCard/>
+            </>
+        ) : (
+            <div className="w-full flex justify-center items-center select-text p-2">
+                <Link
+                    href={`/Items/${props.itemid}`}
+                    className="hover:scale-105 transition-all w-48 h-72  rounded-xl shadow-lg border-2 border-gray-300 my-4 flex flex-col items-center overflow-hidden"
+                >
+                <div className="w-full aspect-1 h-64 border-b-gray-300 border-b-1 flex bg-gray-300">
+                <CldImage
+                    src={props.img}
+                    alt=""
+                    width={500}
+                    height={500}
+                    className="aspect-1 w-full object-contain rounded-t-md "
+                />
+                </div>
+                <div className="flex flex-col w-full h-full justify-between p-3 bg-white">
+                <div className="text-left">
+                    <span className=" text-lg font-semibold text-gray-700 line-clamp-1">
+                    {props.title}
+                    </span>
+                    <span className="text-gray-500 text-sm line-clamp-3 leading-4 mt-1">
+                    {props.desc}
+                    </span>
+                </div>
+                <span className=" text-blue-600 text-xl font-bold mt-3">
+                    RS. {props.price}/=
                 </span>
-                <span className="text-gray-500 text-sm line-clamp-3 leading-4 mt-1">
-                {props.desc}
-                </span>
-            </div>
-            <span className=" text-blue-600 text-xl font-bold mt-3">
-                RS. {props.price}/=
-            </span>
-            </div>
-        </Link>
-    </div>
+                </div>
+            </Link>
+        </div>
         )}
         
     </>)

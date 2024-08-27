@@ -12,14 +12,14 @@ import { getServerSession } from "next-auth";
 function SearchForm(props){
     const serachInput = useRef(null)
     let [result,setresult] = useState([])
+    let [isLoaded, setIsLoaded] = useState(false)
 
     async function handleclick() {
-        
-       let response = await searching(serachInput.current.value)
+        setIsLoaded(false)
+        let response = await searching(serachInput.current.value)
+        setIsLoaded(true)
         console.log(response);
         setresult(response)
-        
-        
     }
 
     return(
@@ -52,7 +52,7 @@ function SearchForm(props){
                     </button>
                 </div>
             </form>
-            <Itemlisting records={result} isLoaded={true} title="Search Results" isLoaded='false'/>
+            <Itemlisting records={result} isLoaded={isLoaded} title="Search Results" />
         </>
     )
 }
