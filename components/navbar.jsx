@@ -22,7 +22,7 @@ function Navbar(props){
           <Image src={"line-3.svg"} width={24} height={24} className='h-auto w-8 hover:cursor-pointer hover:scale-110 active:cursor-grabbing transition-all' onClick={(e)=>{if(navbar){navstate(false)}else{navstate(true)}}}/>
         </div>
       </div>
-      <div className={`flex flex-col items-center absolute w-full h-auto ${navbar?"top-16":"-top-80"} bg-[#8FB4DF] -z-10 transition-all overflow-x-hidden`}>
+      <div className={`flex flex-col overflow-x-hidden items-center absolute w-full h-auto ${navbar?"top-16":"-top-80"} bg-[#8FB4DF] -z-10 transition-all`}>
   
         <div className='flex w-full h-12 items-center justify-left mt-3 ml-8 px-7 border-l-4 border-white rounded-[3px]'>
           <div className='flex flex-row justify-center items-center hover:cursor-pointer transition-all active:cursor-grabbing hover:scale-105 active:scale-95'>
