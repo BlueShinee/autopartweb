@@ -9,6 +9,12 @@ export default async function page() {
             <span className="text-sm text-gray-600 font-medium mt-4">Item Name</span>
             <input type="text" name="itemname" defaultValue={""} className="border-2 border-gray-400 rounded-md p-1 focus:border-blue-500 outline-none"/>
 
+
+            <span className="text-sm text-gray-600 font-medium mt-2">Price</span>
+            <input type="number" name="price" defaultValue={""} className="border-2 border-gray-400 rounded-md w-24 p-1 focus:border-blue-500 outline-none"/>
+            <div className="flex justify-center items-center">
+                <button type="submit" className="mt-12 w-32 py-2 px-4">Create +</button>
+            </div>
         </form>
     </div>
   )
