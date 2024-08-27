@@ -29,10 +29,10 @@ export default function DeleteButton({ deleteItem, record }) {
                         }
                     }
                 }}
-            >
+            > 
                 Delete
             </button>
             <input type="text" value={record.id} name="itemid" className="hidden" />
         </form>
-    );
+    )
 }
