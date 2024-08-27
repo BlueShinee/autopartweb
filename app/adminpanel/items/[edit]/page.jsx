@@ -12,13 +12,10 @@ export default async function page({params}) {
     const pb = new PocketBase('http://127.0.0.1:8090');
     let record
 
-    if (params.edit == "create") {
-        let data = {"urls": {"array":[]},"big_desc":{"st-paragraph": "","buletlist": [],"end-paragraph": ""}}
-        record = await pb.collection('items').create(data)
-    }else{
+
         const rando = Math.random()
         record = await pb.collection('items').update(params.edit,{"itemid":rando});
-    }
+
 
 
     
