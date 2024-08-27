@@ -17,7 +17,8 @@
     "next-cloudinary": "^6.10.1",
     "pocketbase": "^0.21.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "sweetalert2": "^11.12.4"
   },
   "devDependencies": {
     "postcss": "^8",
