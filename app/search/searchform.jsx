@@ -14,6 +14,7 @@ function SearchForm(props){
     let [result,setresult] = useState([])
 
     async function handleclick() {
+        
        let response = await searching(serachInput.current.value)
         console.log(response);
         setresult(response)
