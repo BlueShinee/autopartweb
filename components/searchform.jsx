@@ -10,11 +10,10 @@ function SearchForm(props){
         <form class="w-full max-w-md" action={searching}>
             <div class="w-full p-4 flex items-center justify-center">
                 <fieldset className="ml-3 w-full px-4 py-2 rounded-full border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out">
-                    <legend className="px-2 text-blue-500">Brand</legend>
-                    <select className="w-full bg-transparent focus:outline-none" name="brand">
-                        <option value="leyland">Layland</option>
-                        <option value="nissan">Nissan</option>
-                        <option value="toyota">Toyota</option>
+                    <legend className="px-2 text-blue-500">Get</legend>
+                    <select className="w-full bg-transparent focus:outline-none" name="result">
+                        <option value="top">Top Results</option>
+                        <option value="all">All Results</option>
                     </select>
                 </fieldset>
                 <fieldset className="ml-3 w-full px-4 py-2 rounded-full border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out">
