@@ -17,9 +17,8 @@ function SearchForm(props){
     async function handleclick() {
         setIsLoaded(false)
         let response = await searching(serachInput.current.value)
-        setIsLoaded(true)
-        console.log(response);
         setresult(response)
+        setIsLoaded(true)
     }
 
     return(
