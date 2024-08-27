@@ -1,3 +1,5 @@
+
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -14,3 +16,168 @@ input[type=number] {
   -moz-appearance: textfield;
 }
 
+
+
+
+/*loading*/
+
+.loading-screen {
+	  width: 100%;
+	  height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	  flex-direction: column;
+    background: white;
+	  color: rgb(61, 61, 61);
+    position: fixed;
+    z-index: 1000;
+
+}
+.loading-screen h3 {
+	height: 30vh;
+}
+
+.loading-screen b {
+      color: #1080ff;
+  }
+.loading-screen c {
+      color: #7e7e7e;
+      font-size: 12px;
+  }
+.loading-screen h3 {
+    letter-spacing: 5px;
+    font-size: 13px;
+	  height: 30vh;
+    font-family: "Quicksand", sans-serif;
+}
+.progress-bar {
+	margin-top: 10px;
+	width: 100%; /* Adjust the width as needed */
+	height: 3px;
+	overflow: hidden;
+	background-color: #ffffff46; /* Background color of the progress bar */
+	border-radius: 5px;
+}
+
+.progress-bar-line {
+  height: 100%;
+  /* background-image: linear-gradient(to right, #FF0000, #FF7F00, #FFFF00, #00FF00, #0000FF, #7F00FF, #FF00FF); */
+  background-image: linear-gradient(to right, #ffffff, #ffffff);
+  animation: progress-bar-animation 7s linear forwards;
+}
+
+@keyframes progress-bar-animation {
+  0% {
+    width: 0%;
+  }
+  10% {
+    width: 20%;
+  }
+  30% {
+    width: 20%;
+  }
+  40% {
+    width: 30%;
+  }
+  45% {
+    width: 60%;
+  }
+  90% {
+    width: 70%;
+  }
+  100% {
+    width: 93%;
+  }
+}
+.loading-screen .loading-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loading-screen .loading-container .ring {
+    width: 250px;
+    height: 250px;
+    border: 0px solid #ffffff;
+    box-shadow: none;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.loading-screen .loading-container .ring:nth-child(1) {
+    border-bottom-width: 8px;
+    border-color: #00ffff;
+    animation: rotate1 2s linear infinite;
+}
+.loading-screen .loading-container .ring:nth-child(2) {
+	border-right-width: 8px;
+	border-color: rgb(8, 115, 255);
+	animation: rotate2 2s linear infinite;
+}
+
+.loading-screen .loading-container .ring:nth-child(3) {
+  border-right-width: 8px;
+  border-color: rgb(0, 255, 38);
+  animation: rotate3 2s linear infinite;
+}
+.loading-screen .loading-container .loading {
+	width: 100px;
+	margin-left: 20px;
+}
+.loading-screen .loading-container .loading::after {
+	content: 'Loading';
+	color: rgb(0, 0, 0);
+	font-size: 20px;
+	animation: loadingDotDot 3s infinite linear;
+  font-family: "Quicksand", sans-serif;
+}
+@keyframes rotate1 {
+	0% {
+		transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+	}
+	100% {
+		transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+	}
+}
+
+@keyframes rotate2 {
+	0% {
+		transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+	}
+	100% {
+		transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+	}
+}
+
+@keyframes rotate3 {
+	0% {
+		transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+	}
+	100% {
+		transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+	}
+}
+@keyframes loadingDotDot {
+	0% {
+		content: 'Loading   ';
+	}
+	20% {
+		content: 'Loading.  ';
+	}
+	40% {
+		content: 'Loading.. ';
+	}
+	60% {
+		content: 'Loading...';
+	}
+	80% {
+		content: 'Loading ..';
+	}
+	100% {
+		content: 'Loading  .';
+	}
+}
