@@ -40,7 +40,7 @@ export default async function Home() {
       src3="https://di-uploads-pod14.dealerinspire.com/toyotaoforlando/uploads/2019/04/car-parts-1024x683.jpg"
       />
       <SearchForm/>
-      <Itemlisting records={itemsdb} title="Search Results" isLoaded='false'/>
+
     </>
   )
 }
