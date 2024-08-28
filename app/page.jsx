@@ -13,9 +13,9 @@ export const revalidate = 5
 
 export default async function Home() {
   const pb = new PocketBase('http://127.0.0.1:8090');
-  const user = await getServerSession()
   const itemsdb = await pb.collection("items").getFullList()
   const settings = await pb.collection('settings').getOne('bussiness__data')
+  const user = await getServerSession()
   let registered = false 
       
   if (user?.user !== undefined) {

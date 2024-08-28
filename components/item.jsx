@@ -9,31 +9,17 @@ export const revalidate = 1
 export default async function item(props) {
     const pb = new PocketBase('http://127.0.0.1:8090');
     const itemid = props.params.wtf
-/*     const records = await pb.collection('items').getFullList()    
-     */
-
-
-
     const rando = Math.random()
-    
-
-    const record = await pb.collection('items').update(itemid,{"itemid":rando});
-
-    
-
-
-/* 
-    let record
-    records.map((v,i)=>{
-        if (v.id == itemid) {
-            record = v
-        }
-    }) */
-
-    console.log(record,itemid);
-    
+    const record = await pb.collection('items').update(itemid,{"itemid":rando})
     const photos = record.urls
-
+    function placeOrderClick(){
+        var count = 1
+        props.placeOrder({
+            user: props.user,
+            itemid,
+            count
+        })
+    }
 
     return (
         <div className="flex flex-col">
@@ -53,6 +39,9 @@ export default async function item(props) {
                     })}
                 </ul>
                 <span className="ml-6 mr-6 font-medium leading-5 mb-3">{record.big_desc["end-paragraph"]}</span>
+                <b style={{display: props.isLogged ? 'flex' : 'none'}} onClick={placeOrderClick()} className="flex justify-center items-center py-4 m-2 ml-5 hover:bg-green-700 transition-all active:scale-95   px-4 bg-green-500 w-55 rounded-md"><span className="text-white font-medium text-lg mr-2"><i className="fas fa-shopping-cart px-2"></i> PLACE ORDER</span></b>
+                <Link href={"/api/auth/signin"} style={{display: !props.isLogged ? 'flex' : 'none'}} onClick={null} className="flex justify-center items-center py-4 m-2 ml-5 hover:bg-blue-700 transition-all active:scale-95   px-4 bg-blue-500 w-55 rounded-md"><span className="text-white font-medium text-lg mr-2"><i className="fas fa-user px-2"></i> Sign In</span></Link>
+                <br/><br/><br/><br/>
             </div>
         </div>
     )
