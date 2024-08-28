@@ -1,3 +1,3 @@
-export default function placeOrder({user, itemid, count}){
-    console.log(user, itemid, count)
+export default function placeOrder({user, itemid, quantity, item, address}){
+    console.log(user, itemid, quantity, item, address)
 }

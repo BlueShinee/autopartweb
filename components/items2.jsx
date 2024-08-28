@@ -5,7 +5,7 @@ import { CldImage } from 'next-cloudinary';
 
 
 export default function items2(props) {
-  console.log(props.photoURL);
+  //console.log(props.photoURL);
   const imgurl = props.photoURL.array
 
   const [showimge , changeimage] = useState(0)
