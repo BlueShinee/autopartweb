@@ -10,7 +10,6 @@ export default function header(props) {
 
   return (
     <>
-    
     <Contactmenu Contactmenustate={Contactmenustate} menufunc={Contactmenustatechange}/>
     <Navbar profileImage={props.profileImage} isLogged={props.isLogged} brandname={ props.title || "Powered By Evelocore"} /*max character width of 15ch*/ /* Contactmenustate={Contactmenustate} */ menufunc={Contactmenustatechange} user={props.user}/>
     </>

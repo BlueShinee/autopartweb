@@ -1,9 +1,17 @@
 
 import PocketBase from "pocketbase"
+import Link from 'next/link';
 
 async function Contactmenu(props) {
   const pb = new PocketBase('http://127.0.0.1:8090');
   const settings = await pb.collection('settings').getOne('bussiness__data')
+  const WAhref = 
+  "https://wa.me/"+(
+    String(settings.hotline).replace(/ /gi,'').startsWith('7') ? 
+    '94'+(String(settings.hotline).replace(/ /gi,'')) : 
+    '94'+(String(settings.hotline).replace(/ /gi,'').replace("0",'').replace("94",''))
+    )
+  console.log(WAhref)
     return(
       <div className={`fixed ${props.Contactmenustate?"flex":"hidden"} flex justify-center top-0 items-center w-full z-20 h-screen content-center backdrop-blur-sm transition-all delay-500`}>
         <div className=' transition-all delay-200 absolute z-10 w-full top-0 h-screen' onClick={()=>{props.menufunc(false)}}></div>
@@ -23,10 +31,11 @@ async function Contactmenu(props) {
   
               </svg>
   
-              <span className='ml-1'>
-                {settings.hotline}
-              </span>
-  
+              <Link href={WAhref}>
+                <span className='ml-1'>
+                  {settings.hotline}
+                </span>
+              </Link>
             </div>
   
   
@@ -48,9 +57,6 @@ async function Contactmenu(props) {
               </span>
   
             </div>
-  
-  
-            
           </div>
         </div>
       </div>

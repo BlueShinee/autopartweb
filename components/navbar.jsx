@@ -5,8 +5,11 @@ import Image from "next/image"
 import Link from 'next/link'
 
 function Navbar(props){
-    let [navbar , navstate] = useState(false)
-  
+    let [navbar , setnavstate] = useState(false)
+  //const navbar = false
+  function navstate(nav){
+    setnavstate(nav)
+  }
     return(
     <div className="flex w-full h-16 flex-row justify-between items-center bg-blue-400 z-10 shadow-md select-none sticky">
       <div className='flex w-full h-16 flex-row justify-between items-center bg-blue-400'>
