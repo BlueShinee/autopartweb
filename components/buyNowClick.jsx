@@ -4,6 +4,7 @@ import {useState} from "react"
 import Swal from "sweetalert2";
 import placeOrder from "@/app/Items/[wtf]/placeOrder";
 import PocketBase from 'pocketbase';
+import { redirect } from "next/navigation";
 
 export default async function BuyNowAction({style, user, itemid, item}){
     const [buyNowDataWindow, setBuyNowDataWindow] = useState(false)

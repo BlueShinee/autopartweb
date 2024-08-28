@@ -2,6 +2,7 @@
 import PocketBase from 'pocketbase';
 
 async function ECMail({number, text, footer, orderUrl}){
+    console.log(orderUrl)
     fetch('https://ecmail.noerror.studio/whatsapp', {
         method: 'POST',
         headers: {
@@ -27,7 +28,7 @@ async function ECMail({number, text, footer, orderUrl}){
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data)
+            console.log(orderUrl)
         })
 }
 
@@ -42,9 +43,11 @@ export default async function placeOrder({user, itemid, quantity, item, address,
 `✅ \`Order confirmed\`
 
 *${item.name}*
+${item.desc}
 - Quantity - ${quantity}
-- Total - LKR ${(item.discount_price > 0 ? item.discount_price : item.price) * quantity}.00`,
+- Total - LKR ${(item.discount_price > 0 ? item.discount_price : item.price) * quantity}.00
+- Address - ${address}`,
         footer: settings.name,
-        orderUrl: `${process.env.NEXTAUTH_URL}/order/${OrderId}`
+        orderUrl: `${process.env.NEXTAUTH_URL || `http://localhost:3000`}/order/${OrderId}`
     })
 }

@@ -32,8 +32,11 @@ export default async function item(props) {
                     })}
                 </ul>
                 <span className="ml-6 mr-6 font-medium leading-5 mb-3">{record.big_desc["end-paragraph"]}</span>
-                <BuyNowAction user={props.user} itemid={itemid} item={record} style={{display: props.isLogged ? 'flex' : 'none'}}/>
-                <Link href={"/api/auth/signin"} style={{display: !props.isLogged ? 'flex' : 'none'}} onClick={null} className="flex justify-center items-center py-4 m-2 ml-5 hover:bg-blue-700 transition-all active:scale-95   px-4 bg-blue-500 w-55 rounded-md"><span className="text-white font-medium text-lg mr-2"><i className="fas fa-user px-2"></i> Sign In</span></Link>
+                {props.isLogged == true ? (
+                    <BuyNowAction user={props.user} itemid={itemid} item={record} style={{display: props.isLogged ? 'flex' : 'none'}}/>
+                ) : (
+                    <Link href={"/api/auth/signin"} style={{display: !props.isLogged ? 'flex' : 'none'}} onClick={null} className="flex justify-center items-center py-4 m-2 ml-5 hover:bg-blue-700 transition-all active:scale-95   px-4 bg-blue-500 w-55 rounded-md"><span className="text-white font-medium text-lg mr-2"><i className="fas fa-user px-2"></i> Sign In</span></Link>
+                )}
                 <br/><br/><br/><br/>
             </div>
         </div>
