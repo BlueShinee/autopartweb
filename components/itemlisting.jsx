@@ -14,7 +14,7 @@ function Itemlisting(props) {
             <div className='grid grid-cols-2 w-full justify-center items-center'>
                 {records.map((value,index)=>{
                     if (index < 20) {
-                        return <Card isLoaded={props.isLoaded} itemid={value.id} title={value.name} desc={value.desc} discount_price={value.discount_price} price={value.price} img={value.urls.array?.[0]}/> 
+                        return <Card idEditing={props.idEditing} isLoaded={props.isLoaded} itemid={value.id} title={value.name} desc={value.desc} discount_price={value.discount_price} price={value.price} img={value.urls.array?.[0]}/> 
                     }
                 })}
             </div>
@@ -34,7 +34,7 @@ function Card(props){
         ) : (
             <div className="w-full flex justify-center items-center select-text p-2">
                 <Link
-                    href={`/Items/${props.itemid}`}
+                    href={props.idEditing == true ? `/adminpanel/items/${props.itemid}` :  `/Items/${props.itemid}`}
                     className="hover:scale-105 transition-all w-48 h-72  rounded-xl shadow-lg border-2 border-gray-300 my-4 flex flex-col items-center overflow-hidden"
                 >
                 <div className="w-full aspect-1 h-64 border-b-gray-300 border-b-1 flex bg-gray-300">

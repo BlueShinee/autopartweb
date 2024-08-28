@@ -4,6 +4,7 @@ import PocketBase from 'pocketbase';
 import Image from 'next/image';
 import Link from 'next/link';
 import { CldImage } from 'next-cloudinary';
+import SearchForm from "@/app/search/searchform";
 
 
 export default function Body(props) {
@@ -11,13 +12,8 @@ export default function Body(props) {
     const records = props.items
 
   return (
-    <div className="w-full flex flex-col justify-center items-center">
-        <Link href={"/adminpanel/create"} className="w-[90%] py-2 px-4 flex justify-center items-center text-lg font-semibold text-white bg-green-400 rounded-md hover:bg-green-600 transition-all hover:cursor-pointer mb-4">New Item</Link>
-        <div className='flex w-full flex-col items-center'>
-            {records.map((value,index)=>{
-                    return <Card itemid={value.id} title={value.name} desc={value.desc} price={value.price} img={value.urls}/> 
-            })}
-        </div>
+    <div className="w-full flex flex-col justify-center items-center mt-4">
+        <SearchForm isEditing={true}/>
     </div>
   )
 }

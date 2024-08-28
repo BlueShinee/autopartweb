@@ -52,7 +52,7 @@ function SearchForm(props){
                     </button>
                 </div>
             </form>
-            <Itemlisting records={result} isLoaded={isLoaded} title="Search Results" />
+            <Itemlisting idEditing={props.isEditing || false} records={result} isLoaded={isLoaded} title="Search Results" />
         </>
     )
 }

@@ -6,7 +6,7 @@ import createItem from "./create.js"
 export default async function page() {
   return (
     <div>
-        <Link href={"/adminpanel/items"} className="flex justify-center items-center py-1 m-2 hover:bg-blue-500 transition-all active:scale-95   px-4 bg-blue-400 w-24 rounded-md"><span className="text-white font-medium mr-1 text-lg">Back</span><Image src={"/back-arrow.svg"}  width={20} height={20}/></Link>
+        <Link href={"/adminpanel"} className="m-4 flex justify-center items-center py-1 m-2 hover:bg-blue-500 transition-all active:scale-95   px-4 bg-blue-400 w-24 rounded-md"><span className="text-white font-medium mr-1 text-lg">Back</span><Image src={"/back-arrow.svg"}  width={20} height={20}/></Link>
 
         <form action={createItem} className="flex flex-col p-4">
             <span className="text-sm text-gray-600 font-medium mt-4">Item Name</span>
