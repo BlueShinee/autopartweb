@@ -27,7 +27,7 @@ export default async function BuyNowAction({style, user, itemid, item}){
         const quantity = formData.get('quantity')
         const address = formData.get('address')
         const total = formData.get('total') || document.getElementById('totalPriceDisplay').value
-        
+
         Swal.fire({
             title: `<strong>${item.name}</strong>`,
             text: 'Are you sure you want to place this order? Total is '+total,
@@ -52,7 +52,7 @@ export default async function BuyNowAction({style, user, itemid, item}){
             }
         }).then((result) => {
             if (result.isConfirmed) {
-                placeOrder({ user, itemid, quantity, item, address })
+                placeOrder({ user, itemid, quantity, item, address, phone:userdata['whatsapp_number'] })
             }
         });
     }
