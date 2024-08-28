@@ -21,7 +21,7 @@ export default function Body(props) {
                 <i className="fa fa-user text-5xl m-4"></i>
                 PROFILE
             </Link>
-            <Link href={"/adminpanel/items"} className="flex-col p-2 m-2 flex justify-center items-center text-lg font-semibold text-white bg-blue-400 rounded-md hover:bg-green-600 transition-all hover:cursor-pointer">
+            <Link href={"/adminpanel/settings"} className="flex-col p-2 m-2 flex justify-center items-center text-lg font-semibold text-white bg-blue-400 rounded-md hover:bg-green-600 transition-all hover:cursor-pointer">
                 <i className="fas fa-cogs text-5xl m-4"></i>
                 SETTINGS
             </Link>
