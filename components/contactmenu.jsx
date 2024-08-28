@@ -1,11 +1,14 @@
 
+import PocketBase from "pocketbase"
 
-function Contactmenu(props) {
+async function Contactmenu(props) {
+  const pb = new PocketBase('http://127.0.0.1:8090');
+  const settings = await pb.collection('settings').getOne('bussiness__data')
     return(
       <div className={`fixed ${props.Contactmenustate?"flex":"hidden"} flex justify-center top-0 items-center w-full z-20 h-screen content-center backdrop-blur-sm transition-all delay-500`}>
         <div className=' transition-all delay-200 absolute z-10 w-full top-0 h-screen' onClick={()=>{props.menufunc(false)}}></div>
         <div className='relative z-20 w-[95%] bg-blue-400 rounded-md shadow-md flex flex-col items-center'>
-          <span className='w-full flex justify-center items-center relative z-50 my-4 font-medium text-lg text-white'>Contacts</span>
+          <span className='w-full flex justify-center items-center relative z-50 my-4 font-medium text-lg text-white'>Hotline</span>
           <div className='w-full flex justify-center items- mb-6'> 
   
             <div className='flex justify-center items-center mr-1 hover:cursor-pointer active:cursor-grabbing transition-all hover:bg-green-500 active:scale-95 select-none py-3 px-2 text-white text-md font-medium bg-green-400 rounded-md shadow-md'>
@@ -21,7 +24,7 @@ function Contactmenu(props) {
               </svg>
   
               <span className='ml-1'>
-                +94 86 123 7985
+                {settings.hotline}
               </span>
   
             </div>
@@ -41,7 +44,7 @@ function Contactmenu(props) {
   
   
               <span className='ml-1'>
-                +94 86 123 7985
+                {settings.hotline}
               </span>
   
             </div>
