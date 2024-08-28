@@ -58,12 +58,12 @@ export default function upload(props) {
                 <input type="file" name="file" className="uploadFile w-64" accept="image/*"/>
                 <input type="text" name="itemid" className="hidden" value={props.record?.id}/>
                 <input type="submit" style={{display: isLoaded ? 'block' : 'none'}} onClick={()=>{
-                Swal.fire({
-                  title: "Image Uploading...",
-                  text: "Please wait while your image is being uploaded.",
-                  icon: "info",
-                })
-                setIsLoaded(false)
+                  /* Swal.fire({
+                    title: "Image Uploading...",
+                    text: "Please wait while your image is being uploaded.",
+                    icon: "info",
+                  }) */
+                  setIsLoaded(false)
                 }} value="Add File" className="py-1 px-2 bg-green-600 text-white font-medium rounded-md hover:cursor-pointer hover:bg-green-700"/>
                 <ShimmerCard style={{display: !isLoaded ? 'block' : 'none'}}/>
             {/* {isLoaded == true ? (
