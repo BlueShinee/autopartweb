@@ -10,7 +10,7 @@ function DescribeSection({title, text}){
         <section className='pl-2 border-l-4 border-blue-500 my-2'>
             <h2 className='text-blue-500'># {title}</h2>
             {text.map((text1)=>{
-                return (<li className='pl-3 text-[#888]'>{text1}</li>)
+                return (<li className='pl-3 text-[#666]'>{text1}</li>)
             })}
         </section>
     )
