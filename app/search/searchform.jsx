@@ -37,6 +37,7 @@ function SearchForm(props){
                     <fieldset className="ml-3 w-full px-4 py-2 rounded-full border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out">
                         <legend className="px-2 text-blue-500">Category</legend>
                         <select ref={categoryInput} className="w-full bg-transparent focus:outline-none" name="category">
+                            <option value="all">All</option>
                             <option value="engine">Engine</option>
                             <option value="gearbox">Gear Box</option>
                             <option value="injector">Injector</option>

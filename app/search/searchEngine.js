@@ -24,7 +24,7 @@ export default async function searching(input, category){
         temp.map((value,index)=>{
             temp[index] = value.toLowerCase()
         })
-        if(Category == category){
+        if(Category == category || category === "all"){
             serachInput.map((vv,ii)=>{
                 if (temp.includes(vv.toLowerCase())) {
                     if (!resultPool.includes(v)) {
