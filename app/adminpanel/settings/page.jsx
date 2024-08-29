@@ -41,6 +41,12 @@ export default async function page() {
             <span className="text-sm text-gray-600 font-medium mt-4">Bussiness Name</span>
             <input type="text" name="bussinessname" defaultValue={settings.name} className="border-2 border-gray-400 rounded-md p-1 focus:border-blue-500 outline-none" required/>
             
+            <span className="text-sm text-gray-600 font-medium mt-4">Google Map Location</span>
+            <input type="text" name="location_map" defaultValue={settings.location_map} className="border-2 border-gray-400 rounded-md p-1 focus:border-blue-500 outline-none" required/>
+
+            <span className="text-sm text-gray-600 font-medium mt-4">Google Map Embeded</span>
+            <input type="text" name="location_embed" defaultValue={settings.location_embed} className="border-2 border-gray-400 rounded-md p-1 focus:border-blue-500 outline-none" required/>
+
             <span className="text-sm text-gray-600 font-medium mt-4">Slider Image (1)</span>
             <input type="text" name="slider_1" defaultValue={settings.slider_1} className="border-2 border-gray-400 rounded-md p-1 focus:border-blue-500 outline-none" required/>
 

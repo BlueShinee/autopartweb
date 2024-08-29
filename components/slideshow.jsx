@@ -4,23 +4,28 @@ import { useState,useEffect } from "react";
 import Image from "next/image"
 import Link from 'next/link'
 
-
 function Slideshow(props) {
 
-    let [slidestate , slidestatechanger] = useState(1)
+    let [slidestate , slidestatechanger] = useState(0.5)
     let [clock, updateClock] = useState(`Welcome...`)
     
     function slidestatefun() {
       switch (slidestate) {
+        case 0:
+          slidestatechanger(0.5)
+        break;
+        case 0.5:
+          slidestatechanger(1)
+        break;
         case 1:
           slidestatechanger(2)
-          break;
-          case 2:
+        break;
+        case 2:
           slidestatechanger(3)
-          break;
-          case 3:
-          slidestatechanger(1)
-          break;
+        break;
+        case 3:
+          slidestatechanger(0)
+        break;
       }
       const d = new Date()
       updateClock(`${String(d.getFullYear())}/${String(d.getMonth()+1).padStart(2, '0')}/${String(d.getDate()).padStart(2, '0')} - ${d.toLocaleTimeString()}`)
@@ -36,6 +41,14 @@ function Slideshow(props) {
       return (
         <>
         <div className="w-full h-[250px] aspect-video flex flex-row overflow-hidden transition-all relative overflow-hidden">
+            <iframe 
+              src={props.location_embed || ""}
+              className="h-full w-full object-cover transition-all duration-500"
+              style={{ border: 0, width: slidestate < 1 ? '100%' : '0%'}}
+              allowfullscreen=""
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
             <img
               src={props.src1}
               alt="image 1"

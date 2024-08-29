@@ -27,7 +27,7 @@ function SearchForm(props){
         <>
             <form class="w-full flex items-end flex-col md:flex-row max-w-[900px]">
                 <div class="w-full p-4 flex items-center justify-center">
-                    <fieldset className="ml-3 w-full px-4 py-2 rounded-full border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out">
+                    <fieldset style={{display: props.isEditing ? 'none' : 'flex'}} className="ml-3 w-full px-4 py-2 rounded-full border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out">
                         <legend className="px-2 text-blue-500">Get</legend>
                         <select className="w-full bg-transparent focus:outline-none" name="result">
                             <option value="top">Top Results</option>

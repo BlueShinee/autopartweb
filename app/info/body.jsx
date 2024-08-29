@@ -55,7 +55,7 @@ export default function Body(props) {
           />
           <DescribeSection
             title={"Settings"}
-            text={['You can modify website components, including:', 'Name - Header title', 'Slider Image - URLs for homepage slider images', 'Max Quantity of Order - Limit the quantity that a customer can order.', 'Hotline - Hotline number. A WhatsApp redirect button is created automatically.']}
+            text={['You can modify website components, including:', 'Name - Header title', 'Google Map - Insert location url & embeded iframe\'s url', 'Slider Image - URLs for homepage slider images', 'Max Quantity of Order - Limit the quantity that a customer can order.', 'Hotline - Hotline number. A WhatsApp redirect button is created automatically.']}
           />
           <DescribeSection
             title={"Add Item"}

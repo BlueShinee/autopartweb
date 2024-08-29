@@ -9,7 +9,7 @@ import { CldImage } from 'next-cloudinary';
 function Itemlisting(props) {
     const records = props.records
     return (
-        <div className='flex flex-col items-center w-full mt-4 overflow-hidden p-3'>
+        <div className='flex flex-col items-center w-full mt-4 overflow-hidden p-3 min-h-[50vh]'>
             <h2 className='text-left w-full ml-9 font-semibold text-blue-500 text-lg'>{props.title}</h2>
             <div className='flex flex-row flex-wrap w-full justify-center items-center'>
                 {records.map((value,index)=>{
@@ -26,11 +26,11 @@ function Card(props){
     return (
         <>
         {props.isLoaded == false ? (
-            <>
+            <div className='flex flex-row'>
                 <ShimmerCard/>
                 <ShimmerCard/>
                 <ShimmerCard/>
-            </>
+            </div>
         ) : (
             <div className="flex justify-center items-center p-2">
                 <Link

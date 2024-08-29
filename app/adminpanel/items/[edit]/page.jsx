@@ -25,7 +25,6 @@ export default async function page({params}) {
 
     let userdata
     const records = await pb.collection('users').getFullList();
-    const items = await pb.collection('items').getFullList();
 
     records.map((v,i)=>{
         if (v.email === user.user.email) {

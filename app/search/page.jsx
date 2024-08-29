@@ -34,14 +34,14 @@ export default async function Home() {
   return (
     <>
     <Header title={settings.name} isLogged={isLogged} profileImage={user?.user.image || "https://cdn-icons-png.flaticon.com/512/3177/3177440.png"}/>
-      <Slideshow src1="https://st2.depositphotos.com/1005404/7746/i/450/depositphotos_77466908-stock-photo-car-parts.jpg"
-      
-      src2="https://www.valueresearchonline.com/content-assets/images/53124_auto-parts__w660__.webp"
-
-      src3="https://di-uploads-pod14.dealerinspire.com/toyotaoforlando/uploads/2019/04/car-parts-1024x683.jpg"
+      <Slideshow
+        src1={settings.slider_1}
+        src2={settings.slider_2}
+        src3={settings.slider_3}
+        location_embed ={settings.location_embed}
       />
       <SearchForm isEditing={false}/>
-      <Footer name={settings.name}/>
+      <Footer settings={settings}/>
     </>
   )
 }

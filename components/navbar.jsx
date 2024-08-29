@@ -38,7 +38,7 @@ function Navbar(props){
           <Image src={"/line-3.svg"} width={24} height={24} className='md:w-0 h-auto w-8 hover:cursor-pointer hover:scale-110 active:cursor-grabbing transition-all' onClick={(e)=>{if(navbar){navstate(false)}else{navstate(true)}}}/>
         </div>
       </div>
-      <div className={`flex flex-col overflow-x-hidden items-center absolute w-full h-auto ${navbar?"top-16":"-top-80"} bg-[#8FB4DF] -z-10 transition-all`}>
+      <div className={`flex flex-col overflow-x-hidden items-center absolute w-full h-auto ${navbar?"top-16":"-top-80"} bg-blue-500 -z-10 transition-all`}>
   
         <div className='flex w-full h-12 items-center justify-left mt-3 ml-8 px-7 border-l-4 border-white rounded-[3px]'>
           <div className='flex flex-row justify-center items-center hover:cursor-pointer transition-all active:cursor-grabbing hover:scale-105 active:scale-95'>
@@ -57,7 +57,7 @@ function Navbar(props){
         <div style={{display: props.isAdmin ? 'flex' : 'none'}} className='flex w-full h-12 items-center justify-left mt-3 ml-8 px-7 border-l-4 border-white rounded-[3px]'>
           <div className='flex flex-row justify-center items-center hover:cursor-pointer transition-all active:cursor-grabbing hover:scale-105 active:scale-95'>
             <Image className='w-auto h-4 mr-2' width={24} height={24} src={"/admin-settings.svg"}/>
-            <Link href={"/cart"} className='text-white font-semibold text-lg'>Admin Controll Panel</Link>
+            <Link href={"/adminpanel"} className='text-white font-semibold text-lg'>Admin Controll Panel</Link>
           </div>
         </div>
 

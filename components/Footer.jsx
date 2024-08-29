@@ -4,7 +4,7 @@
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 
-const Footer = ({ name }) => {
+const Footer = ({ settings }) => {
   const [showScrollToTop, setShowScrollToTop] = useState(false);
 
   const handleScroll = () => {
@@ -24,7 +24,7 @@ const Footer = ({ name }) => {
     <footer className="bg-blue-500 text-white py-6 relative">
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between p-4">
         <div className="mb-4 md:mb-0">
-          <span className="ml-2">&copy; {name || 'Evelocore'} | 2024</span>
+          <span className="ml-2">&copy; {settings.name || 'Evelocore'} | 2024</span>
         </div>
         <div className="flex items-center mb-4 md:mb-0">
           <Image src="/copyright.png" alt="Copyright" width={30} height={30} />
@@ -33,7 +33,13 @@ const Footer = ({ name }) => {
       </div>
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between p-4">
         <div className="flex space-x-4 mb-4 md:mb-0 px-2">
-          <a href="https://wa.me/94776115376" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 transition-transform transform hover:scale-110">
+          <a href={
+            "https://wa.me/"+(
+                String(settings.hotline).replace(/ /gi,'').startsWith('7') ? 
+                '94'+(String(settings.hotline).replace(/ /gi,'')) : 
+                '94'+(String(settings.hotline).replace(/ /gi,'').replace("0",'').replace("94",''))
+                )
+          } target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 transition-transform transform hover:scale-110">
             <i className="fa-brands fa-whatsapp fa-lg"></i>
           </a>
           <a href="https://t.me/kumuthu" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 transition-transform transform hover:scale-110">
@@ -45,7 +51,7 @@ const Footer = ({ name }) => {
         </div>
         <div className="text-center mb-4 md:mb-0">
           <a 
-            href="https://maps.app.goo.gl/pQseN6rfyMHNRtoYA" 
+            href={settings.location_map}
             target="_blank" 
             rel="noopener noreferrer" 
             className="text-white hover:underline transition-transform transform hover:scale-105 border border-white px-3 py-2 rounded-lg flex items-center space-x-2"

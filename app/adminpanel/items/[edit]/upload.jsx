@@ -24,10 +24,10 @@ export default function upload(props) {
 
     return (
         <div>
-            <div className="grid grid-cols-3 w-full gap-2 px-4">
+            <div className="flex flex-row items-center justify-center wrap w-full px-4">
                 {photoArray.map((v,i)=>{
                     return(
-                        <div className="w-[100%] p-[10%] mb-4 h-24 rounded-md transition-all hover:bg-red-600  border-2 border-gray-400 flex justify-center items-center">
+                        <div className="w-[130px] mb-4 h-[130px] m-2 rounded-md transition-all hover:bg-red-600  border-2 border-gray-400 flex justify-center items-center p-2">
                             <CldImage src={v} width={150} height={150} onClick={()=>{
                                 Swal.fire({
                                     title: "Are you sure?",

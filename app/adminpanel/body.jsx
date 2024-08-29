@@ -9,33 +9,47 @@ import { CldImage } from 'next-cloudinary';
 export default function Body(props) {
 
   return (
-    <div className="w-full min-h-[100vh] flex flex-col justify-start items-center overflow-x-hidden">
+    <div className="w-full min-h-[100vh] flex flex-col md:flex-row justify-start items-start overflow-x-hidden">
         <div className='flex flex-wrap w-full flex-row justify-left items-left mt-3 pl-2'>
-            <Link href={"/"} className="flex-col p-2 m-2 flex justify-center items-center text-lg font-semibold text-white bg-blue-400 rounded-md hover:bg-green-600 transition-all hover:cursor-pointer">
+            <Link href={"/"} className="flex-col p-2 m-2 flex justify-center items-center text-lg font-semibold text-white bg-blue-500 rounded-md hover:bg-[#888] transition-all hover:cursor-pointer">
                 <i className="fas fa-home text-5xl m-4"></i>
                 HOME
             </Link>
-            <Link href={"/profile"} className="flex-col p-2 m-2 flex justify-center items-center text-lg font-semibold text-white bg-blue-400 rounded-md hover:bg-green-600 transition-all hover:cursor-pointer">
+            <Link href={"/profile"} className="flex-col p-2 m-2 flex justify-center items-center text-lg font-semibold text-white bg-blue-500 rounded-md hover:bg-[#888] transition-all hover:cursor-pointer">
                 <i className="fa fa-user text-5xl m-4"></i>
                 PROFILE
             </Link>
-            <Link href={"/adminpanel/settings"} className="flex-col p-2 m-2 flex justify-center items-center text-lg font-semibold text-white bg-blue-400 rounded-md hover:bg-green-600 transition-all hover:cursor-pointer">
+            <Link href={"/adminpanel/settings"} className="flex-col p-2 m-2 flex justify-center items-center text-lg font-semibold text-white bg-blue-500 rounded-md hover:bg-[#888] transition-all hover:cursor-pointer">
                 <i className="fas fa-cogs text-5xl m-4"></i>
                 SETTINGS
             </Link>
         </div>
         <div className='flex flex-wrap w-full flex-row justify-left items-left mt-3 pl-2'>
-            <Link href={"/adminpanel/create"} className="flex-col p-2 m-2 flex justify-center items-center text-lg font-semibold text-white bg-green-400 rounded-md hover:bg-green-600 transition-all hover:cursor-pointer">
+            <Link href={"/adminpanel/create"} className="flex-col p-2 m-2 flex justify-center items-center text-lg font-semibold text-white bg-green-500 rounded-md hover:bg-[#888] transition-all hover:cursor-pointer">
                 <i className="fa fa-plus text-5xl m-4"></i>
                 ADD ITEM
             </Link>
-            <Link href={"/adminpanel/items"} className="flex-col p-2 m-2 flex justify-center items-center text-lg font-semibold text-white bg-green-400 rounded-md hover:bg-green-600 transition-all hover:cursor-pointer">
-                <i className="fas fa-box text-5xl m-4"></i>
+            <Link href={"/adminpanel/items"} className="flex-col p-2 m-2 flex justify-center items-center text-lg font-semibold text-white bg-green-500 rounded-md hover:bg-[#888] transition-all hover:cursor-pointer">
+                <i className="fas fa-edit text-5xl m-4"></i>
                 EDIT ITEMS
             </Link>
-            <Link href={"/adminpanel/orders"} className="flex-col p-2 m-2 flex justify-center items-center text-lg font-semibold text-white bg-green-400 rounded-md hover:bg-green-600 transition-all hover:cursor-pointer">
+            <Link href={"/adminpanel/orders"} className="flex-col p-2 m-2 flex justify-center items-center text-lg font-semibold text-white bg-green-500 rounded-md hover:bg-[#888] transition-all hover:cursor-pointer">
                 <i className="fas fa-shopping-cart text-5xl m-4"></i>
                 ORDERS
+            </Link>
+        </div>
+        <div className='flex flex-wrap w-full flex-row justify-left items-left mt-3 pl-2'>
+            <Link href={"wa.me/94776115376"} className="flex-col p-2 m-2 flex justify-center items-center text-lg font-semibold text-white bg-[#ff1043] rounded-md hover:bg-[#888] transition-all hover:cursor-pointer">
+                <i className="fa-brands fa-whatsapp text-5xl m-4"></i>
+                SUPPORT
+            </Link>
+            <Link href={"wa.me/94776115376"} className="flex-col p-2 m-2 flex justify-center items-center text-lg font-semibold text-white bg-[#ff1043] rounded-md hover:bg-[#888] transition-all hover:cursor-pointer">
+                <i className="fa fa-ban text-5xl m-4"></i>
+                REPORT
+            </Link>
+            <Link href={"/info"} className="flex-col p-2 m-2 flex justify-center items-center text-lg font-semibold text-white bg-[#ff1043] rounded-md hover:bg-[#888] transition-all hover:cursor-pointer">
+                <i className="fas fa-question text-5xl m-4"></i>
+                HOW TO USE
             </Link>
         </div>
     </div>
