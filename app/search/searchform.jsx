@@ -24,7 +24,7 @@ function SearchForm(props){
 
     return(
         <>
-            <form class="w-full max-w-md">
+            <form class="w-full flex items-end flex-col md:flex-row max-w-[900px]">
                 <div class="w-full p-4 flex items-center justify-center">
                     <fieldset className="ml-3 w-full px-4 py-2 rounded-full border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out">
                         <legend className="px-2 text-blue-500">Get</legend>
@@ -46,7 +46,13 @@ function SearchForm(props){
                     </fieldset>
                 </div>
                 <div class="w-full p-4 flex items-center justify-center">
-                    <input ref={serachInput} type="text" name="Search" placeholder="Search Auto Parts..." class="ml-3 w-full px-4 py-2 rounded-full border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out"/>
+                    <input ref={serachInput} 
+                        onKeyDown={(e) => {
+                            if (e.key === 'Enter') {
+                                handleclick()
+                                e.preventDefault()
+                            }
+                        }}  type="text" name="Search" placeholder="Search Auto Parts..." class="ml-3 w-full px-4 py-3 rounded-full border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out"/>
                     <button type="button" onClick={handleclick} class="ml-3 bg-blue-500 text-white rounded-full p-2 px-3 focus:outline-none hover:bg-blue-600 transition duration-300 ease-in-out">
                         <i class="fas fa-search"></i>
                     </button>

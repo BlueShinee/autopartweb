@@ -17,12 +17,14 @@ export default async function Home() {
   const settings = await pb.collection('settings').getOne('bussiness__data')
   const user = await getServerSession()
   let registered = false 
+  let userdata = {}
       
   if (user?.user !== undefined) {
     const record = await pb.collection('users').getFullList()
     record.map((v,i)=>{
       if (v.email == user.user.email) {
         registered = true
+        userdata = v
       }
     })
     if (!registered) {
@@ -30,10 +32,9 @@ export default async function Home() {
     }
   }
   
-
   return (
     <>
-      <Header title={settings.name} isLogged={user?.user !== undefined?true:false} profileImage={user?.user.image || "https://cdn-icons-png.flaticon.com/512/3177/3177440.png"}/>
+      <Header title={settings.name} isAdmin={userdata["is_admin"]} isLogged={user?.user !== undefined?true:false} profileImage={user?.user.image || "https://cdn-icons-png.flaticon.com/512/3177/3177440.png"}/>
       <Slideshow 
         src1={settings.slider_1}
         src2={settings.slider_2}

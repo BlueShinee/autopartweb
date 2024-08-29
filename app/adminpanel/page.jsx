@@ -36,7 +36,7 @@ export default async function page() {
     
   return (
     <div className='flex flex-col'>
-        <Header title="Admin Panel"  isLogged={user?.user !== undefined?true:false} profileImage={user?.user.image || "https://cdn-icons-png.flaticon.com/512/3177/3177440.png"}/>
+        <Header title="Admin Panel" isAdmin={userdata["is_admin"]} isLogged={user?.user !== undefined?true:false} profileImage={user?.user.image || "https://cdn-icons-png.flaticon.com/512/3177/3177440.png"}/>
         <Body items={items}/>
     </div>
   )

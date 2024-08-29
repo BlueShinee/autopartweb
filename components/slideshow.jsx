@@ -1,6 +1,8 @@
 "use client"
 
 import { useState,useEffect } from "react";
+import Image from "next/image"
+import Link from 'next/link'
 
 
 function Slideshow(props) {
@@ -32,7 +34,8 @@ function Slideshow(props) {
     )
     
       return (
-        <div className="w-full aspect-video flex flex-row overflow-hidden transition-all relative overflow-hidden">
+        <>
+        <div className="w-full h-[250px] aspect-video flex flex-row overflow-hidden transition-all relative overflow-hidden">
             <img
               src={props.src1}
               alt="image 1"
@@ -53,6 +56,10 @@ function Slideshow(props) {
             />
             <b className="fixed z-2 right-3 absolute bottom-0 top-[87%] text-white" style={{textShadow: '00 1px 10px black'}}>{clock}</b>
         </div>
+        <Link href={"/cart"} className='text-white font-semibold text-lg mx-2 '>
+          <Image src={"/shopping-cart.svg"} width={65} height={65} className='mr-2 hover:cursor-pointer hover:scale-110 active:cursor-grabbing transition-all fixed z-3 bg-blue-400 bottom-6 right-6 p-5 rounded-[20px]'/>
+        </Link>
+        </>
       );
     }
     
