@@ -6,7 +6,7 @@ import placeOrder from "@/app/Items/[wtf]/placeOrder";
 import { redirect } from "next/navigation";
 
 export default function BuyNowAction({style, user, itemid, item, settings, records}){
-    const [buyNowDataWindow, setBuyNowDataWindow] = useState(false) 
+    const [buyNowDataWindow, setBuyNowDataWindow] = useState(false)
 
     if (user == null) {
         redirect("/api/auth/signin")
