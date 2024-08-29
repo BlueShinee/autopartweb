@@ -15,8 +15,9 @@ export default async function item(props) {
     const photos = record.urls
 
     return (
-        <div className="flex flex-col">
-            <Link href={"/"} className="flex justify-center items-center py-1 m-2 ml-5 hover:bg-blue-500 transition-all active:scale-95   px-4 bg-blue-400 w-24 rounded-md"><span className="text-white font-medium text-lg mr-2">Back</span><Image src={"/back-arrow.svg"}  width={20} height={20}/></Link>
+        <>
+        <Link href={"/"} className="flex justify-center items-center py-1 m-2 ml-5 hover:bg-blue-500 transition-all active:scale-95   px-4 bg-blue-400 w-24 rounded-md"><span className="text-white font-medium text-lg mr-2">Back</span><Image src={"/back-arrow.svg"}  width={20} height={20}/></Link>
+        <div className="flex flex-col md:flex-row items-start">
             <div className="w-full flex flex-col justify-center items-center">
                 <Items2 photoURL={photos} record={record} photos={photos}/>
             </div>
@@ -40,5 +41,6 @@ export default async function item(props) {
                 <br/><br/><br/><br/>
             </div>
         </div>
+        </>
     )
 }

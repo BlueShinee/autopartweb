@@ -16,62 +16,66 @@ function DescribeSection({title, text}){
     )
 }
 export default function Body(props) {
-
-    const records = props.items
-
-  return (
-    <div className="w-full h-full flex flex-col justify-center items-center overflow-x-hidden">
-        <div className='flex flex-wrap w-full flex-row justify-left items-left mt-3 pl-2'>
-            <b>This is the online shopping platform of {props.settings.name}. You can order any auto part at this.</b>
-            <br/><br/>
-            <b className='mt-6'>Instructions for users</b>
-            <DescribeSection
-                title={"Items"}
-                text={['Item has 5 details in this scope.', 'Name, Images, Category, Brand Name, Description, Price, Discount Price, Bullets']}
-            />
-            <DescribeSection
-                title={"Popular items"}
-                text={['The most popular or most searching 20 items in stock will be displaying as popular items.']}
-            />
-            <DescribeSection
-                title={"Profile"}
-                text={['You can change Number & Address by clicking Edit option']}
-            />
-            <DescribeSection
-                title={"Search algorythms"}
-                text={['Search bar is finding your keywords with item\'s name & brand', 'Category is a filter when you are searching something, you will got only results of selected category.']}
-            />
-            <DescribeSection
-                title={"Buy item"}
-                text={['You need login to place order.', 'When you are going to buy something it asked you quantity and display your total price.', 'You got a feedback about order on WhatsApp. You can view your order using the \"View Order\" button in WhatsApp message.', 'You can change home address for current order.']}
-            />
-            <DescribeSection
-                title={"Cart"}
-                text={['You can see all your pending orders on Cart.']}
-            />
-            <b className='mt-6'>Admin Controll Panel</b>
-            <DescribeSection
-                title={"Admin Panel"}
-                text={['Click on Admin_Panel on navigation bar, then you will redirect to the admin panel.']}
-            />
-            <DescribeSection
-                title={"Add Item"}
-                text={['Click on Add Item button', 'Enter Name & Price, then click on create.', 'After that you will redirect the editing page automatically.', 'Fill other details and click on save']}
-            />
-            <DescribeSection
-                title={"Add images to item"}
-                text={['Click on [+ Select Image] button and select an image 1x1 size.', 'Then click on Add image button', 'If you want to delete an image, click on the image and confirm delete action.', 'Save it']}
-            />
-            <DescribeSection
-                title={"Orders"}
-                text={['You got the customer orders in there. After you deliver it, you should click on [Confirm Order] button. Then customer got a notification as Order Confirmed on WhatsApp.']}
-            />
+    const records = props.items;
+  
+    return (
+      <div className="w-full h-full flex flex-col justify-center items-center overflow-x-hidden">
+        <div className='flex flex-wrap w-full flex-col justify-left items-left mt-3 px-2'>
+          <h1 className='text-xl p-2 border-l-4 border-blue-500 bg-blue-100'>Welcome to the online shopping platform of {props.settings.name}. You can order any auto part here.</h1>
+          <br/>
+          <b className='mt-6'>User Instructions</b>
+          <DescribeSection
+            title={"Items"}
+            text={['Each item contains following details.', 'Name, Images, Category, Brand Name, Description, Price, Discount Price, and Bullets.']}
+          />
+          <DescribeSection
+            title={"Popular Items"}
+            text={['The top 20 most popular or frequently searched items in stock are displayed as popular items.']}
+          />
+          <DescribeSection
+            title={"Profile"}
+            text={['You can update your phone number and address by clicking the Edit option.']}
+          />
+          <DescribeSection
+            title={"Search Algorithms"}
+            text={['The search bar finds items by matching your keywords with the item\'s name and brand.', 'The category filter allows you to refine search results to the selected category.']}
+          />
+          <DescribeSection
+            title={"Purchasing Items"}
+            text={['You need to log in to place an order.', 'When you proceed to buy something, you will be asked to specify the quantity, and your total price will be displayed.', 'You will receive an order confirmation on WhatsApp. You can view your order by clicking the "View Order" button in the WhatsApp message.', 'You can change your home address for the current order.']}
+          />
+          <DescribeSection
+            title={"Cart"}
+            text={['You can view all your pending orders in the Cart.']}
+          />
+          <b className='mt-6'>Admin Control Panel</b>
+          <DescribeSection
+            title={"Admin Panel"}
+            text={['Click on "Admin Panel" in the navigation bar to be redirected to the admin panel.']}
+          />
+          <DescribeSection
+            title={"Settings"}
+            text={['You can modify website components, including:', 'Name - Header title', 'Slider Image - URLs for homepage slider images', 'Max Quantity of Order - Limit the quantity that a customer can order.', 'Hotline - Hotline number. A WhatsApp redirect button is created automatically.']}
+          />
+          <DescribeSection
+            title={"Add Item"}
+            text={['Click on the "Add Item" button.', 'Enter the Name and Price, then click on "Create."', 'You will be automatically redirected to the editing page.', 'Fill in the other details and click "Save."']}
+          />
+          <DescribeSection
+            title={"Add Images to Item"}
+            text={['Click on the "[+ Select Image]" button and select a 1x1 size image.', 'Then, click on "Add Image."', 'To delete an image, click on the image and confirm the delete action.', 'Save your changes.']}
+          />
+          <DescribeSection
+            title={"Orders"}
+            text={['Customer orders are displayed here.', 'After you deliver an order, click the "Confirm Order" button.', 'The customer will then receive an "Order Confirmed" notification on WhatsApp.']}
+          />
         </div>
         <div className='flex flex-wrap w-full flex-row justify-left items-left mt-3 pl-2'>
         </div>
-    </div>
-  )
-}
+      </div>
+    );
+  }
+  
 
 
 function Card(props) {

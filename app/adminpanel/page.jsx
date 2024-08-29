@@ -6,6 +6,7 @@ import { getServerSession } from "next-auth";
 import PocketBase from 'pocketbase';
 import { redirect } from "next/navigation";
 import Header from "@/components/header";
+import Footer from '@/components/Footer';
 
 export const revalidate = 1
 
@@ -20,7 +21,7 @@ export default async function page() {
 
     let userdata
     const records = await pb.collection('users').getFullList();
-    const items = await pb.collection('items').getFullList();
+    const settings = await pb.collection('settings').getOne('bussiness__data')
 
     records.map((v,i)=>{
         if (v.email === user.user.email) {
@@ -31,13 +32,12 @@ export default async function page() {
     if (userdata["is_admin"] == false) {
         redirect("/")
     }
-
-    console.log(items)
     
   return (
     <div className='flex flex-col'>
         <Header title="Admin Panel" isAdmin={userdata["is_admin"]} isLogged={user?.user !== undefined?true:false} profileImage={user?.user.image || "https://cdn-icons-png.flaticon.com/512/3177/3177440.png"}/>
-        <Body items={items}/>
+        <Body/>
+        <Footer name={settings.name}/>
     </div>
   )
 }

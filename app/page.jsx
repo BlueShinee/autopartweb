@@ -8,7 +8,7 @@ import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
 import { useSession, signIn, signOut } from "next-auth/react"
 import Searchbar from "@/components/searchbar";
-
+import Footer from '@/components/Footer'
 export const revalidate = 5
 
 export default async function Home() {
@@ -45,6 +45,7 @@ export default async function Home() {
       />
       <Searchbar/>
       <Itemlisting records={itemsdb} title="Populer Products"/>
+      <Footer name={settings.name}/>
     </>
   )
 }

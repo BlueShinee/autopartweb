@@ -8,10 +8,8 @@ import { CldImage } from 'next-cloudinary';
 
 export default function Body(props) {
 
-    const records = props.items
-
   return (
-    <div className="w-full h-full flex flex-col justify-center items-center overflow-x-hidden">
+    <div className="w-full min-h-[100vh] flex flex-col justify-start items-center overflow-x-hidden">
         <div className='flex flex-wrap w-full flex-row justify-left items-left mt-3 pl-2'>
             <Link href={"/"} className="flex-col p-2 m-2 flex justify-center items-center text-lg font-semibold text-white bg-blue-400 rounded-md hover:bg-green-600 transition-all hover:cursor-pointer">
                 <i className="fas fa-home text-5xl m-4"></i>

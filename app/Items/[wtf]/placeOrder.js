@@ -40,7 +40,7 @@ export default async function placeOrder({user, itemid, quantity, item, address,
     await ECMail({
         number: String(phone).startsWith('7') ? '94'+phone : phone,
         text:
-`✅ \`Order confirmed\`
+`✅ \`Order Placed\`
 
 *${item.name}*
 ${item.desc}
