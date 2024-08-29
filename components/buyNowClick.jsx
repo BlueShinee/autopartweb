@@ -1,8 +1,8 @@
 "use client"
 
 import {useState} from "react"
-import Swal from "sweetalert2";
-import placeOrder from "@/app/Items/[wtf]/placeOrder";
+import Swal from "sweetalert2"
+import placeOrder from "@/app/Items/[wtf]/placeOrder"
 import { redirect } from "next/navigation";
 
 export default function BuyNowAction({style, user, itemid, item, settings, records}){
