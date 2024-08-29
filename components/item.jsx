@@ -13,7 +13,7 @@ export default async function item(props) {
     const rando = Math.random()
     const record = await pb.collection('items').update(itemid,{"itemid":rando})
     const settings = await pb.collection('settings').getOne('bussiness__data')
-    const records = await pb.collection('users').getFullList();
+    const records = await pb.collection('users').getFullList()
     const photos = record.urls
 
     return (

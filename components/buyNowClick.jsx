@@ -13,7 +13,6 @@ export default function BuyNowAction({style, user, itemid, item, settings, recor
     }
 
     let userdata
-
     records.map((v,i)=>{
         if (v.email === user.user.email) {
             userdata = v
