@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
 
 
-export default async function searching(input){
+export default async function searching(input, category){
         
     const pb = new PocketBase('http://127.0.0.1:8090');
 
@@ -19,18 +19,20 @@ export default async function searching(input){
     records.map((v,i)=>{
         let ar1 = (v.name).split(" ")
         let ar2 = [v.model,v.type]
+        let Category = v.type
         let temp = ar1.concat(ar2)
-        console.log(temp);
         temp.map((value,index)=>{
             temp[index] = value.toLowerCase()
         })
-        serachInput.map((vv,ii)=>{
-            if (temp.includes(vv.toLowerCase())) {
-                if (!resultPool.includes(v)) {
-                    resultPool.push(v)
+        if(Category == category){
+            serachInput.map((vv,ii)=>{
+                if (temp.includes(vv.toLowerCase())) {
+                    if (!resultPool.includes(v)) {
+                        resultPool.push(v)
+                    }
                 }
-            }
-        })
+            })
+        }
         
     })
     

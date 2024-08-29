@@ -24,7 +24,7 @@ export default async function item(props) {
                 <span className="ml-6 mb-1 font-semibold text-2xl line-clamp-2 drop-shadow-lg">{record.name}</span>
                 <span className="ml-6 mb-4 text-xl font-semibold text-blue-600 drop-shadow-lg">{record.discount_price > 0 ? (<><s className='text-red-400 text-xs'>RS. {record.price}/=</s> <i className='text-gray-400 text-xs'> {Math.round(((record.price - record.discount_price) / record.price) * 100)}% discount</i><br/>Rs.{record.discount_price} /=</>) : (<>Rs.{record.price} /=</>)}</span>
                 <span className="ml-6 ">Model : {record.model}</span>
-                <span className="ml-6 mb-6">Type : {record.type}</span>
+                <span className="ml-6 mb-6">Category : {record.type}</span>
                 <span className="ml-6 mr-6 font-medium leading-5 mb-3">{record.big_desc["st-paragraph"]}</span>
                 <ul className="ml-6 mb-3">
                     {record.big_desc['buletlist'].map((v,i)=>{

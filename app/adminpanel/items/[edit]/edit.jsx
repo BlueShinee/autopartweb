@@ -44,8 +44,15 @@ export default function Edit(props) {
             <span className="text-sm text-gray-600 font-medium mt-2">Model name</span>
             <input type="text" name="model" defaultValue={props.record?.model} className="border-2 border-gray-400 rounded-md p-1 focus:border-blue-500 outline-none"/>
 
-            <span className="text-sm text-gray-600 font-medium mt-2 ">Type</span>
-            <input type="text" name="Type" defaultValue={props.record?.type} className="border-2 mb-4 border-gray-400 rounded-md p-1 focus:border-blue-500 outline-none"/>
+            <span className="text-sm text-gray-600 font-medium mt-2 ">Category</span>
+            <select type="text" name="Type" defaultValue={props.record?.type} className="border-2 mb-4 border-gray-400 rounded-md p-1 focus:border-blue-500 outline-none">
+              <option value="engine">Engine</option>
+              <option value="gearbox">Gear Box</option>
+              <option value="injector">Injector</option>
+              <option value="bodyparts">Body Parts</option>
+              <option value="differencel">Differencel</option>
+              <option value="other">Other</option>
+            </select>
 
             <span className="text-sm text-gray-600 font-medium mt-2 ">Big Description</span>
             <span className="text-sm text-gray-600 font-medium mt-4 ">First Paragraph</span>
