@@ -3,20 +3,16 @@
 import {useState} from "react"
 import Swal from "sweetalert2";
 import placeOrder from "@/app/Items/[wtf]/placeOrder";
-import PocketBase from 'pocketbase';
 import { redirect } from "next/navigation";
 
-export default async function BuyNowAction({style, user, itemid, item}){
+export default function BuyNowAction({style, user, itemid, item, settings, records}){
     const [buyNowDataWindow, setBuyNowDataWindow] = useState(false)
-    const pb = new PocketBase('http://127.0.0.1:8090')
-    const settings = await pb.collection('settings').getOne('bussiness__data')
 
     if (user == null) {
         redirect("/api/auth/signin")
     }
 
     let userdata
-    const records = await pb.collection('users').getFullList();
 
     records.map((v,i)=>{
         if (v.email === user.user.email) {

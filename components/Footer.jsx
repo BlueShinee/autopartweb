@@ -45,8 +45,8 @@ const Footer = ({ settings }) => {
           <a href="https://t.me/kumuthu" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 transition-transform transform hover:scale-110">
             <i className="fa-brands fa-telegram fa-lg"></i>
           </a>
-          <a href="https://github.com/prabhasha2006" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 transition-transform transform hover:scale-110">
-            <i className="fa-brands fa-github fa-lg"></i>
+          <a href="https://web.facebook.com/sagarika.uduwavidana" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 transition-transform transform hover:scale-110">
+            <i className="fa-brands fa-facebook fa-lg"></i>
           </a>
         </div>
         <div className="text-center mb-4 md:mb-0">
@@ -62,12 +62,18 @@ const Footer = ({ settings }) => {
         </div>
         <div className="text-center">
           <a 
-            href="https://evelocore.com" 
+            href={
+                "https://wa.me/"+(
+                    String(settings.hotline).replace(/ /gi,'').startsWith('7') ? 
+                    '94'+(String(settings.hotline).replace(/ /gi,'')) : 
+                    '94'+(String(settings.hotline).replace(/ /gi,'').replace("0",'').replace("94",''))
+                    )
+              } 
             target="_blank" 
             rel="noopener noreferrer" 
             className="text-white hover:underline transition-transform transform hover:scale-105"
           >
-            Developer
+            Hotline
           </a>
         </div>
       </div>
