@@ -26,8 +26,6 @@ export default async function page() {
             userdata = v
         }
     })
-
-    console.log(userdata["address"]);
     
   return (
     <>

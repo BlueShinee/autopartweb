@@ -92,4 +92,4 @@ function Slideshow(props) {
       )
     }
 
-    export default Slideshow
+  export default Slideshow

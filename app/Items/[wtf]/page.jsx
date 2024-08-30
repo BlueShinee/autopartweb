@@ -5,7 +5,6 @@ import PocketBase from 'pocketbase';
 import { getServerSession } from "next-auth";
 import placeOrder from "@/components/placeOrder";
 
-
 export const dynamic = 'force-dynamic';
 export const revalidate = 1
 

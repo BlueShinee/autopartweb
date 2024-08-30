@@ -108,3 +108,4 @@ const Footer = ({ settings }) => {
 };
 
 export default Footer;
+

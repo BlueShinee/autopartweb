@@ -116,7 +116,7 @@ function Card({props, isLogged, user}){
                             <Link href={`/Items/${props.itemid}`} className='flex items-center'>
                                 <span className="p-1 px-3 border-2 border-blue-500 text-blue-500 text-l rounded-1 font-bold mt-3 mr-2">View Item</span>
                             </Link>
-                            { /* props.state !== "delivered" */ 1 == 1 ? (<>
+                            { /* props.state !== "delivered" */ 1 == 1 ? ( <>
                                 <span className="p-1 px-3 border-2 text-green-600 text-l font-bold mt-3 mr-2 cursor-pointer" onClick={()=>{
                                     manageOrder(
                                         {
