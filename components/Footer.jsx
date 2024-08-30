@@ -45,7 +45,7 @@ const Footer = ({ settings }) => {
           <a href="https://t.me/kumuthu" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 transition-transform transform hover:scale-110">
             <i className="fa-brands fa-telegram fa-lg"></i>
           </a>
-          <a href="https://web.facebook.com/sagarika.uduwavidana" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 transition-transform transform hover:scale-110">
+          <a href={settings.facebook} target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 transition-transform transform hover:scale-110">
             <i className="fa-brands fa-facebook fa-lg"></i>
           </a>
         </div>

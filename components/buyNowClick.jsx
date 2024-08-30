@@ -2,10 +2,11 @@
 
 import {useState} from "react"
 import Swal from "sweetalert2"
-import placeOrder from "@/app/Items/[wtf]/placeOrder"
+import placeOrder from "./placeOrder"
 import { redirect } from "next/navigation";
 
 export default function BuyNowAction({style, user, itemid, item, settings, records}){
+    console.log("ITEM ID "+ itemid)
     const [buyNowDataWindow, setBuyNowDataWindow] = useState(false)
 
     if (user == null) {
@@ -21,7 +22,7 @@ export default function BuyNowAction({style, user, itemid, item, settings, recor
 
     async function placeOrderClick(formData){
         const quantity = formData.get('quantity')
-        const address = formData.get('address')
+        const address = userdata["address"]
         const total = formData.get('total') || document.getElementById('totalPriceDisplay').value
 
         Swal.fire({
@@ -56,13 +57,19 @@ export default function BuyNowAction({style, user, itemid, item, settings, recor
     return (
         <>
         <form id={"buy_item_data_form"} style={{height: buyNowDataWindow ? '100%' : '0px'}} action={placeOrder} className="flex flex-col p-4 w-full overflow-hidden">
-            <span className="text-sm text-gray-600 font-medium mt-4">Item</span>
-            <input type="text" disabled defaultValue={item.name} className="border-2 border-gray-400 rounded-md p-1 focus:border-blue-500 outline-none" required/>
+            <span className="text-sm text-gray-500 font-medium mt-4">Item</span>
+            <input type="text" disabled defaultValue={item.name} className="border-0 border-gray-400 rounded-md p-1 focus:border-blue-500 outline-none" required/>
+
+            <span className="text-sm text-gray-500 font-medium mt-4">Adress</span>
+            <input type="text" disabled name="address" defaultValue={userdata["address"]} className="border-0 border-gray-400 rounded-md p-1 focus:border-blue-500 outline-none" required/>
+
+            <span className="text-sm text-gray-500 font-medium mt-4">Phone</span>
+            <input type="text" disabled defaultValue={userdata['whatsapp_number']} className="border-0 border-gray-400 rounded-md p-1 focus:border-blue-500 outline-none" required/>
 
             <span className="text-sm text-gray-600 font-medium mt-4">Total</span>
-            <input id={"totalPriceDisplay"} type="text" disabled name="total" defaultValue={"LKR "+(item.discount_price > 0 ? item.discount_price : item.price)+".00"} className="border-2 border-gray-400 rounded-md p-1 focus:border-blue-500 outline-none" required/>
+            <input id={"totalPriceDisplay"} type="text" disabled name="total" defaultValue={"LKR "+(item.discount_price > 0 ? item.discount_price : item.price)+".00"} className="border-1 border-gray-500 rounded-md p-1 focus:border-blue-500 outline-none" required/>
             
-            <span className="text-sm text-gray-600 font-medium mt-4">Quantity</span>
+            <span className="text-sm text-gray-500 font-medium mt-4">Quantity</span>
             <input type="number" name="quantity" defaultValue={1} onChange={(e)=>{
                 if(e.target.value > Number(settings.buy_max_quantity)){
                     e.target.value = settings.buy_max_quantity
@@ -71,14 +78,16 @@ export default function BuyNowAction({style, user, itemid, item, settings, recor
                         title: 'Can\'t buy more than ' + settings.buy_max_quantity
                     })
                 }
+                if(e.target.value < 1){
+                    e.target.value == ''
+                    Swal.fire({
+                        icon:'error',
+                        title: 'Can\'t buy 0 ammount'
+                    })
+                }
                 document.getElementById('totalPriceDisplay').value = "LKR "+(item.discount_price > 0 ? item.discount_price : item.price)*(e.target.value)+".00"}
             } className="border-2 border-gray-400 rounded-md p-1 focus:border-blue-500 outline-none" required/>
             
-            <span className="text-sm text-gray-600 font-medium mt-4">Adress</span>
-            <input type="text" name="address" defaultValue={userdata["address"]} className="border-2 border-gray-400 rounded-md p-1 focus:border-blue-500 outline-none" required/>
-
-            <span className="text-sm text-gray-600 font-medium mt-4">Phone</span>
-            <input type="text" disabled defaultValue={userdata['whatsapp_number']} className="border-2 border-gray-400 rounded-md p-1 focus:border-blue-500 outline-none" required/>
         </form>
         <b style={style} onClick={()=> {
             if(buyNowDataWindow){

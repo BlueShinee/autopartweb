@@ -4,6 +4,7 @@ import Image from "next/image"
 import Editable from './editable';
 
 import { getServerSession } from "next-auth";
+import Header from "@/components/header";
 import PocketBase from 'pocketbase';
 import { redirect } from "next/navigation";
 
@@ -29,8 +30,9 @@ export default async function page() {
     console.log(userdata["address"]);
     
   return (
+    <>
+    <Header redirectBack={'/'} title="Profile"  isLogged={user?.user !== undefined?true:false} profileImage={user?.user.image || "https://cdn-icons-png.flaticon.com/512/3177/3177440.png"}/>
     <div className="w-full flex-col">
-        <Link href={"/"} className="flex justify-center items-center py-1 m-2 ml-5 hover:bg-blue-500 transition-all active:scale-95   px-4 bg-blue-400 w-24 rounded-md"><span className="text-white font-medium text-lg mr-2">Back</span><Image src={"/back-arrow.svg"}  width={20} height={20}/></Link>
         <div className='w-full flex flex-col items-center mt-20'>
             <Image unoptimized src={user.user.image} width={50} height={50} className='rounded-full w-32'/>
             <span className='mt-4 text-lg font-medium'>{user.user.name}</span>
@@ -38,5 +40,6 @@ export default async function page() {
             <Editable number={userdata["whatsapp_number"]} address={userdata["address"]}/>
         </div>
     </div>
+    </>
   )
 }

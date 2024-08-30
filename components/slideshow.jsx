@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 function Slideshow(props) {
 
-    let [slidestate , slidestatechanger] = useState(0.5)
+    let [slidestate , slidestatechanger] = useState(3)
     let [clock, updateClock] = useState(`Welcome...`)
     
     function slidestatefun() {

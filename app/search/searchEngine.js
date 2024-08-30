@@ -2,7 +2,6 @@
 
 
 import PocketBase from 'pocketbase';
-import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
 
 

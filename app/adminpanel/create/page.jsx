@@ -5,12 +5,13 @@ import Link from "next/link"
 import Image from "next/image"
 import createItem from "./create.js"
 import { useState } from "react"
+import Header from "@/components/header";
 
 export default async function page() {
   const [isLoading, setIsLoading] = useState(false)
   return (
     <div>
-        <Link href={"/adminpanel"} className="m-4 flex justify-center items-center py-1 m-2 hover:bg-blue-500 transition-all active:scale-95   px-4 bg-blue-400 w-24 rounded-md"><span className="text-white font-medium mr-1 text-lg">Back</span><Image src={"/back-arrow.svg"}  width={20} height={20}/></Link>
+    <Header redirectBack={'/adminpanel'} title="New Item" isAdmin={true} isLogged={true} profileImage={"https://cdn-icons-png.flaticon.com/512/3177/3177440.png"}/>
 
         <form action={createItem} className="flex flex-col p-4">
             <span className="text-sm text-gray-600 font-medium mt-4">Item Name</span>

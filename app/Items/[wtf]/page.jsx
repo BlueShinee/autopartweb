@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import Header from "@/components/header";
 import PocketBase from 'pocketbase';
 import { getServerSession } from "next-auth";
-import placeOrder from "./placeOrder";
+import placeOrder from "@/components/placeOrder";
 
 
 export const dynamic = 'force-dynamic';
@@ -29,7 +29,7 @@ export default async function page({params}) {
     
     return(
         <>
-            <Header title={settings.name} isLogged={user?.user !== undefined?true:false} profileImage={user?.user.image || "https://cdn-icons-png.flaticon.com/512/3177/3177440.png"}/>
+            <Header redirectBack={'/'} title={settings.name} isLogged={user?.user !== undefined?true:false} profileImage={user?.user.image || "https://cdn-icons-png.flaticon.com/512/3177/3177440.png"}/>
             <Item params={params} user={user} isLogged={registered} placeOrder={placeOrder}/>
         </>
     )

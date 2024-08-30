@@ -15,7 +15,8 @@ export default async function updateSettings(formData) {
         slider_2: formData.get('slider_2'),
         slider_3: formData.get('slider_3'),
         buy_max_quantity: formData.get('buy_max_quantity'),
-        hotline: formData.get('hotline')
+        hotline: formData.get('hotline'),
+        facebook: formData.get('facebook')
     })
 
     redirect(`/adminpanel`)
