@@ -35,9 +35,9 @@ function Card(props){
             <div className="flex justify-center items-center p-2">
                 <Link
                     href={props.idEditing == true ? `/adminpanel/items/${props.itemid}` : `/Items/${props.itemid}`}
-                    className="hover:scale-105 transition-all w-[160px] md:w-[200px] h-72 rounded-xl shadow-lg border-2 border-gray-300 my-4 flex flex-col items-center overflow-hidden"
+                    className="hover:scale-105 transition-all w-[160px] md:w-[200px] h-auto rounded-xl shadow-lg border-2 border-gray-300 my-4 flex flex-col items-center overflow-hidden"
                 >
-                    <div className="w-full aspect-1 h-64 border-b-gray-300 border-b-1 flex bg-gray-300">
+                    <div className="w-full aspect-1 h-[160px] md:h-[200px] border-b-gray-300 border-b-1 flex bg-gray-300">
                         <CldImage
                             src={props.img}
                             alt=""

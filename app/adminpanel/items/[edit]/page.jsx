@@ -5,8 +5,6 @@ import { redirect } from "next/navigation";
 import Link from 'next/link';
 import Image from "next/image";
 import Header from "@/components/header";
-
-import Header from "@/components/header";
 import Upload from "./upload.jsx";
 import Edit from "./edit.jsx";
 import deleteItem from "./deleteItem.js";

@@ -1,13 +1,9 @@
 "use client"
 
-
-import Link from "next/link"
-import Image from "next/image"
 import createItem from "./create.js"
 import { useState } from "react"
 import Header from "@/components/header";
 
-export const revalidate = 0
 export const dynamic = "force-dynamic"
 
 export default async function page() {

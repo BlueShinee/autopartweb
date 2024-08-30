@@ -107,7 +107,7 @@ Than you!
         orderUrl: `${process.env.NEXTAUTH_URL || `http://localhost:3000`}/order/${updated.id}`,
         isDelivered: (state === 'delivered')
     })
-    redirect('/adminpanel/orders')
+    redirect('/adminpanel/orders/'+state)
 }
 
 export default setOrderState

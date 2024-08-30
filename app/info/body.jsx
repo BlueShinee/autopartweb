@@ -113,7 +113,7 @@ export default function Body(props) {
           />
           <DescribeSection
             title={"Pasindu"}
-            text={['Back developers | Zyriz', 'Github - blueshinee', 'E-mail - sadaminatou@gmail.com']}
+            text={['Fullstack developers | Zyriz', 'Github - blueshinee', 'E-mail - sadaminatou@gmail.com']}
           />
         </div>
         <div className='flex flex-wrap w-full flex-row justify-left items-left mt-3 pl-2'>

@@ -8,26 +8,43 @@ import {useState} from "react"
 
 
 function AdminOrders(props) {
-    const [isActiveOrders, setActiveOrHistory] = useState(true)
+    //const [isActiveOrders, setActiveOrHistory] = useState(1)
     return (
         <>
-        <div className='flex w-full justify-start p-4'>
-            <span className={`px-3 m-2 rounded-md text-lg font-semibold text-white transition-all cursor-pointer ${isActiveOrders  ? 'bg-blue-600' : 'bg-blue-400'}  py-2`} onClick={() => {setActiveOrHistory(true)}}>Pending</span>
-            <span className={`px-3 m-2 rounded-md text-lg font-semibold text-white transition-all cursor-pointer ${!isActiveOrders ? 'bg-blue-600' : 'bg-blue-400'} py-2`} onClick={() => {setActiveOrHistory(false)}}>Done</span>
+        {/* <div className='flex w-full items-center justify-start flex-wrap p-4 overflow-hidden'>
+            <span className={`px-3 m-2 rounded-md text-lg font-semibold text-white transition-all cursor-pointer ${isActiveOrders == 1 ? 'bg-blue-600' : 'bg-blue-400'}  py-2`} onClick={() => {setActiveOrHistory(1)}}>Pending</span>
+            <span className={`px-3 m-2 rounded-md text-lg font-semibold text-white transition-all cursor-pointer ${isActiveOrders == 2 ? 'bg-blue-600' : 'bg-blue-400'} py-2`} onClick={() => {setActiveOrHistory(2)}}>On The Way</span>
+            <span className={`px-3 m-2 rounded-md text-lg font-semibold text-white transition-all cursor-pointer ${isActiveOrders == 3 ? 'bg-blue-600' : 'bg-blue-400'} py-2`} onClick={() => {setActiveOrHistory(3)}}>Delivered</span>
+            <span className={`px-3 m-2 rounded-md text-lg font-semibold text-white transition-all cursor-pointer ${isActiveOrders == 4 ? 'bg-blue-600' : 'bg-blue-400'} py-2`} onClick={() => {setActiveOrHistory(4)}}>Rejected</span>
+        </div> */}
+        <div className='flex w-full items-center justify-start flex-wrap p-4 overflow-hidden'>
+            <Link href={"/adminpanel/orders/pending"}><span className={`px-3 m-2 rounded-md text-lg font-semibold text-white transition-all cursor-pointer ${props.state === 'pending' ? 'bg-blue-600' : 'bg-blue-400'}  py-2`} >Pending</span></Link>
+            <Link href={"/adminpanel/orders/ontheway"}><span className={`px-3 m-2 rounded-md text-lg font-semibold text-white transition-all cursor-pointer ${props.state === 'ontheway' ? 'bg-blue-600' : 'bg-blue-400'} py-2`} >On The Way</span></Link>
+            <Link href={"/adminpanel/orders/delivered"}><span className={`px-3 m-2 rounded-md text-lg font-semibold text-white transition-all cursor-pointer ${props.state === 'delivered' ? 'bg-blue-600' : 'bg-blue-400'} py-2`} >Delivered</span></Link>
+            <Link href={"/adminpanel/orders/rejected"}><span className={`px-3 m-2 rounded-md text-lg font-semibold text-white transition-all cursor-pointer ${props.state === 'rejected' ? 'bg-blue-600' : 'bg-blue-400'} py-2`} >Rejected</span></Link>
         </div>
         <div className='flex flex-col items-center w-full mt-4 overflow-hidden p-3 min-h-[50vh]'>
             <h2 className='text-left w-full ml-9 font-semibold text-blue-500 text-lg'>{props.title}</h2>
             <div className='flex flex-row flex-wrap w-full justify-center items-center'>
                 {props.mycart.map((value,index)=>{
-                    if(isActiveOrders){
+                    return <Card props={value} isLogged={props.isLogged}/>
+                    /* if(isActiveOrders == 1){
                         if(value.state.match(/pending/g)){
                             return <Card props={value} isLogged={props.isLogged}/>
                         }
-                    }else{
-                        if(value.state.match(/delivered|rejected|ontheway/g)){
+                    }else if(isActiveOrders == 2){
+                        if(value.state.match(/ontheway/g)){
                             return <Card props={value} isLogged={props.isLogged}/>
                         }
-                    }
+                    }else if(isActiveOrders == 3){
+                        if(value.state.match(/delivered/g)){
+                            return <Card props={value} isLogged={props.isLogged}/>
+                        }
+                    }else if(isActiveOrders == 4){
+                        if(value.state.match(/rejected/g)){
+                            return <Card props={value} isLogged={props.isLogged}/>
+                        }
+                    } */
                 })}
             </div>
         </div>
