@@ -30,9 +30,11 @@ export default async function page() {
         }
     })
     
+    const settings = await pb.collection('settings').getOne('bussiness__data')
+    
   return (
     <>
-    <Header redirectBack={'/'} title="Profile"  isLogged={user?.user !== undefined?true:false} profileImage={user?.user.image || "https://cdn-icons-png.flaticon.com/512/3177/3177440.png"}/>
+    <Header settings={settings} redirectBack={'/'} title="Profile"  isLogged={user?.user !== undefined?true:false} profileImage={user?.user.image || "https://cdn-icons-png.flaticon.com/512/3177/3177440.png"}/>
     <div className="w-full flex-col">
         <div className='w-full flex flex-col items-center mt-20'>
             <Image unoptimized src={user.user.image} width={50} height={50} className='rounded-full w-32'/>

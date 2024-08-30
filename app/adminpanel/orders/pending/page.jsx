@@ -52,7 +52,7 @@ export default async function page() {
 
   return (
     <div className='flex flex-col'>
-        <Header redirectBack={'/adminpanel'} title="Orders"  isLogged={user?.user !== undefined?true:false} profileImage={user?.user.image || "https://cdn-icons-png.flaticon.com/512/3177/3177440.png"}/>
+        <Header settings={settings} redirectBack={'/adminpanel'} title="Orders"  isLogged={user?.user !== undefined?true:false} profileImage={user?.user.image || "https://cdn-icons-png.flaticon.com/512/3177/3177440.png"}/>
         <AdminOrders state={STATE} mycart={allcart} user={user} isLogged={user?.user !== undefined} />
     </div>
   )

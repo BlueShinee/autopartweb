@@ -37,7 +37,7 @@ export default async function page() {
 
   return (
     <div className='flex flex-col'>
-        <Header redirectBack={'/adminpanel'} title="Settings"  isLogged={user?.user !== undefined?true:false} profileImage={user?.user.image || "https://cdn-icons-png.flaticon.com/512/3177/3177440.png"}/>
+        <Header settings={settings} redirectBack={'/adminpanel'} title="Settings"  isLogged={user?.user !== undefined?true:false} profileImage={user?.user.image || "https://cdn-icons-png.flaticon.com/512/3177/3177440.png"}/>
         <Link href={"/adminpanel"} className="m-4 flex justify-center items-center py-1    hover:bg-blue-500 transition-all active:scale-95   px-4 bg-blue-400 w-24 rounded-md"><span className="text-white font-medium text-lg">Back</span><Image src={"/back-arrow.svg"}  width={20} height={20}/></Link>
 
         <form action={updateSettings} className="flex flex-col p-4">

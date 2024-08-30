@@ -23,6 +23,7 @@ export default async function page() {
     let userdata
     const records = await pb.collection('users').getFullList();
     const items = await pb.collection('items').getFullList();
+    const settings = await pb.collection('settings').getOne('bussiness__data')
 
     records.map((v,i)=>{
         if (v.email === user.user.email) {
@@ -38,7 +39,7 @@ export default async function page() {
     
   return (
     <div className='flex flex-col'>
-        <Header redirectBack={'/adminpanel'} title="Items"  isLogged={user?.user !== undefined?true:false} profileImage={user?.user.image || "https://cdn-icons-png.flaticon.com/512/3177/3177440.png"}/>
+        <Header settings={settings} redirectBack={'/adminpanel'} title="Items"  isLogged={user?.user !== undefined?true:false} profileImage={user?.user.image || "https://cdn-icons-png.flaticon.com/512/3177/3177440.png"}/>
         <Body items={items}/>
     </div>
   )

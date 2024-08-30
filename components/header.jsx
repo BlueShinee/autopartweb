@@ -10,8 +10,8 @@ export default function header(props) {
 
   return (
     <>
-    <Contactmenu Contactmenustate={Contactmenustate} menufunc={Contactmenustatechange}/>
-    <Navbar redirectBack={redirectBack} profileImage={props.profileImage} isAdmin={props.isAdmin} isLogged={props.isLogged} brandname={ props.title || "Powered By Evelocore"} /*max character width of 15ch*/ /* Contactmenustate={Contactmenustate} */ menufunc={Contactmenustatechange} user={props.user}/>
+    <Contactmenu settings={props.settings} Contactmenustate={Contactmenustate} menufunc={Contactmenustatechange}/>
+    <Navbar settings={props.settings} redirectBack={redirectBack} profileImage={props.profileImage} isAdmin={props.isAdmin} isLogged={props.isLogged} brandname={ props.title || "Powered By Evelocore"} /*max character width of 15ch*/ /* Contactmenustate={Contactmenustate} */ menufunc={Contactmenustatechange} user={props.user}/>
     </>
   )
 }

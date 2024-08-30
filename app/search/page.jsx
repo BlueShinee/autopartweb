@@ -34,7 +34,7 @@ export default async function Home() {
 
   return (
     <>
-    <Header title={settings.name} isLogged={isLogged} profileImage={user?.user.image || "https://cdn-icons-png.flaticon.com/512/3177/3177440.png"}/>
+    <Header settings={settings} title={settings.name} isLogged={isLogged} profileImage={user?.user.image || "https://cdn-icons-png.flaticon.com/512/3177/3177440.png"}/>
       <Slideshow
         src1={settings.slider_1}
         src2={settings.slider_2}

@@ -1,10 +1,9 @@
+"use client"
 
-import PocketBase from "pocketbase"
 import Link from 'next/link';
 
-async function Contactmenu(props) {
-  const pb = new PocketBase(process.env.POCKETBASE_URL || 'http://127.0.0.1:8090');
-  const settings = await pb.collection('settings').getOne('bussiness__data')
+function Contactmenu(props) {
+  const settings = props.settings || {hotline:"null"}
   const WAhref = 
   "https://wa.me/"+(
     String(settings.hotline).replace(/ /gi,'').startsWith('7') ? 

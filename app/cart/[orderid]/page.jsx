@@ -40,7 +40,7 @@ export default async function page({params}) {
 
   return (
       <>
-          <Header redirectBack={'/cart'} title={"Cart"} isLogged={user?.user !== undefined} profileImage={user?.user.image || "https://cdn-icons-png.flaticon.com/512/3177/3177440.png"} />
+          <Header settings={settings} redirectBack={'/cart'} title={"Cart"} isLogged={user?.user !== undefined} profileImage={user?.user.image || "https://cdn-icons-png.flaticon.com/512/3177/3177440.png"} />
           <CartItem mycart={mycart} user={user} isLogged={user?.user !== undefined}  photoURL={photos} record={record}/>
           <Footer settings={settings} />
       </>
