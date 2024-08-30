@@ -13,10 +13,10 @@ function Navbar(props){
     return(
     <div className="flex w-full h-16 flex-row justify-between items-center bg-blue-400 z-10 shadow-md select-none sticky">
       <div className='flex w-full h-16 flex-row justify-between items-center bg-blue-400'>
-        <h1 className="text-white mx-5 text-xl font-bold">{props.redirectBack === false ? (props.brandname) : <Link href={props.redirectBack}><i className="fa fa-arrow-left"></i> {props.brandname}</Link>}</h1>
-        <div className="flex flex-row items-center mx-5">
+        <h1 className="text-white ml-5 text-xl font-bold">{props.redirectBack === false ? (props.brandname) : <Link href={props.redirectBack}><i className="fa fa-arrow-left"></i> {props.brandname}</Link>}</h1>
+        <div className="flex flex-row items-center mr-5">
           <div className="flex overflow-hidden m-0 p-0">
-            <div className='flex md:w-[100px] w-0 items-center text-white font-semibold text-lg mx-2 m-2 overflow-hidden' onClick={()=>{
+            <div className='flex md:w-[100px] w-0 items-center text-white font-semibold text-lg mr-2 overflow-hidden' onClick={()=>{
                 props.menufunc(true)
               }}>
               <Image src={'/phone.svg'} width={24} height={24} className='md:w-8 w-0 h-auto hover:cursor-pointer hover:scale-110 active:cursor-grabbing transition-all'/>

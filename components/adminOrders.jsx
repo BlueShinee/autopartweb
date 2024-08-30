@@ -17,11 +17,11 @@ function AdminOrders(props) {
             <span className={`px-3 m-2 rounded-md text-lg font-semibold text-white transition-all cursor-pointer ${isActiveOrders == 3 ? 'bg-blue-600' : 'bg-blue-400'} py-2`} onClick={() => {setActiveOrHistory(3)}}>Delivered</span>
             <span className={`px-3 m-2 rounded-md text-lg font-semibold text-white transition-all cursor-pointer ${isActiveOrders == 4 ? 'bg-blue-600' : 'bg-blue-400'} py-2`} onClick={() => {setActiveOrHistory(4)}}>Rejected</span>
         </div> */}
-        <div className='flex w-full items-center justify-start flex-wrap p-4 overflow-hidden'>
-            <Link href={"/adminpanel/orders/pending"}><span className={`px-3 m-2 rounded-md text-lg font-semibold text-white transition-all cursor-pointer ${props.state === 'pending' ? 'bg-blue-600' : 'bg-blue-400'}  py-2`} >Pending</span></Link>
-            <Link href={"/adminpanel/orders/ontheway"}><span className={`px-3 m-2 rounded-md text-lg font-semibold text-white transition-all cursor-pointer ${props.state === 'ontheway' ? 'bg-blue-600' : 'bg-blue-400'} py-2`} >On The Way</span></Link>
-            <Link href={"/adminpanel/orders/delivered"}><span className={`px-3 m-2 rounded-md text-lg font-semibold text-white transition-all cursor-pointer ${props.state === 'delivered' ? 'bg-blue-600' : 'bg-blue-400'} py-2`} >Delivered</span></Link>
-            <Link href={"/adminpanel/orders/rejected"}><span className={`px-3 m-2 rounded-md text-lg font-semibold text-white transition-all cursor-pointer ${props.state === 'rejected' ? 'bg-blue-600' : 'bg-blue-400'} py-2`} >Rejected</span></Link>
+        <div className='flex w-full mt-3 h-[7rem] md:h-[70px] items-center justify-center flex-wrap overflow-x-hidden'>
+            <Link href={"/adminpanel/orders/pending"}><span className={`px-3 mx-2 rounded-md text-lg font-semibold text-white transition-all cursor-pointer ${props.state === 'pending' ? 'bg-blue-600' : 'bg-blue-400'}  py-2`} >Pending</span></Link>
+            <Link href={"/adminpanel/orders/ontheway"}><span className={`px-3 mx-2 rounded-md text-lg font-semibold text-white transition-all cursor-pointer ${props.state === 'ontheway' ? 'bg-blue-600' : 'bg-blue-400'} py-2`} >On The Way</span></Link>
+            <Link href={"/adminpanel/orders/delivered"}><span className={`px-3 mx-2 rounded-md text-lg font-semibold text-white transition-all cursor-pointer ${props.state === 'delivered' ? 'bg-blue-600' : 'bg-blue-400'} py-2`} >Delivered</span></Link>
+            <Link href={"/adminpanel/orders/rejected"}><span className={`px-3 mx-2 rounded-md text-lg font-semibold text-white transition-all cursor-pointer ${props.state === 'rejected' ? 'bg-blue-600' : 'bg-blue-400'} py-2`} >Rejected</span></Link>
         </div>
         <div className='flex flex-col items-center w-full mt-4 overflow-hidden p-3 min-h-[50vh]'>
             <h2 className='text-left w-full ml-9 font-semibold text-blue-500 text-lg'>{props.title}</h2>
