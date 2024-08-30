@@ -9,7 +9,7 @@ import {useState} from "react"
 
 function AdminOrders(props) {
     //const [isActiveOrders, setActiveOrHistory] = useState(1)
-    return (
+    return ( 
         <>
         {/* <div className='flex w-full items-center justify-start flex-wrap p-4 overflow-hidden'>
             <span className={`px-3 m-2 rounded-md text-lg font-semibold text-white transition-all cursor-pointer ${isActiveOrders == 1 ? 'bg-blue-600' : 'bg-blue-400'}  py-2`} onClick={() => {setActiveOrHistory(1)}}>Pending</span>
