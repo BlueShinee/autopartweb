@@ -3,7 +3,7 @@ const nextConfig = {
     experimental: {
         serverActions: {
             allowedForwardedHosts: ['localhost',"devtunnels.ms"],
-            allowedOrigins: ['localhost','devtunnels.ms','103.195.101.44']
+            allowedOrigins: ['localhost:3000','devtunnels.ms','103.195.101.44:8090']
         }
     }
 };
