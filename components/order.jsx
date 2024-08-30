@@ -5,7 +5,7 @@ import Image from "next/image";
 import Items2 from "@/components/items2"
 import BuyNowAction from "./buyNowClick";
 
-export const revalidate = 1
+export const revalidate = 0
 
 export default async function Order(props) {
     const pb = new PocketBase('http://127.0.0.1:8090')

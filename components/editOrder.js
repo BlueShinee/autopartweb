@@ -3,7 +3,6 @@
 import PocketBase from 'pocketbase';
 import { redirect } from "next/navigation";
 
-
 async function ECMail({number, text, footer, orderUrl, isDelivered}){
     console.log(orderUrl)
     fetch('https://ecmail.noerror.studio/whatsapp', {
@@ -43,7 +42,9 @@ async function setOrderState({orderid, state, user}){
     let ECM_message = ''
     const updated = await pb.collection('orders').update(orderid, record)
     const item = await pb.collection('items').getOne(updated.itemid)
-    const users = await pb.collection('users').getFullList()
+    const users = await pb.collection('users').getFullList({
+        sort: '-created',
+    })
     const settings = await pb.collection('settings').getOne('bussiness__data')
     let userdata
     users.map((v,i)=>{
@@ -75,7 +76,7 @@ Your order has been rejected due to a problem. Contact help center for more info
 - Placed - ${new Date(updated.created).toDateString()}
 - Rejected - ${new Date(updated.updated).toDateString()}
 `
-    }else if(state === 'rejected'){
+    }else if(state === 'pending'){
         ECM_message = 
 `🕒 \`Order is Pending\`
 
@@ -106,6 +107,7 @@ Than you!
         orderUrl: `${process.env.NEXTAUTH_URL || `http://localhost:3000`}/order/${updated.id}`,
         isDelivered: (state === 'delivered')
     })
+    redirect('/adminpanel/orders')
 }
 
 export default setOrderState

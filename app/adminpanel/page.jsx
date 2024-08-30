@@ -8,7 +8,7 @@ import { redirect } from "next/navigation";
 import Header from "@/components/header";
 import Footer from '@/components/Footer';
 
-export const revalidate = 1
+export const revalidate = 0
 
 
 export default async function page() {

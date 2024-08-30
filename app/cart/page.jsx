@@ -6,11 +6,14 @@ import Footer from "@/components/Footer";
 
 
 export const dynamic = 'force-dynamic';
-export const revalidate = 1
+export const revalidate = 0
+
 export default async function page() {
   const pb = new PocketBase('http://127.0.0.1:8090');
   const settings = await pb.collection('settings').getOne('bussiness__data');
-  const orders = await pb.collection('orders').getFullList();
+  const orders = await pb.collection('orders').getFullList({
+    sort: '-created',
+});
   const user = await getServerSession();
   let mycart = [];
 

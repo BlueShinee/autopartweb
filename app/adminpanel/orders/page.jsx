@@ -7,14 +7,18 @@ import { getServerSession } from "next-auth";
 import PocketBase from 'pocketbase';
 import { redirect } from "next/navigation";
 import AdminOrders from '@/components/adminOrders';
+export const revalidate = 0
 
 
 export default async function page() {
     const pb = new PocketBase('http://127.0.0.1:8090');
     const settings = await pb.collection('settings').getOne('bussiness__data');
-    const orders = await pb.collection('orders').getFullList();
+    const orders = await pb.collection('orders').getFullList({
+        sort: '-created',
+    });
+
     const user = await getServerSession();
-    let allcart = [];
+    let allcart = []
   
     if (user?.user !== undefined) {
         for (const order of orders) {

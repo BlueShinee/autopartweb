@@ -6,7 +6,7 @@ import { getServerSession } from "next-auth";
 import placeOrder from "@/components/placeOrder";
 
 export const dynamic = 'force-dynamic';
-export const revalidate = 1
+export const revalidate = 0
 
 export default async function page({params}) {
     const pb = new PocketBase('http://127.0.0.1:8090');

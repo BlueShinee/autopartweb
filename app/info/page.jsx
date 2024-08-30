@@ -7,9 +7,6 @@ import PocketBase from 'pocketbase';
 import { redirect } from "next/navigation";
 import Header from "@/components/header";
 
-export const revalidate = 1
-
-
 export default async function page() {
     const pb = new PocketBase('http://127.0.0.1:8090');
     const user = await getServerSession()

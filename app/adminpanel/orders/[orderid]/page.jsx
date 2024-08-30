@@ -3,15 +3,19 @@ import PocketBase from 'pocketbase';
 import { getServerSession } from "next-auth";
 import AdminOrdersItem from "@/components/adminOrdersItem";
 import Footer from "@/components/Footer";
+export const revalidate = 0
 
 
 export const dynamic = 'force-dynamic';
-export const revalidate = 1
 export default async function page({params}) {
   const pb = new PocketBase('http://127.0.0.1:8090');
   const settings = await pb.collection('settings').getOne('bussiness__data');
-  const orders = await pb.collection('orders').getFullList();
-  const order = await pb.collection('orders').getOne(params.orderid)
+  const orders = await pb.collection('orders').getFullList({
+      sort: '-created',
+  });
+  //const order = await pb.collection('orders').getOne(params.orderid)
+  const Rando = Math.floor(Math.random()*1000000)+1
+  const order = await pb.collection('orders').update(params.orderid, {orderid: Rando})
   const record = await pb.collection('items').getOne(order.itemid)
   const photos = record.urls
   const user = await getServerSession()
@@ -19,8 +23,6 @@ export default async function page({params}) {
   if (user?.user !== undefined) {
       for (const order of orders) {
           if (order.email === user.user.email) {
-            console.log(order.id)
-            console.log(params.orderid)
             if(order.id === params.orderid){
               const item = await pb.collection('items').getOne(order.itemid)
               order.itemName = item.name
