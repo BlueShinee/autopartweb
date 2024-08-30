@@ -66,7 +66,7 @@ export default async function page() {
             <input type="text" name="hotline" defaultValue={settings.hotline} className="border-2 border-gray-400 rounded-md p-1 focus:border-blue-500 outline-none" required/>
 
             <span className="text-sm text-gray-600 font-medium mt-4">Facebook</span>
-            <input type="text" name="hotline" defaultValue={settings.facebook} className="border-2 border-gray-400 rounded-md p-1 focus:border-blue-500 outline-none" required/>
+            <input type="text" name="facebook" defaultValue={settings.facebook} className="border-2 border-gray-400 rounded-md p-1 focus:border-blue-500 outline-none" required/>
 
             <div className="flex justify-center items-center">
                 <button type="submit" className="mt-12 w-32 py-2 px-4 bg-green-500 transition-all rounded-md hover:bg-green-600 text-white font-semibold">UPDATE</button>

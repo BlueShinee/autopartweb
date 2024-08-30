@@ -48,10 +48,10 @@ function Card(props){
                     </div>
                     <div className="flex flex-col w-full h-full justify-between p-3 bg-white">
                         <div className="text-left">
-                            <span className="text-lg font-semibold text-gray-700 line-clamp-1">
+                            <span className="text-[13px] md:text-lg font-semibold text-gray-700 line-clamp-2">
                                 {props.title}
                             </span>
-                            <span className="text-gray-500 text-sm line-clamp-3 leading-4 mt-1">
+                            <span className="text-gray-500 text-sm line-clamp-1 leading-4 mt-1">
                                 {props.desc}
                             </span>
                         </div>
