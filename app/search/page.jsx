@@ -10,7 +10,8 @@ import { useSession, signIn, signOut } from "next-auth/react"
 import SearchForm from "@/app/search/searchform";
 import Footer from "@/components/Footer";
 
-export const revalidate = 5
+export const revalidate = 0
+export const dynamic = "force-dynamic"
 
 export default async function Home() {
   const pb = new PocketBase('http://127.0.0.1:8090');

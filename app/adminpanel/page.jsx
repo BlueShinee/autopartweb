@@ -9,6 +9,7 @@ import Header from "@/components/header";
 import Footer from '@/components/Footer';
 
 export const revalidate = 0
+export const dynamic = "force-dynamic"
 
 
 export default async function page() {

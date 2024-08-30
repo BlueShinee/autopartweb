@@ -8,6 +8,9 @@ import PocketBase from 'pocketbase';
 import { redirect } from "next/navigation";
 import updateSettings from './updateSettings';
 
+export const revalidate = 0
+export const dynamic = "force-dynamic"
+
 
 export default async function page() {
     const pb = new PocketBase('http://127.0.0.1:8090');

@@ -7,7 +7,9 @@ import { getServerSession } from "next-auth";
 import PocketBase from 'pocketbase';
 import { redirect } from "next/navigation";
 import AdminOrders from '@/components/adminOrders';
+
 export const revalidate = 0
+export const dynamic = "force-dynamic"
 
 
 export default async function page() {

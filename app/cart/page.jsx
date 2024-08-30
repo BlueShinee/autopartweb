@@ -4,9 +4,8 @@ import { getServerSession } from "next-auth";
 import Cart from "@/components/cart";
 import Footer from "@/components/Footer";
 
-
-export const dynamic = 'force-dynamic';
 export const revalidate = 0
+export const dynamic = "force-dynamic"
 
 export default async function page() {
   const pb = new PocketBase('http://127.0.0.1:8090');

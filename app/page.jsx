@@ -1,15 +1,15 @@
 import Image from "next/image";
 import Header from "@/components/header";
 import Slideshow from '@/components/slideshow'
-import Catagories from "@/components/catagories";
 import Itemlisting from "@/components/itemlisting";
 import PocketBase from 'pocketbase';
 import { redirect } from "next/navigation";
 import { getServerSession } from "next-auth";
-import { useSession, signIn, signOut } from "next-auth/react"
 import Searchbar from "@/components/searchbar";
 import Footer from '@/components/Footer'
-export const revalidate = 5
+
+export const revalidate = 0
+export const dynamic = "force-dynamic"
 
 export default async function Home() {
   const pb = new PocketBase('http://127.0.0.1:8090');
