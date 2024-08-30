@@ -48,6 +48,16 @@ export default function Body(props) {
             title={"Cart"}
             text={['You can view all your pending orders in the Cart.']}
           />
+          <DescribeSection
+              title={"Orders"}
+              text={[
+                  'When you place an order, it will initially be in a Pending state.',
+                  'Once the admin confirms it, your order status will change to On The Way.',
+                  'If the admin rejects your order, it will be marked as Rejected.',
+                  'After you receive your order, you should confirm it as Delivered.',
+                  'All actions trigger a WhatsApp alert.'
+              ]}
+          />
           <b className='mt-6'>Admin Control Panel</b>
           <DescribeSection
             title={"Admin Panel"}
@@ -68,6 +78,16 @@ export default function Body(props) {
           <DescribeSection
             title={"Orders"}
             text={['Customer orders are displayed here.', 'After you deliver an order, click the "Confirm Order" button.', 'The customer will then receive an "Order Confirmed" notification on WhatsApp.']}
+          />
+          <DescribeSection
+              title={"Admin Orders Management"}
+              text={[
+                  'As an admin, you can view all orders placed by customers.',
+                  'You have the authority to confirm an order, changing its status from Pending to On The Way.',
+                  'If an order cannot be fulfilled, you can reject it, which will mark the order as Rejected.',
+                  'Once the customer confirms delivery, the order status will be updated to Delivered.',
+                  'All actions trigger a WhatsApp alert.'
+              ]}
           />
           <b className='mt-6'>Application</b>
           <DescribeSection
