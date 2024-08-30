@@ -8,7 +8,7 @@ import BuyNowAction from "./buyNowClick";
 export const revalidate = 0
 
 export default async function Order(props) {
-    const pb = new PocketBase('http://127.0.0.1:8090')
+    const pb = new PocketBase(process.env.POCKETBASE_URL || 'http://127.0.0.1:8090')
     const orderid = props.params.orderid
     const rando = Math.random()
     const record = await pb.collection('items').update(itemid,{"itemid":rando})

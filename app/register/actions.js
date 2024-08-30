@@ -5,7 +5,7 @@ import PocketBase from 'pocketbase';
 import { redirect } from "next/navigation";
 
 export const createuser = async (formdata) =>{
-    const pb = new PocketBase('http://127.0.0.1:8090');
+    const pb = new PocketBase(process.env.POCKETBASE_URL || 'http://127.0.0.1:8090');
     const user = await getServerSession()
 
     const Whatsapp = formdata.get("number")

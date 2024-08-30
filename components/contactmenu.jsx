@@ -3,7 +3,7 @@ import PocketBase from "pocketbase"
 import Link from 'next/link';
 
 async function Contactmenu(props) {
-  const pb = new PocketBase('http://127.0.0.1:8090');
+  const pb = new PocketBase(process.env.POCKETBASE_URL || 'http://127.0.0.1:8090');
   const settings = await pb.collection('settings').getOne('bussiness__data')
   const WAhref = 
   "https://wa.me/"+(

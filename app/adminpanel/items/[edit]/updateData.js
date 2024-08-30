@@ -6,7 +6,7 @@ import PocketBase from 'pocketbase';
 
 
 export default async function updateData(formData) {
-    const pb = new PocketBase('http://127.0.0.1:8090');
+    const pb = new PocketBase(process.env.POCKETBASE_URL || 'http://127.0.0.1:8090');
 
 
     let list_l = formData.get("list_length")

@@ -7,7 +7,7 @@ import { getServerSession } from "next-auth";
 
 export default async function searching(input, category){
         
-    const pb = new PocketBase('http://127.0.0.1:8090');
+    const pb = new PocketBase(process.env.POCKETBASE_URL || 'http://127.0.0.1:8090');
 
     const records = await pb.collection('items').getFullList({
         sort: '-created',

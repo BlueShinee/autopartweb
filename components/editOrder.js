@@ -35,7 +35,7 @@ async function ECMail({number, text, footer, orderUrl, isDelivered}){
 }
 
 async function setOrderState({orderid, state, user}){
-    const pb = new PocketBase('http://127.0.0.1:8090')
+    const pb = new PocketBase(process.env.POCKETBASE_URL || 'http://127.0.0.1:8090')
     const record = {
         "state": state
     };

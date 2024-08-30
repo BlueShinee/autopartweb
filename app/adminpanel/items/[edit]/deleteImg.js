@@ -5,7 +5,7 @@ import PocketBase from 'pocketbase';
 import { redirect } from "next/navigation";
 
 import {v2 as cloudinary} from "cloudinary"
-const pb = new PocketBase('http://127.0.0.1:8090');
+const pb = new PocketBase(process.env.POCKETBASE_URL || 'http://127.0.0.1:8090');
 
 
 

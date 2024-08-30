@@ -5,7 +5,7 @@ import PocketBase from 'pocketbase';
 
 
 export default async function createItem(fromData) {
-    const pb = new PocketBase('http://127.0.0.1:8090');
+    const pb = new PocketBase(process.env.POCKETBASE_URL || 'http://127.0.0.1:8090');
 
     const data ={
         "name": fromData.get("itemname"),

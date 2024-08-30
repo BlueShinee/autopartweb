@@ -7,7 +7,7 @@ import { getServerSession } from "next-auth";
 
 export default async function save_address(formdata) {
 
-    const pb = new PocketBase('http://127.0.0.1:8090');
+    const pb = new PocketBase(process.env.POCKETBASE_URL || 'http://127.0.0.1:8090');
     const number = formdata.get("address")
     const user = await getServerSession()
 

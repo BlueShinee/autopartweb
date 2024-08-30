@@ -33,7 +33,7 @@ async function ECMail({number, text, footer, orderUrl}){
 }
 
 export default async function placeOrder({user, itemid, quantity, item, address, phone}){
-    const pb = new PocketBase('http://127.0.0.1:8090');
+    const pb = new PocketBase(process.env.POCKETBASE_URL || 'http://127.0.0.1:8090');
     const settings = await pb.collection('settings').getOne('bussiness__data')
     const record = await pb.collection('users').getFullList()
     const OrderId = Math.floor(Math.random()*1000000)+1

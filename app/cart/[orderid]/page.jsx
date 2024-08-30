@@ -8,7 +8,7 @@ export const revalidate = 0
 export const dynamic = "force-dynamic"
 
 export default async function page({params}) {
-  const pb = new PocketBase('http://127.0.0.1:8090');
+  const pb = new PocketBase(process.env.POCKETBASE_URL || 'http://127.0.0.1:8090');
   const settings = await pb.collection('settings').getOne('bussiness__data');
   const orders = await pb.collection('orders').getFullList({
     sort: '-created',

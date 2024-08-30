@@ -11,7 +11,7 @@ import deleteItem from "./deleteItem.js";
 import DeleteButton from "./deletebutton.jsx";
 
 export default async function page({params}) {
-    const pb = new PocketBase('http://127.0.0.1:8090');
+    const pb = new PocketBase(process.env.POCKETBASE_URL || 'http://127.0.0.1:8090');
     let record
     const rando = Math.random()
     record = await pb.collection('items').update(params.edit,{"itemid":rando})
