@@ -39,11 +39,11 @@ export default function Body(props) {
             </Link>
         </div>
         <div className='flex flex-wrap w-full flex-row justify-left items-left mt-3 pl-2'>
-            <Link href={"wa.me/94776115376"} className="flex-col p-2 m-2 flex justify-center items-center text-lg font-semibold text-white bg-[#ff1043] rounded-md hover:bg-[#888] transition-all hover:cursor-pointer">
+            <Link href={"https://wa.me/94776115376"} className="flex-col p-2 m-2 flex justify-center items-center text-lg font-semibold text-white bg-[#ff1043] rounded-md hover:bg-[#888] transition-all hover:cursor-pointer">
                 <i className="fa-brands fa-whatsapp text-5xl m-4"></i>
                 SUPPORT
             </Link>
-            <Link href={"wa.me/94776115376"} className="flex-col p-2 m-2 flex justify-center items-center text-lg font-semibold text-white bg-[#ff1043] rounded-md hover:bg-[#888] transition-all hover:cursor-pointer">
+            <Link href={"https://wa.me/94776115376"} className="flex-col p-2 m-2 flex justify-center items-center text-lg font-semibold text-white bg-[#ff1043] rounded-md hover:bg-[#888] transition-all hover:cursor-pointer">
                 <i className="fa fa-ban text-5xl m-4"></i>
                 REPORT
             </Link>
