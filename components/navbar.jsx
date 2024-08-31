@@ -13,7 +13,7 @@ function Navbar(props){
     return(
     <div className="flex w-full h-16 flex-row justify-between items-center bg-blue-400 z-10 shadow-md select-none sticky">
       <div className='flex w-full h-16 flex-row justify-between items-center bg-blue-400'>
-        <h1 className="text-white ml-5 text-xl font-bold">{props.redirectBack === false ? (props.brandname) : <Link href={props.redirectBack}><i className="fa fa-arrow-left"></i> {props.brandname}</Link>}</h1>
+        <h1 className="text-white ml-5 text-xl font-bold line-clamp-1">{props.redirectBack === false ? (props.brandname) : <Link href={props.redirectBack}><i className="fa fa-arrow-left"></i> {props.brandname}</Link>}</h1>
         <div className="flex flex-row items-center mr-5">
           <div className="flex overflow-hidden m-0 p-0">
             <div className='flex md:w-[100px] w-0 items-center text-white font-semibold text-lg mr-2 overflow-hidden' onClick={()=>{
