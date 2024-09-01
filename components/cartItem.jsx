@@ -101,6 +101,11 @@ function Card({props, isLogged, user}){
                             <span className="text-md font-semibold text-gray-500 line-clamp-1">
                                 Email - {props.email}
                             </span>
+                            {/* { props.payment == false ? (
+                                <span className="text-l font-semibold text-red-500">
+                                    Invalid or Pending Payment!<br/><span className='text-sm'>If you clicked the Buy Now button but did not complete the payment and left, this order will be saved as an invalid payment. If you make payment and lose your money, please contact our hotline. Staff can review payment error orders, and they will confirm or refund the money.</span>
+                                </span>
+                            ):(null)} */}
                         </div>
                         <div className='w-full flex items-end justify-between'>
                             { props.state === "pending" ? (<span className="text-blue-600 text-l font-bold mt-3">Pending</span>):(null)}
@@ -116,15 +121,27 @@ function Card({props, isLogged, user}){
                                 <span className="p-1 px-3 border-2 border-blue-500 text-blue-500 text-l rounded-1 font-bold mt-3 mr-2">View Item</span>
                             </Link>
                             { props.state === "ontheway" ? (<span className="p-1 px-3 border-2 text-grey-600 text-l font-bold mt-3" onClick={()=>{
+                                manageOrder(
+                                    {
+                                        itemName: props.itemName,
+                                        user,
+                                        orderid: props.id,
+                                        state: 'delivered',
+                                        action: 'delivered'
+                                    })
+                            }}>Confirm Delivered</span>):(null)}
+                            { props.state == "pending" ? (
+                                <span className="p-1 px-3 border-2 text-red-600 text-l font-bold mt-3 mr-2 cursor-pointer" onClick={()=>{
                                     manageOrder(
                                         {
                                             itemName: props.itemName,
                                             user,
                                             orderid: props.id,
-                                            state: 'delivered',
-                                            action: 'delivered'
+                                            state: 'delete',
+                                            action: 'delete'
                                         })
-                                }}>Confirm Delivered</span>):(null)}
+                                }}>Delete</span>
+                            ):(null)}
                         </div>
                     </div>
             </div>

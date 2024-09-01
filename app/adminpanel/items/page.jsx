@@ -20,22 +20,13 @@ export default async function page() {
         redirect("/api/auth/signin")
     }
 
-    let userdata
-    const records = await pb.collection('users').getFullList();
     const items = await pb.collection('items').getFullList();
     const settings = await pb.collection('settings').getOne('bussiness__data')
 
-    records.map((v,i)=>{
-        if (v.email === user.user.email) {
-            userdata = v
-        }
+    let userdata = await pb.collection('users').getList(1, 50, {
+        filter: `email = "${user.user.email}"`,
     })
-
-    if (userdata["is_admin"] == false) {
-        redirect("/")
-    }
-
-    console.log(items);
+    userdata = userdata.items[0]
     
   return (
     <div className='flex flex-col'>

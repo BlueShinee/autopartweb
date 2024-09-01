@@ -52,7 +52,7 @@ function AdminOrdersItem(props) {
             <div className='flex flex-col items-center w-full mt-4 overflow-hidden p-3 min-h-[50vh]'>
                 <h2 className='text-left w-full ml-9 font-semibold text-blue-500 text-lg'>{props.title}</h2>
                 <div className='flex flex-wrap w-full justify-center items-center'>
-                    <Card props={props.mycart[0]} isLogged={props.isLogged} user={props.user}/>
+                    <Card props={props.mycart[0]} userdata={props.userdata} isLogged={props.isLogged} user={props.user}/>
                 </div>
             </div>
         </div>
@@ -60,7 +60,7 @@ function AdminOrdersItem(props) {
     )
 }
 
-function Card({props, isLogged, user}){
+function Card({props, isLogged, user, userdata}){
     console.log(props)
     return (
         <>
@@ -99,9 +99,32 @@ function Card({props, isLogged, user}){
                             <span className="text-md font-semibold text-gray-500 line-clamp-1">
                                 Updated Date - {new Date(props.updated).toDateString()}
                             </span>
+                            <br />
                             <span className="text-md font-semibold text-gray-500 line-clamp-1">
                                 Email - {props.email}
                             </span>
+                            <span className="text-md font-semibold text-gray-500 line-clamp-1">
+                                Address - {userdata.address}
+                            </span>
+                            <span className="text-md font-semibold text-gray-500 line-clamp-1">
+                                Phone - {userdata.whatsapp_number}
+                            </span>
+                            <span className="text-md font-semibold text-gray-500 line-clamp-1 py-1 text-green-400">
+                                <Link href={"https://wa.me/"+(
+                                    String(userdata.whatsapp_number).replace(/ /gi,'').startsWith('7') ? 
+                                    '94'+(String(userdata.whatsapp_number).replace(/ /gi,'')) : 
+                                    '94'+(String(userdata.whatsapp_number).replace(/ /gi,'').replace("0",'').replace("94",''))
+                                    )}>
+                                        <i className="fa-brands fa-whatsapp mr-2"></i>
+                                        WhatsApp
+                                </Link>
+                            </span>
+                            <br />
+                            { props.payment == false ? (
+                                <span className="text-l font-semibold text-red-500">
+                                    Invalid or Pending Payment!<br/><span className='text-sm'>If the customer clicked the Buy Now button but did not complete the payment and left, this order will be saved as an invalid payment. If the customer reports losing money, it could be an issue with the user's internet. Please confirm or refund the money.</span>
+                                </span>
+                            ):(null)}
                         </div>
                         <div className='w-full flex items-end justify-between'>
                             { props.state === "pending" ? (<span className="text-blue-600 text-l font-bold mt-3">Pending</span>):(null)}
@@ -112,7 +135,7 @@ function Card({props, isLogged, user}){
                             { props.state === "rejected" ? (<span className="text-red-600 text-l font-bold mt-3">Rejected</span>):(null)}
                             { props.state === "delivered" ? (<span className="text-black text-l font-bold mt-3">Delivered</span>):(null)}
                         </div>
-                        <div className='w-full flex items-center justify-start mt-8'>
+                        <div className='w-full flex flex-wrap items-center justify-start mt-8'>
                             <Link href={`/Items/${props.itemid}`} className='flex items-center'>
                                 <span className="p-1 px-3 border-2 border-blue-500 text-blue-500 text-l rounded-1 font-bold mt-3 mr-2">View Item</span>
                             </Link>
@@ -137,7 +160,7 @@ function Card({props, isLogged, user}){
                                             action: 'make pending'
                                         })
                                 }}>Pending</span>
-                                <span className="p-1 px-3 border-2 text-red-600 text-l font-bold mt-3 mr-2 cursor-pointer" onClick={()=>{
+                                <span className="p-1 px-3 border-2 text-red-500 text-l font-bold mt-3 mr-2 cursor-pointer" onClick={()=>{
                                     manageOrder(
                                         {
                                             itemName: props.itemName,
@@ -147,6 +170,19 @@ function Card({props, isLogged, user}){
                                             action: 'reject'
                                         })
                                 }}>Reject</span>
+                                
+                            {/* { false == false ? (
+                                <span className="p-1 px-3 border-2 text-red-600 text-l font-bold mt-3 mr-2 cursor-pointer" onClick={()=>{
+                                    manageOrder(
+                                        {
+                                            itemName: props.itemName,
+                                            user,
+                                            orderid: props.id,
+                                            state: 'delete',
+                                            action: 'delete'
+                                        })
+                                }}>Delete</span>
+                            ):(null)} */}
                             </>):(null)}
                         </div>
                     </div>

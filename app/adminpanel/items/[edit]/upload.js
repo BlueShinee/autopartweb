@@ -34,7 +34,7 @@ export default async function uploadImg(formData) {
     const rando = Math.random()
 
 
-    let record = await pb.collection('items').update(itemid,{"itemid":rando});
+    let record = await pb.collection('items').getOne(itemid)
 
 
 

@@ -13,9 +13,7 @@ export default async function page({params}) {
   const orders = await pb.collection('orders').getFullList({
     sort: '-created',
   });
-  const Rando = Math.floor(Math.random()*1000000)+1
-  const order = await pb.collection('orders').update(params.orderid, {orderid: Rando})
-  //const order = await pb.collection('orders').getOne(params.orderid)
+  const order = await pb.collection('orders').getOne(params.orderid)
   const user = await getServerSession();
   
   const record = await pb.collection('items').getOne(order.itemid)

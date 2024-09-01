@@ -18,10 +18,11 @@ function AdminOrders(props) {
             <span className={`px-3 m-2 rounded-md text-lg font-semibold text-white transition-all cursor-pointer ${isActiveOrders == 4 ? 'bg-blue-600' : 'bg-blue-400'} py-2`} onClick={() => {setActiveOrHistory(4)}}>Rejected</span>
         </div> */}
         <div className='flex w-full mt-3 h-[7rem] md:h-[70px] items-center justify-center flex-wrap overflow-x-hidden'>
-            <Link href={"/adminpanel/orders/pending"}><span className={`px-3 mx-2 rounded-md text-lg font-semibold text-white transition-all cursor-pointer ${props.state === 'pending' ? 'bg-blue-600' : 'bg-blue-400'}  py-2`} >Pending</span></Link>
-            <Link href={"/adminpanel/orders/ontheway"}><span className={`px-3 mx-2 rounded-md text-lg font-semibold text-white transition-all cursor-pointer ${props.state === 'ontheway' ? 'bg-blue-600' : 'bg-blue-400'} py-2`} >On The Way</span></Link>
-            <Link href={"/adminpanel/orders/delivered"}><span className={`px-3 mx-2 rounded-md text-lg font-semibold text-white transition-all cursor-pointer ${props.state === 'delivered' ? 'bg-blue-600' : 'bg-blue-400'} py-2`} >Delivered</span></Link>
-            <Link href={"/adminpanel/orders/rejected"}><span className={`px-3 mx-2 rounded-md text-lg font-semibold text-white transition-all cursor-pointer ${props.state === 'rejected' ? 'bg-blue-600' : 'bg-blue-400'} py-2`} >Rejected</span></Link>
+            <Link href={"/adminpanel/orders/pending"}><span className={`px-3 mx-2 rounded-md text-lg font-semibold text-white transition-all cursor-pointer ${props.state === 'pending' ? 'bg-blue-500' : 'bg-gray-400'}  py-2`} >Pending</span></Link>
+            <Link href={"/adminpanel/orders/ontheway"}><span className={`px-3 mx-2 rounded-md text-lg font-semibold text-white transition-all cursor-pointer ${props.state === 'ontheway' ? 'bg-green-500' : 'bg-gray-400'} py-2`} >On The Way</span></Link>
+            <Link href={"/adminpanel/orders/delivered"}><span className={`px-3 mx-2 rounded-md text-lg font-semibold text-white transition-all cursor-pointer ${props.state === 'delivered' ? 'bg-yellow-500' : 'bg-gray-400'} py-2`} >Delivered</span></Link>
+            <Link href={"/adminpanel/orders/rejected"}><span className={`px-3 mx-2 rounded-md text-lg font-semibold text-white transition-all cursor-pointer ${props.state === 'rejected' ? 'bg-black' : 'bg-gray-400'} py-2`} >Rejected</span></Link>
+            {/* <Link href={"/adminpanel/orders/paymenterror"}><span className={`px-3 mx-2 rounded-md text-lg font-semibold text-white transition-all cursor-pointer ${props.state === 'paymenterror' ? 'bg-red-500' : 'bg-gray-400'} py-2`} >Payment Err</span></Link> */}
         </div>
         <div className='flex flex-col items-center w-full mt-4 overflow-hidden p-3 min-h-[50vh]'>
             <h2 className='text-left w-full ml-9 font-semibold text-blue-500 text-lg'>{props.title}</h2>
@@ -72,9 +73,9 @@ function Card({props, isLogged}){
                             <span className="text-2xl font-semibold text-gray-700 line-clamp-1">
                                 {props.itemName}
                             </span>
-                            <span className="text-gray-500 text-sm line-clamp-3 leading-4 mt-1">
+                            {/* <span className="text-gray-500 text-sm line-clamp-3 leading-4 mt-1">
                                 {props.itemDesc}
-                            </span>
+                            </span> */}
                             <br />
                             <span className="text-lg font-semibold text-gray-500 line-clamp-1">
                                 Quantity - {props.quantity}
@@ -82,6 +83,14 @@ function Card({props, isLogged}){
                             <span className="text-lg font-semibold text-gray-500 line-clamp-1">
                                 Total - LKR {props.price}
                             </span>
+                            <span className="text-lg font-semibold text-gray-500 line-clamp-1">
+                                Email- {props.email}
+                            </span>
+                            {/* { props.payment == false ? (
+                                <span className="text-l font-semibold text-red-500">
+                                    Invalid or Pending Payment!
+                                </span>
+                            ):(null)} */}
                         </div>
                         <div className='w-full flex items-end justify-between'>
                             { props.state === "pending" ? (<span className="text-blue-600 text-l font-bold mt-3">Pending</span>):(null)}

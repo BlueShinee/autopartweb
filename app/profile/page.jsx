@@ -21,14 +21,10 @@ export default async function page() {
     }
 
 
-    let userdata
-    const records = await pb.collection('users').getFullList();
-
-    records.map((v,i)=>{
-        if (v.email === user.user.email) {
-            userdata = v
-        }
+    let userdata = await pb.collection('users').getList(1, 50, {
+        filter: `email = "${user.user.email}"`,
     })
+    userdata = userdata.items[0]
     
     const settings = await pb.collection('settings').getOne('bussiness__data')
     

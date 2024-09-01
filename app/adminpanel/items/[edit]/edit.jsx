@@ -32,6 +32,12 @@ export default function Edit(props) {
             <input type="number" value={list.length} className="hidden" name="list_length"/>
             <input type="text" value={props.record.id} className="hidden" name="recordId"/>
 
+            <span className="text-sm text-gray-600 font-medium mt-2">Avalability in stock</span>
+            <select type="text" name="avalable" defaultValue={props.record?.avalable} className="border-2 border-gray-400 rounded-md p-1 focus:border-blue-500 outline-none">
+              <option value="true">✅ Avalable</option>
+              <option value="false">❌ Not Avalable</option>
+            </select>
+
             <span className="text-sm text-gray-600 font-medium mt-2">Description</span>
             <input type="text" name="desc" defaultValue={props.record?.desc} className="border-2 border-gray-400 rounded-md p-1 focus:border-blue-500 outline-none"/>
 

@@ -19,15 +19,13 @@ export default async function page() {
         redirect("/api/auth/signin")
     }
 
-    let userdata
-    const records = await pb.collection('users').getFullList();
+    let userdata = await pb.collection('users').getList(1, 50, {
+        filter: `email = "${user.user.email}"`,
+    })
+    userdata = userdata.items[0]
+    
     const items = await pb.collection('items').getFullList();
 
-    records.map((v,i)=>{
-        if (v.email === user.user.email) {
-            userdata = v
-        }
-    })
 
     if (userdata["is_admin"] == false) {
         redirect("/")

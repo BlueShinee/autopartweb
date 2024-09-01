@@ -19,13 +19,7 @@ export default async function updateData(formData) {
             }
     }
 
-
-
-    
-
-    
-
-    const big_desc ={
+    const big_desc = {
         buletlist: list,
         'end-paragraph': formData.get("end-prg"),
         'st-paragraph': formData.get("st-prg")
@@ -33,6 +27,7 @@ export default async function updateData(formData) {
 
     const record = {
         name: formData.get("itemname"),
+        avalable: formData.get("avalable"),
         desc: formData.get("desc"),
         discount_price: formData.get("dis_price"),
         model: formData.get("model"),

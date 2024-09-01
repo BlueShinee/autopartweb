@@ -10,26 +10,25 @@ import Edit from "./edit.jsx";
 import deleteItem from "./deleteItem.js";
 import DeleteButton from "./deletebutton.jsx";
 
+export const revalidate = 0
+export const dynamic = "force-dynamic"
+
 export default async function page({params}) {
     const pb = new PocketBase(process.env.POCKETBASE_URL || 'http://127.0.0.1:8090');
     let record
     const rando = Math.random()
-    record = await pb.collection('items').update(params.edit,{"itemid":rando})
-
+    record = await pb.collection('items').getOne(params.edit)
+    console.log(record)
     const user = await getServerSession()
 
     if (user == null) {
         redirect("/api/auth/signin")
     }
 
-    let userdata
-    const records = await pb.collection('users').getFullList();
-
-    records.map((v,i)=>{
-        if (v.email === user.user.email) {
-            userdata = v
-        }
+    let userdata = await pb.collection('users').getList(1, 50, {
+        filter: `email = "${user.user.email}"`,
     })
+    userdata = userdata.items[0]
 
     if (userdata["is_admin"] == false) {
         redirect("/")

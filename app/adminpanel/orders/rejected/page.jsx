@@ -26,10 +26,12 @@ export default async function page() {
   
     if (user?.user !== undefined) {
         for (const order of orders) {
-            const item = await pb.collection('items').getOne(order.itemid)
-            order.itemName = item.name
-            order.itemDesc = item.desc
-            allcart.push(order)
+            //if(order.payment){
+                const item = await pb.collection('items').getOne(order.itemid)
+                order.itemName = item.name
+                order.itemDesc = item.desc
+                allcart.push(order)
+            //}
         }
     }
 
@@ -37,14 +39,10 @@ export default async function page() {
         redirect("/api/auth/signin")
     }
 
-    let userdata
-    const records = await pb.collection('users').getFullList();
-
-    records.map((v,i)=>{
-        if (v.email === user.user.email) {
-            userdata = v
-        }
+    let userdata = await pb.collection('users').getList(1, 50, {
+        filter: `email = "${user.user.email}"`,
     })
+    userdata = userdata.items[0]
 
     if (userdata["is_admin"] == false) {
         redirect("/")

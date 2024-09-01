@@ -40,19 +40,44 @@ async function setOrderState({orderid, state, user}){
         "state": state
     };
     let ECM_message = ''
+    if(state === 'delete'){
+        const updated = await pb.collection('orders').getOne(orderid)
+        const deleted = await pb.collection('orders').delete(orderid)
+        if(!deleted){return}
+        console.log(updated)
+        const item = await pb.collection('items').getOne(updated.itemid)
+        let userdata = await pb.collection('users').getList(1, 50, {
+            filter: `email = "${user.user.email}"`,
+        })
+        userdata = userdata.items[0]
+        const settings = await pb.collection('settings').getOne('bussiness__data')
+        ECM_message = 
+    `⭐ \`Order Delivered\`
+    
+    *${item.name}*
+    Your order has been successfully delivered.
+    Than you!
+    
+    - Placed - ${new Date(updated.created).toDateString()}
+    - Delivered - ${new Date(updated.updated).toDateString()}
+    `
+    
+        await ECMail({
+            number: String(userdata['whatsapp_number']).startsWith('7') ? '94'+userdata['whatsapp_number'] : userdata['whatsapp_number'],
+            text: ECM_message,
+            footer: settings.name,
+            orderUrl: `${process.env.NEXTAUTH_URL || `http://localhost:3000`}/cart/${updated.id}`,
+            isDelivered: (state === 'delivered')
+        })
+        return
+    }
+    const settings = await pb.collection('settings').getOne('bussiness__data')
     const updated = await pb.collection('orders').update(orderid, record)
     const item = await pb.collection('items').getOne(updated.itemid)
-    const users = await pb.collection('users').getFullList({
-        sort: '-created',
+    let userdata = await pb.collection('users').getList(1, 50, {
+        filter: `email = "${user.user.email}"`,
     })
-    const settings = await pb.collection('settings').getOne('bussiness__data')
-    let userdata
-    users.map((v,i)=>{
-        if (v.email === user.user.email) {
-            userdata = v
-        }
-    })
-  
+    userdata = userdata.items[0]
     if(state === 'ontheway'){
         ECM_message = 
 `✅ \`Order Confirmed\`
@@ -89,22 +114,21 @@ Your order will confirm later.
 `
     }else if(state === 'delivered'){
         ECM_message = 
-`⭐ \`Order Delivered\`
+`⛔ \`Order Deleted\`
 
 *${item.name}*
-Your order has been successfully delivered.
-Than you!
+Your order has been deleted.
 
 - Placed - ${new Date(updated.created).toDateString()}
 - Delivered - ${new Date(updated.updated).toDateString()}
 `
     }
-
+    
     await ECMail({
         number: String(userdata['whatsapp_number']).startsWith('7') ? '94'+userdata['whatsapp_number'] : userdata['whatsapp_number'],
         text: ECM_message,
         footer: settings.name,
-        orderUrl: `${process.env.NEXTAUTH_URL || `http://localhost:3000`}/order/${updated.id}`,
+        orderUrl: `${process.env.NEXTAUTH_URL || `http://localhost:3000`}/cart/${updated.id}`,
         isDelivered: (state === 'delivered')
     })
     redirect('/adminpanel/orders/'+state)

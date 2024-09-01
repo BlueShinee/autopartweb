@@ -48,7 +48,7 @@ export default function Body(props) {
             title={"Cart"}
             text={['You can view all your pending orders in the Cart.']}
           />
-          <DescribeSection
+          {/* <DescribeSection
               title={"Orders"}
               text={[
                   'When you place an order, it will initially be in a Pending state.',
@@ -57,7 +57,7 @@ export default function Body(props) {
                   'After you receive your order, you should confirm it as Delivered.',
                   'All actions trigger a WhatsApp alert.'
               ]}
-          />
+          /> */}
           <b className='mt-6'>Admin Control Panel</b>
           <DescribeSection
             title={"Admin Panel"}
@@ -79,7 +79,7 @@ export default function Body(props) {
             title={"Orders"}
             text={['Customer orders are displayed here.', 'After you deliver an order, click the "Confirm Order" button.', 'The customer will then receive an "Order Confirmed" notification on WhatsApp.']}
           />
-          <DescribeSection
+          {/* <DescribeSection
               title={"Admin Orders Management"}
               text={[
                   'As an admin, you can view all orders placed by customers.',
@@ -88,7 +88,7 @@ export default function Body(props) {
                   'Once the customer confirms delivery, the order status will be updated to Delivered.',
                   'All actions trigger a WhatsApp alert.'
               ]}
-          />
+          /> */}
           <b className='mt-6'>Application</b>
           <DescribeSection
             title={"Frame Work"}

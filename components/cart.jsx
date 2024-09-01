@@ -65,6 +65,11 @@ function Card({props, isLogged}){
                             <span className="text-lg font-semibold text-gray-500 line-clamp-1">
                                 Total - LKR {props.price}
                             </span>
+                            {/* { props.payment == false ? (
+                                <span className="text-l font-semibold text-red-500">
+                                    Invalid or Pending Payment!
+                                </span>
+                            ):(null)} */}
                         </div>
                         <div className='w-full flex items-end justify-between'>
                             { props.state === "pending" ? (<span className="text-blue-600 text-l font-bold mt-3">Pending</span>):(null)}

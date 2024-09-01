@@ -20,15 +20,12 @@ export default async function page() {
         redirect("/api/auth/signin")
     }
 
-    let userdata
-    const records = await pb.collection('users').getFullList();
     const settings = await pb.collection('settings').getOne('bussiness__data')
 
-    records.map((v,i)=>{
-        if (v.email === user.user.email) {
-            userdata = v
-        }
+    let userdata = await pb.collection('users').getList(1, 50, {
+        filter: `email = "${user.user.email}"`,
     })
+    userdata = userdata.items[0]
 
     if (userdata["is_admin"] == false) {
         redirect("/")

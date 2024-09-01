@@ -18,16 +18,16 @@ export default async function Home() {
   const settings = await pb.collection('settings').getOne('bussiness__data')
   const user = await getServerSession()
   let registered = false 
-  let userdata = {}
-      
+  let userdata = null
+  if (user == null) {
+      redirect("/api/auth/signin")
+  }
   if (user?.user !== undefined) {
-    const record = await pb.collection('users').getFullList()
-    record.map((v,i)=>{
-      if (v.email == user.user.email) {
-        registered = true
-        userdata = v
-      }
+    userdata = await pb.collection('users').getList(1, 50, {
+        filter: `email = "${user.user.email}"`,
     })
+    userdata = userdata.items[0]
+    if (userdata.email == user.user.email) { registered = true }
     if (!registered) {
       redirect("/register")
     }

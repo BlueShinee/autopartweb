@@ -11,15 +11,10 @@ export default async function save_number(formdata) {
     const number = formdata.get("WAnumber")
     const user = await getServerSession()
 
-    let userdata
-
-    const records = await pb.collection('users').getFullList();
-
-    records.map((v,i)=>{
-        if (v.email === user.user.email) {
-            userdata = v
-        }
+    let userdata = await pb.collection('users').getList(1, 50, {
+        filter: `email = "${user.user.email}"`,
     })
+    userdata = userdata.items[0]
 
     userdata["whatsapp_number"] = number
 

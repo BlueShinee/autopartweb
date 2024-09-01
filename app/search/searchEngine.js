@@ -6,6 +6,7 @@ import { getServerSession } from "next-auth";
 
 
 export default async function searching(input, category){
+    console.log('Category')
         
     const pb = new PocketBase(process.env.POCKETBASE_URL || 'http://127.0.0.1:8090');
 

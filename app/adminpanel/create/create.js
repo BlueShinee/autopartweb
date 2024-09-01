@@ -10,6 +10,7 @@ export default async function createItem(fromData) {
     const data ={
         "name": fromData.get("itemname"),
         "price": fromData.get("price"),
+        "avalable": true,
         "big_desc":{
             "buletlist": [""],
             "end-paragraph": "",

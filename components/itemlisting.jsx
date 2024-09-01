@@ -14,7 +14,7 @@ function Itemlisting(props) {
             <div className='flex flex-row flex-wrap w-full justify-center items-center'>
                 {records.map((value,index)=>{
                     if (index < 20) {
-                        return <Card idEditing={props.idEditing} isLoaded={props.isLoaded} itemid={value.id} title={value.name} desc={value.desc} discount_price={value.discount_price} price={value.price} img={value.urls.array?.[0]}/> 
+                        return <Card avalable={value.avalable} idEditing={props.idEditing} isLoaded={props.isLoaded} itemid={value.id} title={value.name} desc={value.desc} discount_price={value.discount_price} price={value.price} img={value.urls.array?.[0]}/> 
                     }
                 })}
             </div>
@@ -32,9 +32,11 @@ function Card(props){
                 <ShimmerCard/>
             </div>
         ) : (
+            <>
+            {props.avalable == false ? (
             <div className="flex justify-center items-center p-2">
                 <Link
-                    href={props.idEditing == true ? `/adminpanel/items/${props.itemid}` : `/Items/${props.itemid}`}
+                    href={props.idEditing == true ? `/adminpanel/items/${props.itemid}` : ``}
                     className="hover:scale-105 transition-all w-[160px] md:w-[200px] h-auto rounded-xl shadow-lg border-2 border-gray-300 my-4 flex flex-col items-center overflow-hidden"
                 >
                     <div className="w-full aspect-1 h-[160px] md:h-[200px] border-b-gray-300 border-b-1 flex bg-gray-300">
@@ -43,7 +45,7 @@ function Card(props){
                             alt=""
                             width={500}
                             height={500}
-                            className="aspect-1 w-[100%] object-contain rounded-t-md"
+                            className="object-fill aspect-1 w-[100%] object-contain rounded-t-md"
                         />
                     </div>
                     <div className="flex flex-col w-full h-full justify-between p-3 bg-white">
@@ -51,8 +53,8 @@ function Card(props){
                             <span className="text-[13px] md:text-lg font-semibold text-gray-700 line-clamp-2">
                                 {props.title}
                             </span>
-                            <span className="text-gray-500 text-sm line-clamp-1 leading-4 mt-1">
-                                {props.desc}
+                            <span className="text-red-500 text-sm line-clamp-1 leading-4 mt-1">
+                                Not avalable in stock!
                             </span>
                         </div>
                         <span className="text-blue-600 text-l font-bold mt-3">
@@ -69,7 +71,45 @@ function Card(props){
                     </div>
                 </Link>
             </div>
-
+            ):(
+                <div className="flex justify-center items-center p-2">
+                    <Link
+                        href={props.idEditing == true ? `/adminpanel/items/${props.itemid}` : `/Items/${props.itemid}`}
+                        className="hover:scale-105 transition-all w-[160px] md:w-[200px] h-auto rounded-xl shadow-lg border-2 border-gray-300 my-4 flex flex-col items-center overflow-hidden"
+                    >
+                        <div className="w-full aspect-1 h-[160px] md:h-[200px] border-b-gray-300 border-b-1 flex bg-gray-300">
+                            <CldImage
+                                src={props.img}
+                                alt=""
+                                width={500}
+                                height={500}
+                                className="object-fill aspect-1 w-[100%] object-contain rounded-t-md"
+                            />
+                        </div>
+                        <div className="flex flex-col w-full h-full justify-between p-3 bg-white">
+                            <div className="text-left">
+                                <span className="text-[13px] md:text-lg font-semibold text-gray-700 line-clamp-2">
+                                    {props.title}
+                                </span>
+                                <span className="text-gray-500 text-sm line-clamp-1 leading-4 mt-1">
+                                    {props.desc}
+                                </span>
+                            </div>
+                            <span className="text-blue-600 text-l font-bold mt-3">
+                                {Number(props.discount_price) > 0 ? (
+                                    <>
+                                        <s className="text-red-400 text-xs">RS. {props.price}/=</s>
+                                        <i className="text-gray-400 text-xs"> {Math.round(((props.price - props.discount_price) / props.price) * 100)}% off</i><br />
+                                        RS. {props.discount_price}/=
+                                    </>
+                                ) : (
+                                    <>RS. {props.price}/=</>
+                                )}
+                            </span>
+                        </div>
+                    </Link>
+                </div>)}
+            </>
         )}
         
     </>)

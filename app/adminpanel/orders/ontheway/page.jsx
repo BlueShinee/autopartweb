@@ -26,10 +26,12 @@ export default async function page() {
   
     if (user?.user !== undefined) {
         for (const order of orders) {
-            const item = await pb.collection('items').getOne(order.itemid)
-            order.itemName = item.name
-            order.itemDesc = item.desc
-            allcart.push(order)
+            //if(order.payment){
+                const item = await pb.collection('items').getOne(order.itemid)
+                order.itemName = item.name
+                order.itemDesc = item.desc
+                allcart.push(order)
+            //}
         }
     }
 
