@@ -32,12 +32,6 @@ export default async function page({params}) {
         <>
             <Header settings={settings} redirectBack={'/'} title={settings.name} isLogged={user?.user !== undefined?true:false} profileImage={user?.user.image || "https://cdn-icons-png.flaticon.com/512/3177/3177440.png"}/>
             <Item params={params} user={user} isLogged={registered} get={'full'}/>
-            {registered == true ? (
-                //{/* <BuyNowAction settings={settings} records={records} user={props.user} itemid={itemid} item={record} style={{display: props.isLogged ? 'flex' : 'none'}}/> */}
-                <Link href={"/buynow/"+itemid} className="w-[90%] md:w-[300px] flex justify-center items-center py-4 m-2 ml-5 hover:bg-green-700 transition-all active:scale-95   px-4 bg-green-500 w-55 rounded-md"><span className="text-white font-medium text-lg mr-2"><i className="fas fa-shopping-cart px-2"></i> BUY NOW</span></Link>
-            ) : (
-                <Link href={"/api/auth/signin"} className="w-[90%] md:w-[300px] flex justify-center items-center py-4 m-2 ml-5 hover:bg-blue-700 transition-all active:scale-95   px-4 bg-blue-500 w-55 rounded-md"><span className="text-white font-medium text-lg mr-2"><i className="fas fa-user px-2"></i> Sign In</span></Link>
-            )}
         </>
     )
 
