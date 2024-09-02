@@ -83,7 +83,7 @@ function Card({props, isLogged}){
                             <span className="text-lg font-semibold text-gray-500 line-clamp-1">
                                 Total - LKR {props.price}
                             </span>
-                            <span className="text-lg font-semibold text-gray-500 line-clamp-1">
+                            <span className="text-lg font-semibold text-gray-500 line-clamp-2">
                                 Email- {props.email}
                             </span>
                             {/* { props.payment == false ? (

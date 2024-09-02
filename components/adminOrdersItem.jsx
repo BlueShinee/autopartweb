@@ -74,10 +74,10 @@ function Card({props, isLogged, user, userdata}){
             <div className="flex justify-center items-center p-2 w-full">
                     <div className="flex flex-col w-full h-full justify-between p-3 bg-white">
                         <div className="text-left">
-                            <span className="text-2xl font-semibold text-gray-700 line-clamp-1">
+                            <span className="text-2xl font-semibold text-gray-700 line-clamp-3">
                                 {props.itemName}
                             </span>
-                            <span className="text-gray-500 text-sm line-clamp-3 leading-4 mt-1">
+                            <span className="text-gray-500 text-sm line-clamp-4 leading-4 mt-1">
                                 {props.itemDesc}
                             </span>
                             <br />
@@ -100,10 +100,10 @@ function Card({props, isLogged, user, userdata}){
                                 Updated Date - {new Date(props.updated).toDateString()}
                             </span>
                             <br />
-                            <span className="text-md font-semibold text-gray-500 line-clamp-1">
+                            <span className="text-md font-semibold text-gray-500 line-clamp-3">
                                 Email - {props.email}
                             </span>
-                            <span className="text-md font-semibold text-gray-500 line-clamp-1">
+                            <span className="text-md font-semibold text-gray-500">
                                 Address - {userdata.address}
                             </span>
                             <span className="text-md font-semibold text-gray-500 line-clamp-1">
